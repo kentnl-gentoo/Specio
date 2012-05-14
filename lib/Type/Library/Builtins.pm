@@ -1,4 +1,7 @@
 package Type::Library::Builtins;
+{
+  $Type::Library::Builtins::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

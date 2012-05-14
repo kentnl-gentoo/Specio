@@ -1,4 +1,7 @@
 package Type::Constraint::Role::CanType;
+{
+  $Type::Constraint::Role::CanType::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

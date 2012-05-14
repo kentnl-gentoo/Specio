@@ -1,4 +1,7 @@
 package Type::Coercion;
+{
+  $Type::Coercion::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

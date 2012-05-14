@@ -1,4 +1,7 @@
 package Type::Exporter;
+{
+  $Type::Exporter::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

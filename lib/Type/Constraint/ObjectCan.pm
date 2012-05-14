@@ -1,4 +1,7 @@
 package Type::Constraint::ObjectCan;
+{
+  $Type::Constraint::ObjectCan::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

@@ -1,4 +1,7 @@
 package Type;
+{
+  $Type::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;
@@ -7,7 +10,17 @@ use warnings;
 
 # ABSTRACT: Type constraints and coercions for Perl
 
-__END__
+
+
+=pod
+
+=head1 NAME
+
+Type - Type constraints and coercions for Perl
+
+=head1 VERSION
+
+version 0.01
 
 =head1 SYNOPSIS
 
@@ -357,5 +370,21 @@ on free software full time, which seems unlikely at best.
 To donate, log into PayPal and send money to autarch@urth.org or use the
 button on this page: L<http://www.urth.org/~autarch/fs-donation.html>
 
+=head1 AUTHOR
+
+Dave Rolsky <autarch@urth.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2012 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0 (GPL Compatible)
+
 =cut
+
+
+__END__
+
 

@@ -1,4 +1,7 @@
 package Type::Constraint::Role::Interface;
+{
+  $Type::Constraint::Role::Interface::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

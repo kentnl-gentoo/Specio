@@ -1,4 +1,7 @@
 package Type::Constraint::AnyCan;
+{
+  $Type::Constraint::AnyCan::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

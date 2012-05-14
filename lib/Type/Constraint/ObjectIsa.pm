@@ -1,4 +1,7 @@
 package Type::Constraint::ObjectIsa;
+{
+  $Type::Constraint::ObjectIsa::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

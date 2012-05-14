@@ -1,4 +1,7 @@
 package Type::Declare;
+{
+  $Type::Declare::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;
@@ -175,7 +178,17 @@ sub coerce {
 
 # ABSTRACT: Type declaration subroutines
 
-__END__
+
+
+=pod
+
+=head1 NAME
+
+Type::Declare - Type declaration subroutines
+
+=head1 VERSION
+
+version 0.01
 
 =head1 SYNOPSIS
 
@@ -358,3 +371,21 @@ example. You can use C<do { }> blocks and ternaries to get everything into one
 term. This single term should evaluate to the new value.
 
 =back
+
+=head1 AUTHOR
+
+Dave Rolsky <autarch@urth.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2012 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0 (GPL Compatible)
+
+=cut
+
+
+__END__
+

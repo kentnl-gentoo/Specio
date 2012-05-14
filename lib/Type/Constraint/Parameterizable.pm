@@ -1,4 +1,7 @@
 package Type::Constraint::Parameterizable;
+{
+  $Type::Constraint::Parameterizable::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

@@ -1,4 +1,7 @@
 package Type::Constraint::Role::IsaType;
+{
+  $Type::Constraint::Role::IsaType::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

@@ -1,4 +1,7 @@
 package Type::Exception;
+{
+  $Type::Exception::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

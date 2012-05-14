@@ -1,4 +1,7 @@
 package Type::Registry;
+{
+  $Type::Registry::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

@@ -1,4 +1,7 @@
 package Type::Constraint::AnyIsa;
+{
+  $Type::Constraint::AnyIsa::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;

@@ -1,4 +1,7 @@
 package Type::Role::Inlinable;
+{
+  $Type::Role::Inlinable::VERSION = '0.01'; # TRIAL
+}
 
 use strict;
 use warnings;
