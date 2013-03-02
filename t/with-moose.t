@@ -11,19 +11,19 @@ plan skip_all =>
 {
     package Foo;
 
-    use Type::Declare;
-    use Type::Library::Builtins;
+    use Specio::Declare;
+    use Specio::Library::Builtins;
 
     use Moose;
 
     ::is(
-        ::exception{ has size => (
+        ::exception { has size => (
                 is  => 'ro',
                 isa => t('Int'),
             );
         },
         undef,
-        'no exception passing a Type object as the isa parameter for a Moose attr'
+        'no exception passing a Specio object as the isa parameter for a Moose attr'
     );
 
     has numbers => (
@@ -211,13 +211,13 @@ is(
 {
     package Bar;
 
-    use Type::Library::Builtins;
-    use Type::Declare;
+    use Specio::Library::Builtins;
+    use Specio::Declare;
 
     use Moose;
 
     ::is(
-        ::exception{ has native => (
+        ::exception { has native => (
                 traits => ['Array'],
                 is     => 'ro',
                 isa    => t( 'ArrayRef', of => t('Int') ),
@@ -247,7 +247,7 @@ is(
     );
 
     ::is(
-        ::exception{ has coerced => (
+        ::exception { has coerced => (
                 traits  => ['Array'],
                 is      => 'ro',
                 isa     => t('AofStr'),
@@ -261,7 +261,7 @@ is(
     );
 
     ::like(
-        ::exception{ has native2 => (
+        ::exception { has native2 => (
                 traits => ['Array'],
                 is     => 'ro',
                 isa    => t('Str'),
@@ -303,7 +303,7 @@ is(
     );
 
     like(
-        exception { $bar->add_coerced( qr/foobar/ ) },
+        exception { $bar->add_coerced(qr/foobar/) },
         qr/\QAttribute (coerced) does not pass the type constraint because/,
         'got exception trying to push regex object onto coerced attribute'
     );

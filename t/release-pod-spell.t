@@ -29,13 +29,16 @@ all_pod_files_spelling_ok;
 __DATA__
 API
 ClassName
+Coercions
 MUTC
 PARAMETERIZABLE
 PayPal
 Rolsky
 ScalarRef
+Specio
 Throwable
 boolification
+coercions
 distro
 globification
 inlinable
@@ -45,3 +48,5 @@ parameterizable
 parameterization
 parameterized
 sigils
+subtype
+subtypes

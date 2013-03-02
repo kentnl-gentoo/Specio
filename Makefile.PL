@@ -20,10 +20,10 @@ my %WriteMakefileArgs = (
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
-  "DISTNAME" => "Type",
+  "DISTNAME" => "Specio",
   "EXE_FILES" => [],
   "LICENSE" => "artistic_2",
-  "NAME" => "Type",
+  "NAME" => "Specio",
   "PREREQ_PM" => {
     "B" => 0,
     "Carp" => 0,
@@ -51,7 +51,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }

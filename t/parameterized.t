@@ -3,8 +3,8 @@ use warnings;
 
 use Test::More 0.88;
 
-use Type::Declare;
-use Type::Library::Builtins;
+use Specio::Declare;
+use Specio::Library::Builtins;
 
 {
     my $arrayref = t('ArrayRef');
@@ -82,7 +82,7 @@ use Type::Library::Builtins;
         );
 
         ok(
-            !$arrayref_of_int->value_is_valid( 42 ),
+            !$arrayref_of_int->value_is_valid(42),
             "ArrayRef of Int [$desc] rejects integer"
         );
 

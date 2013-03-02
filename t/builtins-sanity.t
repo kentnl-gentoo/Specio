@@ -7,8 +7,8 @@ use Test::More 0.88;
 use B ();
 use IO::File;
 use Scalar::Util qw( blessed looks_like_number openhandle );
-use Type::DeclaredAt;
-use Type::Library::Builtins;
+use Specio::DeclaredAt;
+use Specio::Library::Builtins;
 
 my $ZERO    = 0;
 my $ONE     = 1;
@@ -29,7 +29,7 @@ my $ARRAY_REF      = [];
 my $HASH_REF       = {};
 my $CODE_REF       = sub { };
 
-my $GLOB     = do { no warnings 'once'; *GLOB_REF };
+my $GLOB = do { no warnings 'once'; *GLOB_REF };
 my $GLOB_REF = \$GLOB;
 
 open my $FH, '<', $0 or die "Could not open $0 for the test";
@@ -58,7 +58,7 @@ my $CLASS_NAME = 'Thing';
 
     use overload
         'bool' => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $bool = $_[1];
@@ -74,7 +74,7 @@ my $BOOL_OVERLOAD_FALSE = BoolOverload->new(0);
 
     use overload
         q{""} => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $str = $_[1];
@@ -91,7 +91,8 @@ my $STR_OVERLOAD_CLASS_NAME = StrOverload->new('StrOverload');
 
     use overload
         q{0+} => sub { ${ $_[0] } },
-        fallback => 1;
+        '+'   => sub { ${ $_[0] } + $_[1] },
+        fallback => 0;
 
     sub new {
         my $num = $_[1];
@@ -110,7 +111,7 @@ my $NUM_OVERLOAD_NEG_DECIMAL = NumOverload->new(42.42);
 
     use overload
         q{&{}} => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $code = $_[1];
@@ -125,7 +126,7 @@ my $CODE_OVERLOAD = CodeOverload->new( sub { } );
 
     use overload
         q{qr} => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $regex = $_[1];
@@ -140,7 +141,7 @@ my $REGEX_OVERLOAD = RegexOverload->new(qr/foo/);
 
     use overload
         q[*{}] => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $glob = $_[1];
@@ -149,18 +150,18 @@ my $REGEX_OVERLOAD = RegexOverload->new(qr/foo/);
 }
 
 local *FOO;
-my $GLOB_OVERLOAD = GlobOverload->new(\*FOO);
+my $GLOB_OVERLOAD = GlobOverload->new( \*FOO );
 
 local *BAR;
 open BAR, '<', $0 or die "Could not open $0 for the test";
-my $GLOB_OVERLOAD_FH = GlobOverload->new(\*BAR);
+my $GLOB_OVERLOAD_FH = GlobOverload->new( \*BAR );
 
 {
     package ScalarOverload;
 
     use overload
         q[${}] => sub { ${ $_[0] } },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $scalar = $_[1];
@@ -175,7 +176,7 @@ my $SCALAR_OVERLOAD = ScalarOverload->new('x');
 
     use overload
         q[@{}] => sub { $_[0] },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $array = $_[1];
@@ -190,7 +191,7 @@ my $ARRAY_OVERLOAD = ArrayOverload->new( [ 1, 2, 3 ] );
 
     use overload
         q[%{}] => sub { $_[0] },
-        fallback => 1;
+        fallback => 0;
 
     sub new {
         my $hash = $_[1];
@@ -1184,7 +1185,8 @@ foreach my $type_name (qw( Str Num Int ClassName )) {
 
     ok(
         $type->value_is_valid( substr( $str, 0, 0 ) ),
-        $type_name . ' accepts empty return val from substr using ->value_is_valid'
+        $type_name
+            . ' accepts empty return val from substr using ->value_is_valid'
     );
     ok(
         $not_inlined->( substr( $str, 0, 0 ) ),
@@ -1254,11 +1256,11 @@ sub test_constraint {
         }
     }
 
-    if ( $type->isa('Type::Constraint::Parameterizable') ) {
-        my $parameterized = Type::Constraint::Simple->new(
+    if ( $type->isa('Specio::Constraint::Parameterizable') ) {
+        my $parameterized = Specio::Constraint::Simple->new(
             name        => $type->name() . 'OfItem',
             parent      => $type->parameterize( of => t('Item') ),
-            declared_at => Type::DeclaredAt->new_from_caller(0),
+            declared_at => Specio::DeclaredAt->new_from_caller(0),
         );
         test_constraint( $parameterized, $tests );
     }
@@ -1289,7 +1291,7 @@ sub describe {
             $desc .= ' (' . ( $val ? 'true' : 'false' ) . ')';
         }
         elsif ( $val->isa('NumOverload') ) {
-            $desc .= ' (' . describe( $val + 0 ) . ')';
+            $desc .= ' (' . describe( ${$val} ) . ')';
         }
 
         return $desc;
