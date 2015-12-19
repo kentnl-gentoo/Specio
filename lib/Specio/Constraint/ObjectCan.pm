@@ -1,10 +1,12 @@
 package Specio::Constraint::ObjectCan;
-$Specio::Constraint::ObjectCan::VERSION = '0.11';
+
 use strict;
 use warnings;
 
-use B               ();
-use List::MoreUtils ();
+our $VERSION = '0.12';
+
+use B ();
+use List::Util 1.33 ();
 use Role::Tiny::With;
 use Scalar::Util ();
 use Specio::Library::Builtins;
@@ -15,7 +17,7 @@ with 'Specio::Constraint::Role::CanType';
 
 {
     my $Object = t('Object');
-    sub _build_parent { $Object }
+    sub _build_parent {$Object}
 }
 
 {
@@ -26,14 +28,14 @@ with 'Specio::Constraint::Role::CanType';
         return
               'Scalar::Util::blessed('
             . $val . ')'
-            . ' && List::MoreUtils::all { '
+            . ' && List::Util::all { '
             . $val
             . '->can($_) } ' . '( '
             . ( join ', ', map { B::perlstring($_) } @{ $self->methods() } )
             . ')';
     };
 
-    sub _build_inline_generator { $_inline_generator }
+    sub _build_inline_generator {$_inline_generator}
 }
 
 __PACKAGE__->_ooify();
@@ -46,15 +48,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::ObjectCan - A class for constraints which require an object with a set of methods
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -93,8 +93,7 @@ Returns an array reference containing the methods this constraint requires.
 =head1 ROLES
 
 This class does the L<Specio::Constraint::Role::CanType>,
-L<Specio::Constraint::Role::Interface>, L<Specio::Role::Inlinable>, and
-L<MooseX::Clone> roles.
+L<Specio::Constraint::Role::Interface>, and L<Specio::Role::Inlinable> roles.
 
 =head1 AUTHOR
 
@@ -102,7 +101,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

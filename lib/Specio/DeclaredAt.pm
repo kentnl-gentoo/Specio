@@ -1,7 +1,9 @@
 package Specio::DeclaredAt;
-$Specio::DeclaredAt::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Specio::OO;
 
@@ -29,6 +31,7 @@ use Specio::OO;
         },
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
@@ -72,15 +75,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::DeclaredAt - A class to represent where a type or coercion was declared
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -127,7 +128,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

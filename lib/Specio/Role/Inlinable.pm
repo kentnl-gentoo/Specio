@@ -1,7 +1,9 @@
 package Specio::Role::Inlinable;
-$Specio::Role::Inlinable::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Eval::Closure qw( eval_closure );
 
@@ -45,6 +47,7 @@ requires '_build_description';
         },
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
@@ -81,15 +84,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Role::Inlinable - A role for things which can be inlined (type constraints and coercions)
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -104,7 +105,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

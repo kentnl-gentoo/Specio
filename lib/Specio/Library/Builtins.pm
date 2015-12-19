@@ -1,26 +1,29 @@
 package Specio::Library::Builtins;
-$Specio::Library::Builtins::VERSION = '0.11';
+
 use strict;
 use warnings;
 
 use parent 'Specio::Exporter';
 
 use Class::Load qw( is_class_loaded );
-use List::MoreUtils ();
-use overload        ();
+use List::Util 1.33 ();
+use overload ();
 use re qw( is_regexp );
+
+our $VERSION = '0.12';
+
 use Scalar::Util ();
 use Specio::Constraint::Parameterizable;
 use Specio::Declare;
 
 declare(
     'Any',
-    inline => sub { '1' }
+    inline => sub {'1'}
 );
 
 declare(
     'Item',
-    inline => sub { '1' }
+    inline => sub {'1'}
 );
 
 declare(
@@ -307,7 +310,7 @@ declare(
             . '( ref('
             . $val
             . ') eq "ARRAY" )'
-            . '&& List::MoreUtils::all {'
+            . '&& List::Util::all {'
             . $parameter->inline_check('$_') . ' } ' . '@{'
             . $val . '}' . ' )';
     },
@@ -345,7 +348,7 @@ declare(
             . '( ref('
             . $val
             . ') eq "HASH" )'
-            . '&& List::MoreUtils::all {'
+            . '&& List::Util::all {'
             . $parameter->inline_check('$_') . ' } '
             . 'values %{'
             . $val . '}' . ' )';
@@ -356,7 +359,7 @@ declare(
     'Maybe',
     type_class                     => 'Specio::Constraint::Parameterizable',
     parent                         => t('Item'),
-    inline                         => sub { '1' },
+    inline                         => sub {'1'},
     parameterized_inline_generator => sub {
         my $self      = shift;
         my $parameter = shift;
@@ -377,15 +380,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Library::Builtins - Implements type constraint objects for Perl's built-in types
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -400,7 +401,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

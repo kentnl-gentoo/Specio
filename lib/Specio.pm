@@ -1,9 +1,11 @@
 package Specio;
-$Specio::VERSION = '0.11';
+
 use strict;
 use warnings;
 
 use v5.10;
+
+our $VERSION = '0.12';
 
 1;
 
@@ -13,15 +15,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -36,7 +36,7 @@ version 0.11
         inline => sub {
             $_[0]->parent()->inline_check( $_[1] )
                 . ' && ( '
-                . $_[1] . ' > 0';
+                . $_[1] . ' > 0 )';
         },
     );
 
@@ -284,7 +284,7 @@ helpers.
 
 =head1 USING SPECIO WITH L<Moose>
 
-This needs some changes in Moose core. Stay tuned.
+This should just work. Use a Specio type anywhere you'd specify a type.
 
 =head1 USING SPECIO WITH L<Moo>
 
@@ -444,9 +444,15 @@ button on this page: L<http://www.urth.org/~autarch/fs-donation.html>
 
 Dave Rolsky <autarch@urth.org>
 
+=head1 CONTRIBUTOR
+
+=for stopwords Karen Etheridge
+
+Karen Etheridge <ether@cpan.org>
+
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

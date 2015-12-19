@@ -1,11 +1,13 @@
+## no critic (Modules::ProhibitMultiplePackages, Moose::RequireMakeImmutable, Moose::RequireCleanNamespace)
 use strict;
 use warnings;
 
+use Test::Requires {
+    Moose => '2.1207',
+};
+
 use Test::Fatal;
 use Test::More 0.88;
-
-plan skip_all =>
-    'These tests require a version of Moose that does not yet exist';
 
 {
     package Foo;
@@ -26,19 +28,19 @@ plan skip_all =>
     );
 
     has numbers => (
-        is  => 'ro',
+        is => 'ro',
         isa => t( 'ArrayRef', of => t('Int') ),
     );
 
     my $ucstr = declare(
         'UCStr',
         parent => t('Str'),
-        where  => sub { $_[0] =~ /^[A-Z]+$/ },
+        where => sub { $_[0] =~ /^[A-Z]+$/ },
     );
 
     coerce(
         $ucstr,
-        from  => t('Str'),
+        from => t('Str'),
         using => sub { return uc $_[0] },
     );
 
@@ -61,7 +63,7 @@ plan skip_all =>
 
     coerce(
         $ucstr2,
-        from  => t('Str'),
+        from => t('Str'),
         using => sub { return uc $_[0] },
     );
 
@@ -74,7 +76,7 @@ plan skip_all =>
     my $ucstr3 = declare(
         'Ucstr3',
         parent => t('Str'),
-        where  => sub { $_[0] =~ /^[A-Z]+$/ },
+        where => sub { $_[0] =~ /^[A-Z]+$/ },
     );
 
     coerce(
@@ -220,7 +222,7 @@ is(
                 traits => ['Array'],
                 is     => 'ro',
                 isa    => t( 'ArrayRef', of => t('Int') ),
-                default => sub          { [] },
+                default => sub { [] },
                 handles => { add_native => 'push' },
             );
         },
@@ -235,13 +237,13 @@ is(
 
     coerce(
         t('AofStr'),
-        from  => t('Str'),
+        from => t('Str'),
         using => sub { [ $_[0] ] },
     );
 
     coerce(
         t('Str'),
-        from  => t('HashRef'),
+        from => t('HashRef'),
         using => sub { return join '-', sort keys %{ $_[0] } },
     );
 

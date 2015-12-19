@@ -1,7 +1,9 @@
 package Specio::TypeChecks;
-$Specio::TypeChecks::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Exporter qw( import );
 use Module::Runtime qw( is_module_name );
@@ -61,15 +63,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::TypeChecks - Type checks used internally for Specio classes (it's not self-bootstrapping (yet?))
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -83,7 +83,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

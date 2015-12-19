@@ -1,7 +1,9 @@
 package Specio::Constraint::Parameterizable;
-$Specio::Constraint::Parameterizable::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Carp qw( confess );
 use Role::Tiny::With;
@@ -14,7 +16,9 @@ use Specio::Constraint::Role::Interface;
 with 'Specio::Constraint::Role::Interface';
 
 {
+    ## no critic (Subroutines::ProtectPrivateSubs)
     my $role_attrs = Specio::Constraint::Role::Interface::_attrs();
+    ## use critic
 
     my $attrs = {
         %{$role_attrs},
@@ -30,6 +34,7 @@ with 'Specio::Constraint::Role::Interface';
         },
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
@@ -98,15 +103,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::Parameterizable - A class which represents parameterizable constraints
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -177,7 +180,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

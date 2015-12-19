@@ -1,11 +1,14 @@
 package Specio::Helpers;
-$Specio::Helpers::VERSION = '0.11';
+
 use strict;
 use warnings;
 
 use Carp qw( croak );
 use Exporter 'import';
 use overload ();
+
+our $VERSION = '0.12';
+
 use Params::Util qw( _STRING );
 use Scalar::Util qw( blessed );
 use Specio::DeclaredAt;
@@ -34,7 +37,7 @@ sub install_t_sub {
 
         my %p = @_;
 
-        croak "Cannot parameterize a non-parameterizable type"
+        croak 'Cannot parameterize a non-parameterizable type'
             unless $found->can('parameterize');
 
         return $found->parameterize(
@@ -44,6 +47,7 @@ sub install_t_sub {
     };
 
     {
+        ## no critic (TestingAndDebugging::ProhibitNoStrict)
         no strict 'refs';
         no warnings 'redefine';
         *{ $caller . '::t' } = $t;
@@ -53,6 +57,7 @@ sub install_t_sub {
 }
 
 # XXX - this should be added to Params::Util
+## no critic (Subroutines::ProhibitSubroutinePrototypes, Subroutines::ProhibitExplicitReturnUndef)
 sub _STRINGLIKE ($) {
     return $_[0] if _STRING( $_[0] );
 
@@ -64,11 +69,13 @@ sub _STRINGLIKE ($) {
     return undef;
 }
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _INSTANCEDOES ($$) {
     return $_[0]
         if blessed $_[0] && $_[0]->can('does') && $_[0]->does( $_[1] );
     return undef;
 }
+## use critic
 
 1;
 
@@ -78,15 +85,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Helpers - Helper subs for the Specio distro
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -100,7 +105,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

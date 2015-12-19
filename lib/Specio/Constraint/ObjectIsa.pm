@@ -1,7 +1,9 @@
 package Specio::Constraint::ObjectIsa;
-$Specio::Constraint::ObjectIsa::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use B ();
 use Role::Tiny::With;
@@ -14,7 +16,7 @@ with 'Specio::Constraint::Role::IsaType';
 
 {
     my $Object = t('Object');
-    sub _build_parent { $Object }
+    sub _build_parent {$Object}
 }
 
 {
@@ -30,7 +32,7 @@ with 'Specio::Constraint::Role::IsaType';
             . B::perlstring( $self->class ) . ')';
     };
 
-    sub _build_inline_generator { $_inline_generator }
+    sub _build_inline_generator {$_inline_generator}
 }
 
 __PACKAGE__->_ooify();
@@ -43,15 +45,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::ObjectIsa - A class for constraints which require an object that inherits from a specific class
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -88,8 +88,7 @@ Returns the class name passed to the constructor.
 =head1 ROLES
 
 This class does the L<Specio::Constraint::Role::IsaType>,
-L<Specio::Constraint::Role::Interface>, L<Specio::Role::Inlinable>, and
-L<MooseX::Clone> roles.
+L<Specio::Constraint::Role::Interface>, and L<Specio::Role::Inlinable> roles.
 
 =head1 AUTHOR
 
@@ -97,7 +96,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

@@ -1,7 +1,9 @@
 package Specio::Constraint::Enum;
-$Specio::Constraint::Enum::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use B ();
 use Role::Tiny::With;
@@ -13,7 +15,9 @@ use Specio::Constraint::Role::Interface;
 with 'Specio::Constraint::Role::Interface';
 
 {
+    ## no critic (Subroutines::ProtectPrivateSubs)
     my $attrs = dclone( Specio::Constraint::Role::Interface::_attrs() );
+    ## use critic
 
     for my $name (qw( parent _inline_generator )) {
         $attrs->{$name}{init_arg} = undef;
@@ -26,6 +30,7 @@ with 'Specio::Constraint::Role::Interface';
         required => 1,
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
@@ -33,7 +38,7 @@ with 'Specio::Constraint::Role::Interface';
 
 {
     my $Str = t('Str');
-    sub _build_parent { $Str }
+    sub _build_parent {$Str}
 }
 
 {
@@ -50,7 +55,7 @@ with 'Specio::Constraint::Role::Interface';
             . $val . '}';
     };
 
-    sub _build_inline_generator { $_inline_generator }
+    sub _build_inline_generator {$_inline_generator}
 }
 
 sub _build_inline_environment {
@@ -71,15 +76,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::Enum - A class for constraints which require a string matching one of a set of values
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -113,8 +116,8 @@ Returns an array reference of valid values for the type.
 
 =head1 ROLES
 
-This class does the L<Specio::Constraint::Role::Interface>,
-L<Specio::Role::Inlinable>, and L<MooseX::Clone> roles.
+This class does the L<Specio::Constraint::Role::Interface> and
+L<Specio::Role::Inlinable> roles.
 
 =head1 AUTHOR
 
@@ -122,7 +125,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

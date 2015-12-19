@@ -1,5 +1,5 @@
 package Specio::OO;
-$Specio::OO::VERSION = '0.11';
+
 use strict;
 use warnings;
 
@@ -9,6 +9,9 @@ use Eval::Closure qw( eval_closure );
 use Exporter qw( import );
 use Scalar::Util qw( blessed weaken );
 use mro ();
+
+our $VERSION = '0.12';
+
 use Specio::TypeChecks qw(
     does_role
     is_ArrayRef
@@ -21,11 +24,14 @@ use Specio::TypeChecks qw(
 );
 use Storable qw( dclone );
 
+## no critic (Modules::ProhibitAutomaticExportation)
 our @EXPORT = qw(
     clone
     _ooify
 );
+## use critic
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _ooify {
     my $class = shift;
 
@@ -39,6 +45,7 @@ sub _ooify {
 
     _inline_constructor($class);
 }
+## use critic
 
 sub _inline_reader {
     my $class = shift;
@@ -54,6 +61,7 @@ sub _inline_reader {
     }
 
     {
+        ## no critic (TestingAndDebugging::ProhibitNoStrict)
         no strict 'refs';
         *{ $class . '::' . $name } = eval_closure(
             source      => $reader,
@@ -72,6 +80,7 @@ sub _inline_predicate {
     my $predicate = "sub { exists \$_[0]->{$name} }";
 
     {
+        ## no critic (TestingAndDebugging::ProhibitNoStrict)
         no strict 'refs';
         *{ $class . '::' . $attr->{predicate} } = eval_closure(
             source      => $predicate,
@@ -86,6 +95,7 @@ sub _inline_constructor {
     my @build_subs;
     for my $class ( @{ mro::get_linear_isa($class) } ) {
         {
+            ## no critic (TestingAndDebugging::ProhibitNoStrict)
             no strict 'refs';
             push @build_subs, $class . '::BUILD'
                 if defined &{ $class . '::BUILD' };
@@ -141,11 +151,15 @@ EOF
         if ( $attr->{isa} ) {
             my $validator;
             if ( Specio::TypeChecks->can( 'is_' . $attr->{isa} ) ) {
-                $validator = 'Specio::TypeChecks::is_' . $attr->{isa} . "( \$p{$key_name} )";
+                $validator
+                    = 'Specio::TypeChecks::is_'
+                    . $attr->{isa}
+                    . "( \$p{$key_name} )";
             }
             else {
-                my $quoted_class = perlstring( $attr->{isa});
-                $validator = "Specio::TypeChecks::isa_class( \$p{$key_name}, $quoted_class )";
+                my $quoted_class = perlstring( $attr->{isa} );
+                $validator
+                    = "Specio::TypeChecks::isa_class( \$p{$key_name}, $quoted_class )";
             }
 
             $constructor .= <<"EOF";
@@ -161,7 +175,7 @@ EOF
         }
 
         if ( $attr->{does} ) {
-            my $quoted_role = perlstring($attr->{does});
+            my $quoted_role = perlstring( $attr->{does} );
             $constructor .= <<"EOF";
     if ( exists \$p{$key_name} && !Specio::TypeChecks::does_role( \$p{$key_name}, $quoted_role ) ) {
         Carp::confess(
@@ -178,7 +192,8 @@ EOF
             $constructor .= "    Scalar::Util::weaken( \$p{$key_name} );\n";
         }
 
-        $constructor .= "    \$self->{$name} = \$p{$key_name} if exists \$p{$key_name};\n";
+        $constructor
+            .= "    \$self->{$name} = \$p{$key_name} if exists \$p{$key_name};\n";
 
         $constructor .= "\n";
     }
@@ -191,6 +206,7 @@ EOF
 EOF
 
     {
+        ## no critic (TestingAndDebugging::ProhibitNoStrict)
         no strict 'refs';
         *{ $class . '::new' } = eval_closure(
             source      => $constructor,
@@ -199,6 +215,7 @@ EOF
     }
 }
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _constructor_confess {
     local $Carp::CarpLevel = $Carp::CarpLevel + 1;
     confess shift;
@@ -221,6 +238,7 @@ sub _bad_value_message {
         . ' You passed '
         . Devel::PartialDump->new()->dump($value);
 }
+## use critic
 
 sub clone {
     my $self = shift;
@@ -247,15 +265,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::OO - A painfully poor reimplementation of Moo(se)
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -270,7 +286,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

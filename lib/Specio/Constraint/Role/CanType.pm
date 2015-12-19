@@ -1,7 +1,9 @@
 package Specio::Constraint::Role::CanType;
-$Specio::Constraint::Role::CanType::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Lingua::EN::Inflect qw( PL_N WORDLIST );
 use Scalar::Util qw( blessed );
@@ -13,7 +15,9 @@ use Specio::Constraint::Role::Interface;
 with 'Specio::Constraint::Role::Interface';
 
 {
+    ## no critic (Subroutines::ProtectPrivateSubs)
     my $attrs = dclone( Specio::Constraint::Role::Interface::_attrs() );
+    ## use critic
 
     for my $name (qw( parent _inline_generator )) {
         $attrs->{$name}{init_arg} = undef;
@@ -26,11 +30,13 @@ with 'Specio::Constraint::Role::Interface';
         required => 1,
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
 }
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _wrap_message_generator {
     my $self      = shift;
     my $generator = shift;
@@ -51,7 +57,7 @@ sub _wrap_message_generator {
         return
               $class
             . ' is missing the '
-            . WORDLIST( map { "'$_'" } @missing ) . q{ }
+            . WORDLIST( map {"'$_'"} @missing ) . q{ }
             . $noun;
     };
 
@@ -59,6 +65,7 @@ sub _wrap_message_generator {
 
     return sub { $generator->( $d, @_ ) };
 }
+## use critic
 
 1;
 
@@ -68,15 +75,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::Role::CanType - Provides a common implementation for Specio::Constraint::AnyCan and Specio::Constraint::ObjectCan
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -88,7 +93,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

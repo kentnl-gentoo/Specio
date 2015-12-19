@@ -1,9 +1,11 @@
 package Specio::Declare;
-$Specio::Declare::VERSION = '0.11';
+
 use strict;
 use warnings;
 
 use parent 'Exporter';
+
+our $VERSION = '0.12';
 
 use Carp qw( croak );
 use Params::Util qw( _CODELIKE );
@@ -13,6 +15,7 @@ use Specio::DeclaredAt;
 use Specio::Helpers qw( install_t_sub _INSTANCEDOES _STRINGLIKE );
 use Specio::Registry qw( internal_types_for_package register );
 
+## no critic (Modules::ProhibitAutomaticExportation)
 our @EXPORT = qw(
     anon
     any_can_type
@@ -25,6 +28,7 @@ our @EXPORT = qw(
     object_does_type
     object_isa_type
 );
+## use critic
 
 sub import {
     my $package = shift;
@@ -231,7 +235,7 @@ sub _make_tc {
 
 sub coerce {
     my $to = shift;
-    my %p = @_;
+    my %p  = @_;
 
     $p{coercion}         = delete $p{using}  if exists $p{using};
     $p{inline_generator} = delete $p{inline} if exists $p{inline};
@@ -253,15 +257,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Declare - Specio declaration subroutines
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -548,7 +550,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

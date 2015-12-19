@@ -1,7 +1,9 @@
 package Specio::Coercion;
-$Specio::Coercion::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Specio::OO;
 
@@ -11,9 +13,11 @@ use Specio::Role::Inlinable;
 with 'Specio::Role::Inlinable';
 
 {
+    ## no critic (Subroutines::ProtectPrivateSubs)
     my $role_attrs = Specio::Role::Inlinable::_attrs();
+    ## use critic
 
-    my $attrs      = {
+    my $attrs = {
         %{$role_attrs},
         from => {
             does     => 'Specio::Constraint::Role::Interface',
@@ -37,6 +41,7 @@ with 'Specio::Role::Inlinable';
         },
     };
 
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _attrs {
         return $attrs;
     }
@@ -109,15 +114,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Coercion - A class representing a coercion from one type to another
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -259,7 +262,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

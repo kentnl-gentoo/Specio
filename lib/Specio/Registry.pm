@@ -1,9 +1,11 @@
 package Specio::Registry;
-$Specio::Registry::VERSION = '0.11';
+
 use strict;
 use warnings;
 
 use parent 'Exporter';
+
+our $VERSION = '0.12';
 
 use Carp qw( confess croak );
 
@@ -57,15 +59,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Registry - Implements the per-package type registry
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 
@@ -79,7 +79,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

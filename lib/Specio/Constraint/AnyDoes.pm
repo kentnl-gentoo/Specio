@@ -1,7 +1,9 @@
 package Specio::Constraint::AnyDoes;
-$Specio::Constraint::AnyDoes::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use B ();
 use Role::Tiny::With;
@@ -14,7 +16,7 @@ with 'Specio::Constraint::Role::DoesType';
 
 {
     my $Defined = t('Defined');
-    sub _build_parent { $Defined }
+    sub _build_parent {$Defined}
 }
 
 {
@@ -34,7 +36,7 @@ with 'Specio::Constraint::Role::DoesType';
             . B::perlstring( $self->role ) . ')';
     };
 
-    sub _build_inline_generator { $_inline_generator }
+    sub _build_inline_generator {$_inline_generator}
 }
 
 __PACKAGE__->_ooify();
@@ -47,15 +49,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::AnyDoes - A class for constraints which require a class name or an object that does a specific role
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -101,7 +101,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 

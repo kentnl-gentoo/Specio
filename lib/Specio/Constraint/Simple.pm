@@ -1,7 +1,9 @@
 package Specio::Constraint::Simple;
-$Specio::Constraint::Simple::VERSION = '0.11';
+
 use strict;
 use warnings;
+
+our $VERSION = '0.12';
 
 use Role::Tiny::With;
 use Specio::OO;
@@ -18,15 +20,13 @@ __END__
 
 =pod
 
-=encoding UTF-8
-
 =head1 NAME
 
 Specio::Constraint::Simple - Class for simple (non-parameterized or specialized) types
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -271,8 +271,8 @@ inlinable.
 
 =head1 ROLES
 
-This role does the L<Specio::Constraint::Role::Interface>,
-L<Specio::Role::Inlinable> and L<MooseX::Clone> roles.
+This role does the L<Specio::Constraint::Role::Interface> and
+L<Specio::Role::Inlinable> roles.
 
 =head1 AUTHOR
 
@@ -280,7 +280,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014 by Dave Rolsky.
+This software is Copyright (c) 2015 by Dave Rolsky.
 
 This is free software, licensed under:
 
