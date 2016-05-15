@@ -5,7 +5,7 @@ use warnings;
 
 use v5.10;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 1;
 
@@ -15,13 +15,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
@@ -85,8 +87,7 @@ Instead, you can explicitly check a value against a type, and optionally
 coerce values to that type.
 
 My long-term goal is to replace Moose's built-in types and L<MooseX::Types>
-with this module. I will also make sure that Specio types can be used with Moo
-in a sane fashion.
+with this module.
 
 =head1 WHAT IS A TYPE?
 
@@ -168,10 +169,10 @@ they make sense.
 
 For types where overloading makes sense, we explicitly check that the object
 provides the type overloading we expect. We I<do not> simply try to use the
-object as the type and question and hope it works. This means that these
-checks effectively ignore the C<fallback> setting for the overloaded
-object. In other words, an object that overloads stringification will not pass
-the C<Bool> type check unless it I<also> overloads boolification.
+object as the type in question and hope it works. This means that these checks
+effectively ignore the C<fallback> setting for the overloaded object. In other
+words, an object that overloads stringification will not pass the C<Bool> type
+check unless it I<also> overloads boolification.
 
 Most types do not check that the overloaded method actually returns something
 that matches the constraint. This may change in the future.
@@ -344,7 +345,7 @@ Here are some of the salient differences:
 
 Unlike Moose and MooseX::Types, type names are always local to the current
 package. There is no possibility of name collision between different modules,
-so you can safely use short types names.
+so you can safely use short type names.
 
 Unlike MooseX::Types, types are strings, so there is no possibility of
 colliding with existing class or subroutine names.
@@ -354,11 +355,6 @@ colliding with existing class or subroutine names.
 Types are always retrieved using the C<t()> subroutine. If you pass an unknown
 name to this subroutine it dies. This is different from Moose and
 MooseX::Types, which assume that unknown names are class names.
-
-=item * Exceptions are objects
-
-The C<< $type->validate_or_die() >> method throws a L<Specio::Exception> object
-on failure, not a string.
 
 =item * Anon types are explicit
 
@@ -412,16 +408,14 @@ other distro.
 =head1 LONG-TERM PLANS
 
 Eventually I'd like to see this distro replace Moose's internal type system,
-which would also make MooseX::Types obsolete. This almost certainly means
-rewriting this distro to not use Moose itself (or any modules which use Moose,
-like Throwable).
+which would also make MooseX::Types obsolete.
 
-=head1 BUGS
+=head1 SUPPORT
 
-Please report any bugs or feature requests to C<bug-type@rt.cpan.org>, or
-through the web interface at L<http://rt.cpan.org>.  I will be notified, and
-then you'll automatically be notified of progress on your bug as I make
-changes.
+Bugs may be submitted through L<the RT bug tracker|http://rt.cpan.org/Public/Dist/Display.html?Name=Specio>
+(or L<bug-specio@rt.cpan.org|mailto:bug-specio@rt.cpan.org>).
+
+I am also usually active on IRC as 'drolsky' on C<irc://irc.perl.org>.
 
 =head1 DONATIONS
 
@@ -435,10 +429,10 @@ inasmuch as I have in the past, for as long as it interests me.
 
 Similarly, a donation made in this way will probably not make me work on this
 software much more, unless I get so many donations that I can consider working
-on free software full time, which seems unlikely at best.
+on free software full time (let's all have a chuckle at that together).
 
-To donate, log into PayPal and send money to autarch@urth.org or use the
-button on this page: L<http://www.urth.org/~autarch/fs-donation.html>
+To donate, log into PayPal and send money to autarch@urth.org, or use the
+button at L<http://www.urth.org/~autarch/fs-donation.html>.
 
 =head1 AUTHOR
 
@@ -450,9 +444,9 @@ Dave Rolsky <autarch@urth.org>
 
 Karen Etheridge <ether@cpan.org>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENCE
 
-This software is Copyright (c) 2015 by Dave Rolsky.
+This software is Copyright (c) 2016 by Dave Rolsky.
 
 This is free software, licensed under:
 

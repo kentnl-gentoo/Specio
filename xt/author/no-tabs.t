@@ -1,18 +1,10 @@
-
-BEGIN {
-  unless ($ENV{AUTHOR_TESTING}) {
-    require Test::More;
-    Test::More::plan(skip_all => 'these tests are for testing by the author');
-  }
-}
-
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::EOL 0.18
+# this test was generated with Dist::Zilla::Plugin::Test::NoTabs 0.15
 
 use Test::More 0.88;
-use Test::EOL;
+use Test::NoTabs;
 
 my @files = (
     'lib/Specio.pm',
@@ -44,13 +36,6 @@ my @files = (
     't/00-report-prereqs.dd',
     't/00-report-prereqs.t',
     't/anon.t',
-    't/author-00-compile.t',
-    't/author-eol.t',
-    't/author-mojibake.t',
-    't/author-no-tabs.t',
-    't/author-pod-spell.t',
-    't/author-pod-syntax.t',
-    't/author-test-version.t',
     't/builtins-sanity.t',
     't/builtins.t',
     't/coercion.t',
@@ -66,15 +51,10 @@ my @files = (
     't/lib/Specio/Library/XY.pm',
     't/multiple-libraries.t',
     't/parameterized.t',
-    't/release-cpan-changes.t',
-    't/release-pod-coverage.t',
-    't/release-pod-linkcheck.t',
-    't/release-portability.t',
-    't/release-tidyall.t',
     't/t-clean.t',
     't/with-moo.t',
     't/with-moose.t'
 );
 
-eol_unix_ok($_, { trailing_whitespace => 1 }) foreach @files;
+notabs_ok($_) foreach @files;
 done_testing;

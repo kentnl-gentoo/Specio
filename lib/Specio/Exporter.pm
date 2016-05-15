@@ -3,7 +3,7 @@ package Specio::Exporter;
 use strict;
 use warnings;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use Specio::Helpers qw( install_t_sub );
 use Specio::Registry
@@ -35,13 +35,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Specio::Exporter - Base class for type libraries
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
@@ -94,13 +96,20 @@ In this case, packages which C<use MyApp::Type::Library> will get all the
 types from L<Specio::Library::Builtins> as well as any types defined in
 C<MyApp::Type::Library>.
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|http://rt.cpan.org/Public/Dist/Display.html?Name=Specio>
+(or L<bug-specio@rt.cpan.org|mailto:bug-specio@rt.cpan.org>).
+
+I am also usually active on IRC as 'drolsky' on C<irc://irc.perl.org>.
+
 =head1 AUTHOR
 
 Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENCE
 
-This software is Copyright (c) 2015 by Dave Rolsky.
+This software is Copyright (c) 2016 by Dave Rolsky.
 
 This is free software, licensed under:
 

@@ -10,7 +10,7 @@ use Exporter qw( import );
 use Scalar::Util qw( blessed weaken );
 use mro ();
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use Specio::TypeChecks qw(
     does_role
@@ -265,13 +265,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Specio::OO - A painfully poor reimplementation of Moo(se)
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 DESCRIPTION
 
@@ -280,13 +282,20 @@ reimplementation of a small slice of their features.
 
 =for Pod::Coverage .*
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|http://rt.cpan.org/Public/Dist/Display.html?Name=Specio>
+(or L<bug-specio@rt.cpan.org|mailto:bug-specio@rt.cpan.org>).
+
+I am also usually active on IRC as 'drolsky' on C<irc://irc.perl.org>.
+
 =head1 AUTHOR
 
 Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENCE
 
-This software is Copyright (c) 2015 by Dave Rolsky.
+This software is Copyright (c) 2016 by Dave Rolsky.
 
 This is free software, licensed under:
 

@@ -3,7 +3,7 @@ package Specio::Role::Inlinable;
 use strict;
 use warnings;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use Eval::Closure qw( eval_closure );
 
@@ -84,13 +84,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Specio::Role::Inlinable - A role for things which can be inlined (type constraints and coercions)
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 DESCRIPTION
 
@@ -99,13 +101,20 @@ coercions. It is fully documented in the relevant classes.
 
 =for Pod::Coverage .*
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|http://rt.cpan.org/Public/Dist/Display.html?Name=Specio>
+(or L<bug-specio@rt.cpan.org|mailto:bug-specio@rt.cpan.org>).
+
+I am also usually active on IRC as 'drolsky' on C<irc://irc.perl.org>.
+
 =head1 AUTHOR
 
 Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENCE
 
-This software is Copyright (c) 2015 by Dave Rolsky.
+This software is Copyright (c) 2016 by Dave Rolsky.
 
 This is free software, licensed under:
 
