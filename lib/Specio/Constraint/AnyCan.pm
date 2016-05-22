@@ -3,7 +3,7 @@ package Specio::Constraint::AnyCan;
 use strict;
 use warnings;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 use B ();
 use List::Util 1.33 ();
@@ -25,16 +25,21 @@ with 'Specio::Constraint::Role::CanType';
         my $self = shift;
         my $val  = shift;
 
-        return
-              '( Scalar::Util::blessed('
-            . $val
-            . ') || ( '
-            . " defined $val && ! ref $val ) )"
-            . ' && List::Util::all { '
-            . $val
-            . '->can($_) } ' . '( '
-            . ( join ', ', map { B::perlstring($_) } @{ $self->methods() } )
-            . ')';
+        my $methods = join ', ',
+            map { B::perlstring($_) } @{ $self->methods };
+        return sprintf( <<'EOF', ($val) x 3, $methods );
+(
+    (
+        Scalar::Util::blessed( %s )
+        ||
+        (
+            !ref( %s )
+        )
+    )
+    &&
+    List::Util::all { %s->can($_) } %s
+)
+EOF
     };
 
     sub _build_inline_generator {$_inline_generator}
@@ -58,7 +63,7 @@ Specio::Constraint::AnyCan - A class for constraints which require a class name 
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 

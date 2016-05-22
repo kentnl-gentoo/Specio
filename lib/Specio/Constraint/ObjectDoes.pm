@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectDoes;
 use strict;
 use warnings;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 use B ();
 use Role::Tiny::With;
@@ -24,14 +24,15 @@ with 'Specio::Constraint::Role::DoesType';
         my $self = shift;
         my $val  = shift;
 
-        return
-              'Scalar::Util::blessed('
-            . $val . ')' . ' && '
-            . $val
-            . q{->can('does')} . '&&'
-            . $val
-            . '->does('
-            . B::perlstring( $self->role ) . ')';
+        return sprintf( <<'EOF', ($val) x 3, B::perlstring( $self->role ) );
+(
+    Scalar::Util::blessed( %s )
+    &&
+    %s->can('does')
+    &&
+    %s->does(%s)
+)
+EOF
     };
 
     sub _build_inline_generator {$_inline_generator}
@@ -55,7 +56,7 @@ Specio::Constraint::ObjectDoes - A class for constraints which require an object
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 

@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectIsa;
 use strict;
 use warnings;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 use B ();
 use Role::Tiny::With;
@@ -24,12 +24,9 @@ with 'Specio::Constraint::Role::IsaType';
         my $self = shift;
         my $val  = shift;
 
-        return
-              'Scalar::Util::blessed('
-            . $val . ')' . ' && '
-            . $val
-            . '->isa('
-            . B::perlstring( $self->class ) . ')';
+        return sprintf( <<'EOF', $val, $val, B::perlstring( $self->class ) );
+( Scalar::Util::blessed( %s ) && %s->isa(%s) )
+EOF
     };
 
     sub _build_inline_generator {$_inline_generator}
@@ -53,7 +50,7 @@ Specio::Constraint::ObjectIsa - A class for constraints which require an object 
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 

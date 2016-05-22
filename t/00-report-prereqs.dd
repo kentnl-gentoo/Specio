@@ -6,6 +6,7 @@ do { my $x = {
                       },
        'develop' => {
                       'requires' => {
+                                      'Code::TidyAll::Plugin::Test::Vars' => '0.02',
                                       'File::Spec' => '0',
                                       'IO::Handle' => '0',
                                       'IPC::Open3' => '0',
@@ -26,6 +27,7 @@ do { my $x = {
                                       'Test::Pod::Coverage' => '1.08',
                                       'Test::Pod::LinkCheck' => '0',
                                       'Test::Spelling' => '0.12',
+                                      'Test::Vars' => '0.009',
                                       'Test::Version' => '1',
                                       'blib' => '1.01'
                                     }

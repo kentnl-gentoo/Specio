@@ -26,82 +26,82 @@ name: Specio
 provides:
   Specio:
     file: lib/Specio.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Coercion:
     file: lib/Specio/Coercion.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::AnyCan:
     file: lib/Specio/Constraint/AnyCan.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::AnyDoes:
     file: lib/Specio/Constraint/AnyDoes.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::AnyIsa:
     file: lib/Specio/Constraint/AnyIsa.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Enum:
     file: lib/Specio/Constraint/Enum.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::ObjectCan:
     file: lib/Specio/Constraint/ObjectCan.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::ObjectDoes:
     file: lib/Specio/Constraint/ObjectDoes.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::ObjectIsa:
     file: lib/Specio/Constraint/ObjectIsa.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Parameterizable:
     file: lib/Specio/Constraint/Parameterizable.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Parameterized:
     file: lib/Specio/Constraint/Parameterized.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Role::CanType:
     file: lib/Specio/Constraint/Role/CanType.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Role::DoesType:
     file: lib/Specio/Constraint/Role/DoesType.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Role::Interface:
     file: lib/Specio/Constraint/Role/Interface.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Role::IsaType:
     file: lib/Specio/Constraint/Role/IsaType.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Constraint::Simple:
     file: lib/Specio/Constraint/Simple.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Declare:
     file: lib/Specio/Declare.pm
-    version: '0.13'
+    version: '0.14'
   Specio::DeclaredAt:
     file: lib/Specio/DeclaredAt.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Exception:
     file: lib/Specio/Exception.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Exporter:
     file: lib/Specio/Exporter.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Helpers:
     file: lib/Specio/Helpers.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Library::Builtins:
     file: lib/Specio/Library/Builtins.pm
-    version: '0.13'
+    version: '0.14'
   Specio::OO:
     file: lib/Specio/OO.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Registry:
     file: lib/Specio/Registry.pm
-    version: '0.13'
+    version: '0.14'
   Specio::Role::Inlinable:
     file: lib/Specio/Role/Inlinable.pm
-    version: '0.13'
+    version: '0.14'
   Specio::TypeChecks:
     file: lib/Specio/TypeChecks.pm
-    version: '0.13'
+    version: '0.14'
 requires:
   B: '0'
   Carp: '0'
@@ -133,10 +133,10 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Specio
   homepage: http://metacpan.org/release/Specio
   repository: git://github.com/autarch/Specio.git
-version: '0.13'
+version: '0.14'
 x_Dist_Zilla:
   perl:
-    version: '5.022001'
+    version: '5.024000'
   plugins:
     -
       class: Dist::Zilla::Plugin::MakeMaker
@@ -206,7 +206,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::VersionProvider
       name: '@DROLSKY/DROLSKY::VersionProvider'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@DROLSKY/Authority'
@@ -244,6 +244,7 @@ x_Dist_Zilla:
               name: '@DROLSKY/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
               version: '5.047'
         Dist::Zilla::Role::MetaProvider::Provider:
+          Dist::Zilla::Role::MetaProvider::Provider::VERSION: '2.001011'
           inherit_missing: '1'
           inherit_version: '1'
           meta_noindex: '1'
@@ -436,7 +437,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::Contributors
       name: '@DROLSKY/DROLSKY::Contributors'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
@@ -574,13 +575,13 @@ x_Dist_Zilla:
           destination_filename: CONTRIBUTING.md
           dist: Dist-Zilla-PluginBundle-DROLSKY
           encoding: UTF-8
-          has_xs: ''
+          has_xs: '0'
           location: build
           source_filename: CONTRIBUTING.md
         Dist::Zilla::Role::RepoFileInjector:
           allow_overwrite: 1
           repo_root: .
-          version: '0.005'
+          version: '0.006'
       name: '@DROLSKY/generate CONTRIBUTING'
       version: '0.009'
     -
@@ -594,7 +595,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::License
       name: '@DROLSKY/DROLSKY::License'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@DROLSKY/CheckPrereqsIndexed'
@@ -602,14 +603,14 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent
       name: '@DROLSKY/DROLSKY::CheckChangesHasContent'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch
       config:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts
       config:
@@ -620,7 +621,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::TidyAll
       name: '@DROLSKY/DROLSKY::TidyAll'
-      version: '0.53'
+      version: '0.56'
     -
       class: Dist::Zilla::Plugin::Git::Check
       config:
@@ -675,7 +676,7 @@ x_Dist_Zilla:
           branch: ~
           changelog: Changes
           signed: 0
-          tag: v0.13
+          tag: v0.14
           tag_format: v%v
           tag_message: v%v
         Dist::Zilla::Role::Git::Repo:

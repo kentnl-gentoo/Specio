@@ -3,7 +3,7 @@ package Specio::Constraint::Role::CanType;
 use strict;
 use warnings;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 use Lingua::EN::Inflect qw( PL_N WORDLIST );
 use Scalar::Util qw( blessed );
@@ -83,7 +83,7 @@ Specio::Constraint::Role::CanType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 DESCRIPTION
 
