@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Exporter';
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use Carp qw( confess croak );
 
@@ -16,7 +16,7 @@ my %Registry;
 
 sub register {
     confess
-        'register() requires three or four arguments (package, name, type, [exportable])'
+        'register requires three or four arguments (package, name, type, [exportable])'
         unless @_ == 3 || @_ == 4;
 
     my $package    = shift;
@@ -28,7 +28,7 @@ sub register {
         if $Registry{$package}{internal}{$name};
 
     # This is structured so that we can always return a _reference_ for
-    # *_types_for_package. This means that the generated t() sub sees any
+    # *_types_for_package. This means that the generated t sub sees any
     # changes to the registry as they happen. This is important inside a
     # package that is declaring new types. It needs to be able to see types it
     # has declared.
@@ -67,7 +67,7 @@ Specio::Registry - Implements the per-package type registry
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

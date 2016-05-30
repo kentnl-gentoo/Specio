@@ -3,7 +3,7 @@ package Specio::Exporter;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use Specio::Helpers qw( install_t_sub );
 use Specio::Registry
@@ -18,7 +18,7 @@ sub import {
     my $exported = exportable_types_for_package($package);
 
     while ( my ( $name, $type ) = each %{$exported} ) {
-        register( $caller, $name, $type->clone(), $reexport );
+        register( $caller, $name, $type->clone, $reexport );
     }
 
     install_t_sub(
@@ -43,7 +43,7 @@ Specio::Exporter - Base class for type libraries
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
@@ -68,7 +68,7 @@ types defined in a package are never visible outside of the package. When you
 inherit from this package, all the types you define internally become
 available via exports.
 
-The exported types are available through the importing package's C<t()>
+The exported types are available through the importing package's C<t>
 subroutine.
 
 By default, types your package imports are not re-exported:

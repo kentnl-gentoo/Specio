@@ -7,13 +7,12 @@ use Carp qw( croak );
 use Exporter 'import';
 use overload ();
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
-use Params::Util qw( _STRING );
 use Scalar::Util qw( blessed );
 use Specio::DeclaredAt;
 
-our @EXPORT_OK = qw( install_t_sub _INSTANCEDOES _STRINGLIKE );
+our @EXPORT_OK = qw( install_t_sub _STRINGLIKE );
 
 sub install_t_sub {
     my $caller = shift;
@@ -25,7 +24,7 @@ sub install_t_sub {
     my $t = sub {
         my $name = shift;
 
-        croak 'The t() subroutine requires a single non-empty string argument'
+        croak 'The t subroutine requires a single non-empty string argument'
             unless _STRINGLIKE($name);
 
         croak "There is no type named $name available for the $caller package"
@@ -56,7 +55,6 @@ sub install_t_sub {
     return;
 }
 
-# XXX - this should be added to Params::Util
 ## no critic (Subroutines::ProhibitSubroutinePrototypes, Subroutines::ProhibitExplicitReturnUndef)
 sub _STRINGLIKE ($) {
     return $_[0] if _STRING( $_[0] );
@@ -69,13 +67,10 @@ sub _STRINGLIKE ($) {
     return undef;
 }
 
-## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-sub _INSTANCEDOES ($$) {
-    return $_[0]
-        if blessed $_[0] && $_[0]->can('does') && $_[0]->does( $_[1] );
-    return undef;
+# Borrowed from Params::Util
+sub _STRING ($) {
+    return defined $_[0] && !ref $_[0] && length( $_[0] ) ? $_[0] : undef;
 }
-## use critic
 
 1;
 
@@ -93,7 +88,7 @@ Specio::Helpers - Helper subs for the Specio distro
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

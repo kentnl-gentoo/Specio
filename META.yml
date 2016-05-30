@@ -6,7 +6,6 @@ build_requires:
   ExtUtils::MakeMaker: '0'
   File::Spec: '0'
   IO::File: '0'
-  Moo: '0'
   Test::Fatal: '0'
   Test::More: '0.96'
   Test::Requires: '0'
@@ -17,91 +16,103 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.047, CPAN::Meta::Converter version 2.150005'
+generated_by: 'Dist::Zilla version 6.005, CPAN::Meta::Converter version 2.150005'
 license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
 name: Specio
+no_index:
+  directory:
+    - t/lib
 provides:
   Specio:
     file: lib/Specio.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Coercion:
     file: lib/Specio/Coercion.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::AnyCan:
     file: lib/Specio/Constraint/AnyCan.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::AnyDoes:
     file: lib/Specio/Constraint/AnyDoes.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::AnyIsa:
     file: lib/Specio/Constraint/AnyIsa.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Enum:
     file: lib/Specio/Constraint/Enum.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::ObjectCan:
     file: lib/Specio/Constraint/ObjectCan.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::ObjectDoes:
     file: lib/Specio/Constraint/ObjectDoes.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::ObjectIsa:
     file: lib/Specio/Constraint/ObjectIsa.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Parameterizable:
     file: lib/Specio/Constraint/Parameterizable.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Parameterized:
     file: lib/Specio/Constraint/Parameterized.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Role::CanType:
     file: lib/Specio/Constraint/Role/CanType.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Role::DoesType:
     file: lib/Specio/Constraint/Role/DoesType.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Role::Interface:
     file: lib/Specio/Constraint/Role/Interface.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Role::IsaType:
     file: lib/Specio/Constraint/Role/IsaType.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Constraint::Simple:
     file: lib/Specio/Constraint/Simple.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Declare:
     file: lib/Specio/Declare.pm
-    version: '0.14'
+    version: '0.15'
   Specio::DeclaredAt:
     file: lib/Specio/DeclaredAt.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Exception:
     file: lib/Specio/Exception.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Exporter:
     file: lib/Specio/Exporter.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Helpers:
     file: lib/Specio/Helpers.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Library::Builtins:
     file: lib/Specio/Library/Builtins.pm
-    version: '0.14'
+    version: '0.15'
+  Specio::Library::Numeric:
+    file: lib/Specio/Library/Numeric.pm
+    version: '0.15'
+  Specio::Library::Perl:
+    file: lib/Specio/Library/Perl.pm
+    version: '0.15'
+  Specio::Library::String:
+    file: lib/Specio/Library/String.pm
+    version: '0.15'
   Specio::OO:
     file: lib/Specio/OO.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Registry:
     file: lib/Specio/Registry.pm
-    version: '0.14'
+    version: '0.15'
   Specio::Role::Inlinable:
     file: lib/Specio/Role/Inlinable.pm
-    version: '0.14'
+    version: '0.15'
   Specio::TypeChecks:
     file: lib/Specio/TypeChecks.pm
-    version: '0.14'
+    version: '0.15'
 requires:
   B: '0'
   Carp: '0'
@@ -111,29 +122,27 @@ requires:
   Devel::StackTrace: '0'
   Eval::Closure: '0'
   Exporter: '0'
-  Lingua::EN::Inflect: '0'
   List::Util: '1.33'
   Module::Runtime: '0'
-  Params::Util: '0'
   Role::Tiny: '0'
   Role::Tiny::With: '0'
   Scalar::Util: '0'
   Storable: '0'
   Sub::Quote: '0'
   Test::More: '0.96'
-  Try::Tiny: '0'
   mro: '0'
   overload: '0'
   parent: '0'
   perl: v5.10.0
   re: '0'
   strict: '0'
+  version: '0'
   warnings: '0'
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Specio
   homepage: http://metacpan.org/release/Specio
   repository: git://github.com/autarch/Specio.git
-version: '0.14'
+version: '0.15'
 x_Dist_Zilla:
   perl:
     version: '5.024000'
@@ -144,7 +153,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 1
       name: '@DROLSKY/MakeMaker'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Git::GatherDir
       config:
@@ -166,27 +175,27 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::GatherDir:
           include_untracked: 0
       name: '@DROLSKY/Git::GatherDir'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@DROLSKY/ManifestSkip'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::License
       name: '@DROLSKY/License'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@DROLSKY/ExecDir'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@DROLSKY/ShareDir'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@DROLSKY/Manifest'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::CheckVersionIncrement
       name: '@DROLSKY/CheckVersionIncrement'
@@ -194,19 +203,19 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@DROLSKY/TestRelease'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@DROLSKY/ConfirmRelease'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@DROLSKY/UploadToCPAN'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::DROLSKY::VersionProvider
       name: '@DROLSKY/DROLSKY::VersionProvider'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@DROLSKY/Authority'
@@ -214,7 +223,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@DROLSKY/AutoPrereqs'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::CopyFilesFromBuild
       name: '@DROLSKY/CopyFilesFromBuild'
@@ -233,7 +242,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaResources
       name: '@DROLSKY/MetaResources'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       config:
@@ -242,7 +251,7 @@ x_Dist_Zilla:
             -
               class: Dist::Zilla::Plugin::FinderCode
               name: '@DROLSKY/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
-              version: '5.047'
+              version: '6.005'
         Dist::Zilla::Role::MetaProvider::Provider:
           Dist::Zilla::Role::MetaProvider::Provider::VERSION: '2.001011'
           inherit_missing: '1'
@@ -253,7 +262,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@DROLSKY/MetaYAML'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Meta::Contributors
       name: '@DROLSKY/Meta::Contributors'
@@ -261,15 +270,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@DROLSKY/MetaConfig'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@DROLSKY/MetaJSON'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@DROLSKY/NextRelease'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -277,7 +286,7 @@ x_Dist_Zilla:
           phase: test
           type: requires
       name: '@DROLSKY/Test::More with subtest'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -285,7 +294,7 @@ x_Dist_Zilla:
           phase: develop
           type: requires
       name: '@DROLSKY/Modules for use with tidyall'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -293,7 +302,7 @@ x_Dist_Zilla:
           check_all_plugins: 1
           check_all_prereqs: 1
           modules: []
-          phase: release
+          phase: build
           skip:
             - Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent
             - Dist::Zilla::Plugin::DROLSKY::Contributors
@@ -320,16 +329,34 @@ x_Dist_Zilla:
             - Coercions
             - DROLSKY
             - "DROLSKY's"
+            - LaxVersionStr
             - MUTC
+            - ModuleName
+            - NegativeInt
+            - NegativeNum
+            - NegativeOrZeroInt
+            - NegativeOrZeroNum
+            - NonEmptySimpleStr
+            - NonEmptyStr
             - PARAMETERIZABLE
+            - PackageName
             - PayPal
             - PayPal
+            - PositiveInt
+            - PositiveNum
+            - PositiveOrZeroInt
+            - PositiveOrZeroNum
             - Rolsky
             - Rolsky
             - "Rolsky's"
+            - SIGNES
             - SPECIO
+            - SafeIdentifier
             - ScalarRef
+            - SimpleStr
+            - SingleDigit
             - Specio
+            - StrictVersionStr
             - Throwable
             - boolification
             - coercions
@@ -350,11 +377,11 @@ x_Dist_Zilla:
             - subtypes
           wordlist: Pod::Wordlist
       name: '@DROLSKY/Test::PodSpelling'
-      version: '2.007000'
+      version: '2.007002'
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@DROLSKY/PodSyntaxTests'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
       name: '@DROLSKY/Test::Pod::LinkCheck'
@@ -365,7 +392,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 1
       name: '@DROLSKY/RunExtraTests'
-      version: '0.028'
+      version: '0.029'
     -
       class: Dist::Zilla::Plugin::MojibakeTests
       name: '@DROLSKY/MojibakeTests'
@@ -408,7 +435,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::TidyAll
       name: '@DROLSKY/Test::TidyAll'
-      version: '0.02'
+      version: '0.03'
     -
       class: Dist::Zilla::Plugin::Test::Compile
       config:
@@ -437,7 +464,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::Contributors
       name: '@DROLSKY/DROLSKY::Contributors'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
@@ -591,11 +618,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CPANFile
       name: '@DROLSKY/CPANFile'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::DROLSKY::License
       name: '@DROLSKY/DROLSKY::License'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@DROLSKY/CheckPrereqsIndexed'
@@ -603,14 +630,14 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent
       name: '@DROLSKY/DROLSKY::CheckChangesHasContent'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch
       config:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts
       config:
@@ -621,7 +648,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::TidyAll
       name: '@DROLSKY/DROLSKY::TidyAll'
-      version: '0.56'
+      version: '0.59'
     -
       class: Dist::Zilla::Plugin::Git::Check
       config:
@@ -643,7 +670,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/Git::Check'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
@@ -668,7 +695,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::StringFormatter:
           time_zone: local
       name: '@DROLSKY/commit generated files'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Tag
       config:
@@ -676,7 +703,7 @@ x_Dist_Zilla:
           branch: ~
           changelog: Changes
           signed: 0
-          tag: v0.14
+          tag: v0.15
           tag_format: v%v
           tag_message: v%v
         Dist::Zilla::Role::Git::Repo:
@@ -684,7 +711,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::StringFormatter:
           time_zone: local
       name: '@DROLSKY/Git::Tag'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Push
       config:
@@ -695,7 +722,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/Git::Push'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::BumpVersionAfterRelease
       config:
@@ -725,7 +752,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::StringFormatter:
           time_zone: local
       name: '@DROLSKY/commit version bump'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Push
       config:
@@ -736,7 +763,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/push version bump'
-      version: '2.036'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -744,56 +771,60 @@ x_Dist_Zilla:
           phase: develop
           type: requires
       name: DevelopRequires
-      version: '5.047'
+      version: '6.005'
+    -
+      class: Dist::Zilla::Plugin::MetaNoIndex
+      name: MetaNoIndex
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExtraTestFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':PerlExecFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':AllFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':NoFiles'
-      version: '5.047'
+      version: '6.005'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: '@DROLSKY/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
-      version: '5.047'
+      version: '6.005'
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: '0'
-    version: '5.047'
+    version: '6.005'
 x_authority: cpan:DROLSKY
 x_contributors:
   - 'Karen Etheridge <ether@cpan.org>'

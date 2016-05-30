@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectCan;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use B ();
 use List::Util 1.33 ();
@@ -39,7 +39,7 @@ EOF
     sub _build_inline_generator {$_inline_generator}
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -57,12 +57,12 @@ Specio::Constraint::ObjectCan - A class for constraints which require an object 
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
     my $type = Specio::Constraint::ObjectCan->new(...);
-    print $_, "\n" for @{ $type->methods() };
+    print $_, "\n" for @{ $type->methods };
 
 =head1 DESCRIPTION
 
@@ -89,7 +89,7 @@ an array reference of method names which the constraint requires. You can also
 pass a single string and it will be converted to an array reference
 internally.
 
-=head2 $object_can->methods()
+=head2 $object_can->methods
 
 Returns an array reference containing the methods this constraint requires.
 

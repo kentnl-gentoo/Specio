@@ -3,7 +3,7 @@ package Specio::Constraint::Parameterized;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use Role::Tiny::With;
 use Specio::OO;
@@ -51,18 +51,18 @@ sub _build_name {
 sub can_be_inlined {
     my $self = shift;
 
-    return $self->_has_inline_generator()
-        && $self->parameter()->can_be_inlined();
+    return $self->_has_inline_generator
+        && $self->parameter->can_be_inlined;
 }
 
 # Moose compatibility methods - these exist as a temporary hack to make Specio
 # work with Moose.
 
 sub type_parameter {
-    shift->parameter();
+    shift->parameter;
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -80,7 +80,7 @@ Specio::Constraint::Parameterized - A class which represents parameterized const
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
@@ -88,8 +88,8 @@ version 0.14
 
     my $arrayref_of_int = $arrayref->parameterize( of => t('Int') );
 
-    my $parent = $arrayref_of_int->parent(); # returns ArrayRef
-    my $parameter = $arrayref_of_int->parameter(); # returns Int
+    my $parent = $arrayref_of_int->parent; # returns ArrayRef
+    my $parameter = $arrayref_of_int->parameter; # returns Int
 
 =head1 DESCRIPTION
 
@@ -124,7 +124,7 @@ This parameter is required.
 
 =back
 
-=head2 $type->parameter()
+=head2 $type->parameter
 
 Returns the type that was passed to the constructor.
 

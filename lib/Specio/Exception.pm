@@ -7,7 +7,7 @@ use overload
     q{""}    => 'as_string',
     fallback => 1;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use Devel::StackTrace;
 use Scalar::Util qw( blessed );
@@ -40,7 +40,7 @@ use Specio::OO;
 sub BUILD {
     my $self = shift;
 
-    $self->{stack_trace} = Devel::StackTrace->new();
+    $self->{stack_trace} = Devel::StackTrace->new;
 
     return;
 }
@@ -48,8 +48,8 @@ sub BUILD {
 sub as_string {
     my $self = shift;
 
-    my $str = $self->message();
-    $str .= "\n\n" . $self->stack_trace()->as_string();
+    my $str = $self->message;
+    $str .= "\n\n" . $self->stack_trace->as_string;
 
     return $str;
 }
@@ -62,7 +62,7 @@ sub throw {
     die $self->new(@_);
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -80,7 +80,7 @@ Specio::Exception - A Throwable::Error subclass for type constraint failures
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 
@@ -97,9 +97,9 @@ dependency on L<Moo>.
   }
   catch {
       if ( $_->isa('Specio::Exception') ) {
-          print $_->message(), "\n";
-          print $_->type()->name(), "\n";
-          print $_->value(), "\n";
+          print $_->message, "\n";
+          print $_->type->name, "\n";
+          print $_->value, "\n";
       }
   };
 
@@ -109,29 +109,29 @@ dependency on L<Moo>.
 
 This class provides the following methods:
 
-=head2 $exception->message()
+=head2 $exception->message
 
 The error message associated with the exception.
 
-=head2 $exception->stack_trace()
+=head2 $exception->stack_trace
 
 A L<Devel::StackTrace> object for the exception.
 
-=head2 $exception->type()
+=head2 $exception->type
 
 The type constraint object against which the value failed.
 
-=head2 $exception->value()
+=head2 $exception->value
 
 The value that failed the type check.
 
-=head2 $exception->as_string()
+=head2 $exception->as_string
 
 The exception as a string. This includes the method and the stack trace.
 
 =head1 OVERLOADING
 
-This class overloads stringification to call the C<as_string()> method.
+This class overloads stringification to call the C<as_string> method.
 
 =head1 SUPPORT
 

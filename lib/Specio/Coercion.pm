@@ -3,7 +3,7 @@ package Specio::Coercion;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use Specio::OO;
 
@@ -52,11 +52,11 @@ sub BUILD {
 
     die
         'A type coercion should have either a coercion or inline_generator parameter, not both'
-        if $self->_has_coercion() && $self->_has_inline_generator();
+        if $self->_has_coercion && $self->_has_inline_generator;
 
     die
         'A type coercion must have either a coercion or inline_generator parameter'
-        unless $self->_has_coercion() || $self->_has_inline_generator();
+        unless $self->_has_coercion || $self->_has_inline_generator;
 
     return;
 }
@@ -65,30 +65,30 @@ sub coerce {
     my $self  = shift;
     my $value = shift;
 
-    return $self->_optimized_coercion()->($value);
+    return $self->_optimized_coercion->($value);
 }
 
 sub inline_coercion {
     my $self = shift;
 
-    return $self->_inline_generator()->( $self, @_ );
+    return $self->_inline_generator->( $self, @_ );
 }
 
 sub _build_optimized_coercion {
     my $self = shift;
 
-    if ( $self->_has_inline_generator() ) {
-        return $self->_generated_inline_sub();
+    if ( $self->_has_inline_generator ) {
+        return $self->_generated_inline_sub;
     }
     else {
-        return $self->_coercion();
+        return $self->_coercion;
     }
 }
 
 sub can_be_inlined {
     my $self = shift;
 
-    return $self->_has_inline_generator() && $self->from()->can_be_inlined();
+    return $self->_has_inline_generator && $self->from->can_be_inlined;
 }
 
 sub _build_description {
@@ -96,15 +96,15 @@ sub _build_description {
 
     my $desc
         = 'coercion from '
-        . ( $self->from()->name() // 'anon type' ) . ' to '
-        . ( $self->to()->name()   // 'anon type' );
+        . ( $self->from->name // 'anon type' ) . ' to '
+        . ( $self->to->name   // 'anon type' );
 
-    $desc .= q{ } . $self->declared_at()->description();
+    $desc .= q{ } . $self->declared_at->description;
 
     return $desc;
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -122,7 +122,7 @@ Specio::Coercion - A class representing a coercion from one type to another
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 

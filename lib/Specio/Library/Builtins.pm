@@ -3,7 +3,7 @@ package Specio::Library::Builtins;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use parent 'Specio::Exporter';
 
@@ -94,7 +94,7 @@ declare(
         && !ref( %s )
         && (
                ( ref( \%s ) eq 'SCALAR' )
-               || ( ref( \( my $val = %s ) ) eq 'SCALAR' )
+               || do { ( ref( \( my $val = %s ) ) eq 'SCALAR' ) }
            )
     )
     ||
@@ -119,7 +119,13 @@ declare(
         defined( %s )
         && !ref( %s )
         && (
-               ( my $val = %s ) =~ /\A-?[0-9]+(?:\.[0-9]+)?\z/
+               do {
+                   ( my $val = %s ) =~
+                       /\A
+                        -?[0-9]+(?:\.[0-9]+)?
+                        (?:[Ee][\-+]?[0-9]+)?
+                        \z/x
+               }
            )
     )
     ||
@@ -143,7 +149,7 @@ declare(
         defined( %s )
         && !ref( %s )
         && (
-               ( my $val1 = %s ) =~ /\A-?[0-9]+\z/
+               do { ( my $val1 = %s ) =~ /\A-?[0-9]+(?:[Ee]\+?[0-9]+)?\z/ }
            )
     )
     ||
@@ -151,7 +157,7 @@ declare(
         Scalar::Util::blessed( %s )
         && overload::Overloaded( %s )
         && defined overload::Method( %s, '0+' )
-        && ( my $val2 = %s + 0 ) =~ /\A-?[0-9]+\z/
+        && do { ( my $val2 = %s + 0 ) =~ /\A-?[0-9]+(?:[Ee]\+?[0-9]+)?\z/ }
     )
 )
 EOF
@@ -401,7 +407,7 @@ Specio::Library::Builtins - Implements type constraint objects for Perl's built-
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

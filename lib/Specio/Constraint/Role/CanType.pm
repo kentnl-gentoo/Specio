@@ -3,9 +3,8 @@ package Specio::Constraint::Role::CanType;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
-use Lingua::EN::Inflect qw( PL_N WORDLIST );
 use Scalar::Util qw( blessed );
 use Storable qw( dclone );
 
@@ -41,31 +40,41 @@ sub _wrap_message_generator {
     my $self      = shift;
     my $generator = shift;
 
-    my @methods = @{ $self->methods() };
+    my @methods = @{ $self->methods };
 
     $generator //= sub {
-        my $description = shift;
-        my $value       = shift;
+        shift;
+        my $value = shift;
 
         my $class = blessed $value;
         $class ||= $value;
 
         my @missing = grep { !$value->can($_) } @methods;
 
-        my $noun = PL_N( 'method', scalar @missing );
+        my $noun = @missing == 1 ? 'method' : 'methods';
+        my $list = _word_list( map {qq['$_']} @missing );
 
-        return
-              $class
-            . ' is missing the '
-            . WORDLIST( map {"'$_'"} @missing ) . q{ }
-            . $noun;
+        return "$class is missing the $list $noun";
     };
 
-    my $d = $self->_description();
+    my $d = $self->_description;
 
     return sub { $generator->( $d, @_ ) };
 }
 ## use critic
+
+sub _word_list {
+    my @items = shift;
+
+    return $items[0] if @items == 1;
+    return join ' and ', @items if @items == 2;
+
+    my $final = pop @items;
+    my $list = join ', ', @items;
+    $list .= ', and ' . $final;
+
+    return $list;
+}
 
 1;
 
@@ -83,7 +92,7 @@ Specio::Constraint::Role::CanType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

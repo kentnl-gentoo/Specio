@@ -3,7 +3,7 @@ package Specio::Constraint::Enum;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use B ();
 use Role::Tiny::With;
@@ -58,7 +58,7 @@ EOF
 sub _build_inline_environment {
     my $self = shift;
 
-    my %values = map { $_ => 1 } @{ $self->values() };
+    my %values = map { $_ => 1 } @{ $self->values };
 
     return { '%' . $self->_env_var_name => \%values };
 }
@@ -69,7 +69,7 @@ sub _env_var_name {
     return '_Specio_Constraint_Enum_' . refaddr($self);
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -87,12 +87,12 @@ Specio::Constraint::Enum - A class for constraints which require a string matchi
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
     my $type = Specio::Constraint::Enum->new(...);
-    print $_, "\n" for @{ $type->values() };
+    print $_, "\n" for @{ $type->values };
 
 =head1 DESCRIPTION
 
@@ -115,7 +115,7 @@ class provides its own default inline generator subroutine reference.
 Finally, this class requires an additional parameter, C<values>. This must be a
 a list of valid strings for the type.
 
-=head2 $enum->values()
+=head2 $enum->values
 
 Returns an array reference of valid values for the type.
 

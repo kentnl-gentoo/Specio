@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectIsa;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use B ();
 use Role::Tiny::With;
@@ -32,7 +32,7 @@ EOF
     sub _build_inline_generator {$_inline_generator}
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -50,12 +50,12 @@ Specio::Constraint::ObjectIsa - A class for constraints which require an object 
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
     my $type = Specio::Constraint::ObjectIsa->new(...);
-    print $type->class();
+    print $type->class;
 
 =head1 DESCRIPTION
 
@@ -80,7 +80,7 @@ This class overrides the C<message_generator> default if none is provided.
 Finally, this class requires an additional parameter, C<class>. This must be a
 single class name.
 
-=head2 $object_isa->class()
+=head2 $object_isa->class
 
 Returns the class name passed to the constructor.
 

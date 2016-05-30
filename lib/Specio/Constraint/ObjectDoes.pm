@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectDoes;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 use B ();
 use Role::Tiny::With;
@@ -38,7 +38,7 @@ EOF
     sub _build_inline_generator {$_inline_generator}
 }
 
-__PACKAGE__->_ooify();
+__PACKAGE__->_ooify;
 
 1;
 
@@ -56,12 +56,12 @@ Specio::Constraint::ObjectDoes - A class for constraints which require an object
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
     my $type = Specio::Constraint::ObjectDoes->new(...);
-    print $type->role();
+    print $type->role;
 
 =head1 DESCRIPTION
 
@@ -86,7 +86,7 @@ This class overrides the C<message_generator> default if none is provided.
 Finally, this class requires an additional parameter, C<role>. This must be a
 single role name.
 
-=head2 $object_isa->role()
+=head2 $object_isa->role
 
 Returns the role name passed to the constructor.
 
