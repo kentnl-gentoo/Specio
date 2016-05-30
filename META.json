@@ -56,14 +56,12 @@
          "requires" : {
             "B" : "0",
             "Carp" : "0",
-            "Class::Load" : "0",
             "Class::Method::Modifiers" : "0",
             "Devel::PartialDump" : "0",
             "Devel::StackTrace" : "0",
             "Eval::Closure" : "0",
             "Exporter" : "0",
             "List::Util" : "1.33",
-            "Module::Runtime" : "0",
             "Role::Tiny" : "0",
             "Role::Tiny::With" : "0",
             "Scalar::Util" : "0",
@@ -101,119 +99,119 @@
    "provides" : {
       "Specio" : {
          "file" : "lib/Specio.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Coercion" : {
          "file" : "lib/Specio/Coercion.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::AnyCan" : {
          "file" : "lib/Specio/Constraint/AnyCan.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::AnyDoes" : {
          "file" : "lib/Specio/Constraint/AnyDoes.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::AnyIsa" : {
          "file" : "lib/Specio/Constraint/AnyIsa.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Enum" : {
          "file" : "lib/Specio/Constraint/Enum.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::ObjectCan" : {
          "file" : "lib/Specio/Constraint/ObjectCan.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::ObjectDoes" : {
          "file" : "lib/Specio/Constraint/ObjectDoes.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::ObjectIsa" : {
          "file" : "lib/Specio/Constraint/ObjectIsa.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Parameterizable" : {
          "file" : "lib/Specio/Constraint/Parameterizable.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Parameterized" : {
          "file" : "lib/Specio/Constraint/Parameterized.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Role::CanType" : {
          "file" : "lib/Specio/Constraint/Role/CanType.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Role::DoesType" : {
          "file" : "lib/Specio/Constraint/Role/DoesType.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Role::Interface" : {
          "file" : "lib/Specio/Constraint/Role/Interface.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Role::IsaType" : {
          "file" : "lib/Specio/Constraint/Role/IsaType.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Constraint::Simple" : {
          "file" : "lib/Specio/Constraint/Simple.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Declare" : {
          "file" : "lib/Specio/Declare.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::DeclaredAt" : {
          "file" : "lib/Specio/DeclaredAt.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Exception" : {
          "file" : "lib/Specio/Exception.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Exporter" : {
          "file" : "lib/Specio/Exporter.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Helpers" : {
          "file" : "lib/Specio/Helpers.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Library::Builtins" : {
          "file" : "lib/Specio/Library/Builtins.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Library::Numeric" : {
          "file" : "lib/Specio/Library/Numeric.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Library::Perl" : {
          "file" : "lib/Specio/Library/Perl.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Library::String" : {
          "file" : "lib/Specio/Library/String.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::OO" : {
          "file" : "lib/Specio/OO.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Registry" : {
          "file" : "lib/Specio/Registry.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::Role::Inlinable" : {
          "file" : "lib/Specio/Role/Inlinable.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       },
       "Specio::TypeChecks" : {
          "file" : "lib/Specio/TypeChecks.pm",
-         "version" : "0.15"
+         "version" : "0.16"
       }
    },
    "release_status" : "stable",
@@ -229,7 +227,7 @@
          "web" : "https://github.com/autarch/Specio"
       }
    },
-   "version" : "0.15",
+   "version" : "0.16",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.024000"
@@ -936,7 +934,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.15",
+                  "tag" : "v0.16",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },

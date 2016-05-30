@@ -3,7 +3,7 @@ package Specio::Constraint::Role::DoesType;
 use strict;
 use warnings;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 use Role::Tiny;
 use Storable qw( dclone );
@@ -73,7 +73,7 @@ Specio::Constraint::Role::DoesType - Provides a common implementation for Specio
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 DESCRIPTION
 

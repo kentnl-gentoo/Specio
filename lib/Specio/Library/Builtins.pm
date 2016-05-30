@@ -3,17 +3,17 @@ package Specio::Library::Builtins;
 use strict;
 use warnings;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 use parent 'Specio::Exporter';
 
-use Class::Load ();
 use List::Util 1.33 ();
 use overload     ();
 use re           ();
 use Scalar::Util ();
 use Specio::Constraint::Parameterizable;
 use Specio::Declare;
+use Specio::Helpers ();
 
 declare(
     'Any',
@@ -259,10 +259,13 @@ declare(
     'ClassName',
     parent => t('Str'),
     inline => sub {
-        return sprintf( <<'EOF', $_[0]->parent->inline_check( $_[1] ), $_[1] )
+        return
+            sprintf(
+            <<'EOF', $_[0]->parent->inline_check( $_[1] ), ( $_[1] ) x 2 )
 (
     ( %s )
-    && Class::Load::is_class_loaded( "%s" )
+    && length "%s"
+    && Specio::Helpers::is_class_loaded( "%s" )
 )
 EOF
     },
@@ -407,7 +410,7 @@ Specio::Library::Builtins - Implements type constraint objects for Perl's built-
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 DESCRIPTION
 

@@ -3,7 +3,7 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 use Carp qw( confess );
 use Class::Method::Modifiers ();
@@ -520,7 +520,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 DESCRIPTION
 

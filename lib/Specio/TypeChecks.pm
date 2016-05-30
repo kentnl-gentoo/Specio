@@ -3,10 +3,10 @@ package Specio::TypeChecks;
 use strict;
 use warnings;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 use Exporter qw( import );
-use Module::Runtime qw( is_module_name );
+use Specio::Helpers qw( is_class_loaded );
 use Scalar::Util qw( blessed );
 
 our @EXPORT_OK = qw(
@@ -44,7 +44,7 @@ sub is_Int {
 }
 
 sub is_ClassName {
-    is_module_name( $_[0] );
+    is_class_loaded( $_[0] );
 }
 
 sub isa_class {
@@ -71,7 +71,7 @@ Specio::TypeChecks - Type checks used internally for Specio classes (it's not se
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 DESCRIPTION
 
