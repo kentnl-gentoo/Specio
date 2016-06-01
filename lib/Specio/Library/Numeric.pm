@@ -3,7 +3,7 @@ package Specio::Library::Numeric;
 use strict;
 use warnings;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 use parent 'Specio::Exporter';
 
@@ -164,7 +164,7 @@ Specio::Library::Numeric - Implements type constraint objects some common numeri
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 

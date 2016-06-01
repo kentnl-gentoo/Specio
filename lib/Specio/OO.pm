@@ -10,7 +10,7 @@ use Exporter qw( import );
 use Scalar::Util qw( blessed weaken );
 use mro ();
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 use Specio::TypeChecks qw(
     does_role
@@ -270,7 +270,7 @@ Specio::OO - A painfully poor reimplementation of Moo(se)
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 

@@ -3,9 +3,9 @@ package Specio;
 use strict;
 use warnings;
 
-use v5.10;
+use 5.010;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 1;
 
@@ -23,7 +23,7 @@ Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 SYNOPSIS
 

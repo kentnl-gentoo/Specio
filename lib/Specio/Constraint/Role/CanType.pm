@@ -3,7 +3,7 @@ package Specio::Constraint::Role::CanType;
 use strict;
 use warnings;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 use Scalar::Util qw( blessed );
 use Storable qw( dclone );
@@ -92,7 +92,7 @@ Specio::Constraint::Role::CanType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 
