@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Exporter';
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Carp qw( croak );
 use Specio::Coercion;
@@ -26,6 +26,7 @@ our @EXPORT = qw(
     object_can_type
     object_does_type
     object_isa_type
+    union
 );
 ## use critic
 
@@ -136,7 +137,7 @@ sub object_does_type {
 
     my $tc = _make_tc(
         name       => $name,
-        role       => $p{role} // $name,
+        role       => ( defined $p{role} ? $p{role} : $name ),
         type_class => 'Specio::Constraint::ObjectDoes',
     );
 
@@ -153,7 +154,7 @@ sub object_isa_type {
 
     my $tc = _make_tc(
         name       => $name,
-        class      => $p{class} // $name,
+        class      => ( defined $p{class} ? $p{class} : $name ),
         type_class => 'Specio::Constraint::ObjectIsa',
     );
 
@@ -191,7 +192,7 @@ sub any_does_type {
 
     my $tc = _make_tc(
         name       => $name,
-        role       => $p{role} // $name,
+        role       => ( defined $p{role} ? $p{role} : $name ),
         type_class => 'Specio::Constraint::AnyDoes',
     );
 
@@ -208,11 +209,30 @@ sub any_isa_type {
 
     my $tc = _make_tc(
         name       => $name,
-        class      => $p{class} // $name,
+        class      => ( defined $p{class} ? $p{class} : $name ),
         type_class => 'Specio::Constraint::AnyIsa',
     );
 
     register( scalar caller(), $name, $tc, 'exportable' );
+
+    return $tc;
+}
+
+sub union {
+    my $name;
+    $name = shift if @_ % 2;
+    my %p = @_;
+
+    require Specio::Constraint::Union;
+
+    my $tc = _make_tc(
+        ( defined $name ? ( name => $name ) : () ),
+        %p,
+        type_class => 'Specio::Constraint::Union',
+    );
+
+    register( scalar caller(), $name, $tc, 'exportable' )
+        if defined $name;
 
     return $tc;
 }
@@ -264,7 +284,7 @@ Specio::Declare - Specio declaration subroutines
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 
@@ -327,6 +347,11 @@ version 0.17
     enum(
         'Colors',
         [qw( blue green red )],
+    );
+
+    union(
+        'IntOrArrayRef',
+        of => [ t('Int'), t('ArrayRef') ],
     );
 
 =head1 DESCRIPTION
@@ -480,7 +505,8 @@ These subroutines take a type name as the first argument. The remaining
 arguments are key/value pairs. Currently this is just the C<class> key, which
 should be a class name. This is the class that the type requires.
 
-The type name argument can be omitted to create an anonymous type.
+You can also pass just a single argument, in which case that will be used as
+both the type's name and the class for the constraint to check.
 
 =head2 any_does_type, object_does_type
 
@@ -495,7 +521,8 @@ should be a role name. This is the class that the type requires.
 This should just work (I hope) with roles created by L<Moose>, L<Mouse>, and
 L<Moo> (using L<Role::Tiny>).
 
-The type name argument can be omitted to create an anonymous type.
+You can also pass just a single argument, in which case that will be used as
+both the type's name and the role for the constraint to check.
 
 =head2 any_can_type, object_can_type
 
@@ -518,6 +545,17 @@ values.
 The first argument is the type name. The remaining arguments are key/value
 pairs. Currently this is just the C<values> key. This should an array
 reference of acceptable string values.
+
+The type name argument can be omitted to create an anonymous type.
+
+=head2 union
+
+This creates a type which is the union of two or more other types. A union
+accepts any of its underlying types.
+
+The first argument is the type name. The remaining arguments are key/value
+pairs. Currently this is just the C<of> key. This should an array
+reference of types.
 
 The type name argument can be omitted to create an anonymous type.
 

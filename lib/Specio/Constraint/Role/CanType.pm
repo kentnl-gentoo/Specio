@@ -3,7 +3,7 @@ package Specio::Constraint::Role::CanType;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Scalar::Util qw( blessed );
 use Storable qw( dclone );
@@ -42,20 +42,22 @@ sub _wrap_message_generator {
 
     my @methods = @{ $self->methods };
 
-    $generator //= sub {
-        shift;
-        my $value = shift;
+    unless ( defined $generator ) {
+        $generator = sub {
+            shift;
+            my $value = shift;
 
-        my $class = blessed $value;
-        $class ||= $value;
+            my $class = blessed $value;
+            $class ||= $value;
 
-        my @missing = grep { !$value->can($_) } @methods;
+            my @missing = grep { !$value->can($_) } @methods;
 
-        my $noun = @missing == 1 ? 'method' : 'methods';
-        my $list = _word_list( map {qq['$_']} @missing );
+            my $noun = @missing == 1 ? 'method' : 'methods';
+            my $list = _word_list( map {qq['$_']} @missing );
 
-        return "$class is missing the $list $noun";
-    };
+            return "$class is missing the $list $noun";
+        };
+    }
 
     my $d = $self->_description;
 
@@ -92,7 +94,7 @@ Specio::Constraint::Role::CanType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

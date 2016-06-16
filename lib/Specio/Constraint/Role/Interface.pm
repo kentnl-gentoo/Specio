@@ -3,12 +3,12 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Carp qw( confess );
-use Class::Method::Modifiers ();
 use Devel::PartialDump;
-use List::Util 1.33 qw( all any );
+use Eval::Closure qw( eval_closure );
+use List::Util 1.33 qw( all any first );
 use Specio::Exception;
 use Specio::TypeChecks qw( is_CodeRef );
 use Sub::Quote qw( quote_sub );
@@ -83,15 +83,15 @@ use overload(
 
 my $NullConstraint = sub {1};
 
-sub BUILD { }
+# See Specio::OO to see how this is used.
 
-around BUILD => sub {
-    my $orig = shift;
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
+sub _Specio_Constraint_Role_Interface_BUILD {
     my $self = shift;
     my $p    = shift;
 
     unless ( $self->_has_constraint || $self->_has_inline_generator ) {
-        $self->_set_constraint($NullConstraint);
+        $self->{_constraint} = $NullConstraint;
     }
 
     die
@@ -102,26 +102,22 @@ around BUILD => sub {
         = $self->_wrap_message_generator( $p->{message_generator} );
 
     return;
-};
-
-sub _set_constraint {
-    is_CodeRef( $_[1] )
-        or confess '_set_constraint must be given a coderef, not a '
-        . Devel::PartialDump->new->dump( $_[1] );
-    $_[0]->{_constraint} = $_[1];
 }
+## use critic
 
 sub _wrap_message_generator {
     my $self      = shift;
     my $generator = shift;
 
-    $generator //= sub {
-        my $description = shift;
-        my $value       = shift;
+    unless ( defined $generator ) {
+        $generator = sub {
+            my $description = shift;
+            my $value       = shift;
 
-        return "Validation failed for $description with value "
-            . Devel::PartialDump->new->dump($value);
-    };
+            return "Validation failed for $description with value "
+                . Devel::PartialDump->new->dump($value);
+        };
+    }
 
     my $d = $self->_description;
 
@@ -186,6 +182,47 @@ sub has_real_constraint {
 
     return ( $self->_has_constraint && $self->_constraint ne $NullConstraint )
         || $self->_has_inline_generator;
+}
+
+sub can_be_inlined {
+    my $self = shift;
+
+    return 1 if $self->_has_inline_generator;
+    return 0
+        if $self->_has_constraint && $self->_constraint ne $NullConstraint;
+
+    # If this type is an empty subtype of an inlinable parent, then we can
+    # inline this type as well.
+    return 1 if $self->_has_parent && $self->parent->can_be_inlined;
+    return 0;
+}
+
+sub _build_generated_inline_sub {
+    my $self = shift;
+
+    my $type = $self->_self_or_first_inlinable_ancestor;
+
+    my $source
+        = 'sub { ' . $type->_inline_generator->( $self, '$_[0]' ) . '}';
+
+    return eval_closure(
+        source      => $source,
+        environment => $type->_inline_environment,
+        description => 'inlined sub for ' . $self->_description,
+    );
+}
+
+sub _self_or_first_inlinable_ancestor {
+    my $self = shift;
+
+    my $type = first { $_->_has_inline_generator }
+    reverse $self->_ancestors_and_self;
+
+    # This should never happen because ->can_be_inlined should always be
+    # checked before this builder is called.
+    die 'Cannot generate an inline sub' unless $type;
+
+    return $type;
 }
 
 sub _build_optimized_constraint {
@@ -338,9 +375,10 @@ sub inline_coercion_and_check {
 sub inline_check {
     my $self = shift;
 
-    die 'Cannot inline' unless $self->_has_inline_generator;
+    die 'Cannot inline' unless $self->can_be_inlined;
 
-    return $self->_inline_generator->( $self, @_ );
+    my $type = $self->_self_or_first_inlinable_ancestor;
+    return $type->_inline_generator->( $self, @_ );
 }
 
 sub _subify {
@@ -442,7 +480,11 @@ sub _build_signature {
     # threads?
     return join "\n",
         ( $self->_has_parent ? $self->parent->_signature : () ),
-        ( $self->_constraint // $self->_inline_generator );
+        (
+        defined $self->_constraint
+        ? $self->_constraint
+        : $self->_inline_generator
+        );
 }
 
 # Moose compatibility methods - these exist as a temporary hack to make Specio
@@ -520,7 +562,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

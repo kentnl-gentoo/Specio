@@ -7,10 +7,12 @@ use B qw( perlstring );
 use Carp qw( confess );
 use Eval::Closure qw( eval_closure );
 use Exporter qw( import );
+use List::Util qw( all );
+use MRO::Compat;
+use Role::Tiny;
 use Scalar::Util qw( blessed weaken );
-use mro ();
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Specio::TypeChecks qw(
     does_role
@@ -89,6 +91,8 @@ sub _inline_predicate {
     }
 }
 
+my @RolesWithBUILD = qw( Specio::Constraint::Role::Interface );
+
 sub _inline_constructor {
     my $class = shift;
 
@@ -99,6 +103,20 @@ sub _inline_constructor {
             no strict 'refs';
             push @build_subs, $class . '::BUILD'
                 if defined &{ $class . '::BUILD' };
+        }
+    }
+
+    # This is all a hack to avoid needing Class::Method::Modifiers to add a
+    # BUILD from a role. We can't just call the method in the role "BUILD" or
+    # it will be shadowed by a class's BUILD. So we give it a wacky unique
+    # name. We need to explicitly know which roles have a _X_BUILD method
+    # because Role::Tiny doesn't provide a way to list all the roles applied
+    # to a class.
+    for my $role (@RolesWithBUILD) {
+        if ( Role::Tiny::does_role( $class, $role ) ) {
+            ( my $build_name = $role ) =~ s/::/_/g;
+            $build_name = q{_} . $build_name . '_BUILD';
+            push @build_subs, $role . '::' . $build_name;
         }
     }
 
@@ -131,7 +149,7 @@ EOF
     my $attrs = $class->_attrs;
     for my $name ( sort keys %{$attrs} ) {
         my $attr = $attrs->{$name};
-        my $key_name = $attr->{init_arg} // $name;
+        my $key_name = defined $attr->{init_arg} ? $attr->{init_arg} : $name;
 
         if ( $attr->{required} ) {
             $constructor .= <<"EOF";
@@ -244,6 +262,15 @@ sub clone {
     for my $key ( keys %{$self} ) {
         my $value = $self->{$key};
 
+        # We need to special case arrays of Specio objects, as they may
+        # contain code refs which cannot be cloned with dclone.
+        if ( ( ref $value eq 'ARRAY' )
+            && all { ( blessed($_) || q{} ) =~ /Specio/ } @{$value} ) {
+
+            $new{$key} = [ map { $_->clone } @{$value} ];
+            next;
+        }
+
         $new{$key}
             = blessed $value           ? $value->clone
             : ( ref $value eq 'CODE' ) ? $value
@@ -270,7 +297,7 @@ Specio::OO - A painfully poor reimplementation of Moo(se)
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

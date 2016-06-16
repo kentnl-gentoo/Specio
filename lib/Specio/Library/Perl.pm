@@ -3,7 +3,7 @@ package Specio::Library::Perl;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use parent 'Specio::Exporter';
 
@@ -111,7 +111,7 @@ EOF
 
 1;
 
-# ABSTRACT: Implements type constraint objects some common Perl language things
+# ABSTRACT: Implements type constraint objects for some common Perl language things
 
 __END__
 
@@ -121,11 +121,11 @@ __END__
 
 =head1 NAME
 
-Specio::Library::Perl - Implements type constraint objects some common Perl language things
+Specio::Library::Perl - Implements type constraint objects for some common Perl language things
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -135,6 +135,8 @@ This library provides some additional string types for common cases.
 
 A valid package name. Unlike the C<ClassName> constraint from the
 L<Specio::Library::Builtins> library, this package does not need to be loaded.
+
+This type does allow Unicode characters.
 
 =head2 ModuleName
 
@@ -146,6 +148,8 @@ A valid distribution name like C<DBD-Pg> Basically this is the same as a
 package name with the double-colons replaced by dashes. Note that there are
 some historical distribution names that don't fit this pattern, like
 C<CGI.pm>.
+
+This type does allow Unicode characters.
 
 =head2 Identifier
 

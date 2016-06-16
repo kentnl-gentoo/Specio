@@ -3,7 +3,7 @@ package Specio::Constraint::Enum;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use B ();
 use Role::Tiny::With;
@@ -87,7 +87,7 @@ Specio::Constraint::Enum - A class for constraints which require a string matchi
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 
@@ -113,7 +113,7 @@ The C<inline_generator> and C<constraint> parameters are also ignored. This
 class provides its own default inline generator subroutine reference.
 
 Finally, this class requires an additional parameter, C<values>. This must be a
-a list of valid strings for the type.
+an arrayref of valid strings for the type.
 
 =head2 $enum->values
 

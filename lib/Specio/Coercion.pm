@@ -3,7 +3,7 @@ package Specio::Coercion;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Specio::OO;
 
@@ -94,10 +94,10 @@ sub can_be_inlined {
 sub _build_description {
     my $self = shift;
 
-    my $desc
-        = 'coercion from '
-        . ( $self->from->name // 'anon type' ) . ' to '
-        . ( $self->to->name   // 'anon type' );
+    my $from_name
+        = defined $self->from->name ? $self->from->name : 'anon type';
+    my $to_name = defined $self->to->name ? $self->to->name : 'anon type';
+    my $desc = "coercion from $from_name to $to_name";
 
     $desc .= q{ } . $self->declared_at->description;
 
@@ -122,7 +122,7 @@ Specio::Coercion - A class representing a coercion from one type to another
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 

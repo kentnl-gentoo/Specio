@@ -3,7 +3,7 @@ package Specio::Library::Builtins;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use parent 'Specio::Exporter';
 
@@ -181,6 +181,16 @@ declare(
 EOF
     }
 );
+
+# This is a 5.8 back-compat shim stolen from Type::Tiny's Devel::Perl58Compat
+# module.
+unless ( exists &re::is_regexp ) {
+    require B;
+    *re::is_regexp = sub {
+        ## no critic (ErrorHandling::RequireCheckingReturnValueOfEval)
+        eval { B::svref_2object( $_[0] )->MAGIC->TYPE eq 'r' };
+    };
+}
 
 declare(
     'RegexpRef',
@@ -410,7 +420,7 @@ Specio::Library::Builtins - Implements type constraint objects for Perl's built-
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

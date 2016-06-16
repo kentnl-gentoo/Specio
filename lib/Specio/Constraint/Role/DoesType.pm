@@ -3,7 +3,7 @@ package Specio::Constraint::Role::DoesType;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Role::Tiny;
 use Storable qw( dclone );
@@ -40,16 +40,18 @@ sub _wrap_message_generator {
 
     my $role = $self->role;
 
-    $generator //= sub {
-        my $description = shift;
-        my $value       = shift;
+    unless ( defined $generator ) {
+        $generator = sub {
+            my $description = shift;
+            my $value       = shift;
 
-        return
-              "Validation failed for $description with value "
-            . Devel::PartialDump->new->dump($value)
-            . '(does not do '
-            . $role . ')';
-    };
+            return
+                  "Validation failed for $description with value "
+                . Devel::PartialDump->new->dump($value)
+                . '(does not do '
+                . $role . ')';
+        };
+    }
 
     my $d = $self->_description;
 
@@ -73,7 +75,7 @@ Specio::Constraint::Role::DoesType - Provides a common implementation for Specio
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

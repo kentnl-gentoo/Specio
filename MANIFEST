@@ -27,6 +27,7 @@ lib/Specio/Constraint/Role/DoesType.pm
 lib/Specio/Constraint/Role/Interface.pm
 lib/Specio/Constraint/Role/IsaType.pm
 lib/Specio/Constraint/Simple.pm
+lib/Specio/Constraint/Union.pm
 lib/Specio/Declare.pm
 lib/Specio/DeclaredAt.pm
 lib/Specio/Exception.pm
@@ -57,6 +58,7 @@ t/inline-environment.t
 t/inline.t
 t/lib/Specio/Library/Combines.pm
 t/lib/Specio/Library/Conflict.pm
+t/lib/Specio/Library/Union.pm
 t/lib/Specio/Library/XY.pm
 t/lib/Test/Types.pm
 t/multiple-libraries.t
@@ -65,6 +67,8 @@ t/parameterized.t
 t/perl-sanity.t
 t/string-sanity.t
 t/t-clean.t
+t/union-library.t
+t/union.t
 t/with-moo.t
 t/with-moose.t
 tidyall.ini
@@ -75,9 +79,9 @@ xt/author/no-tabs.t
 xt/author/pod-coverage.t
 xt/author/pod-spell.t
 xt/author/pod-syntax.t
+xt/author/portability.t
 xt/author/test-version.t
 xt/release/cpan-changes.t
 xt/release/meta-json.t
 xt/release/pod-linkcheck.t
-xt/release/portability.t
 xt/release/tidyall.t

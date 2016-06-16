@@ -1,3 +1,14 @@
+0.18     2016-06-15
+
+- Added union types.
+
+- If a subtype's parent could be inlined and the subtype itself did not
+  specify any additional constraints (inlinable or not), then the subtype was
+  not being inlined, even though it could be.
+
+- This distro now works with Perl 5.8 (though it was only tested with 5.8.8).
+
+
 0.17     2016-06-01
 
 - Change "use v5.10" to "use 5.010". The former appears to cause warnings on
@@ -16,8 +27,9 @@
 
 - Removed various prereqs that weren't really needed.
 
-- Added two new libraries, Specio::Library::String and ::Numeric. These
-  provide additional commonly used string and numeric types.
+- Added three new libraries, Specio::Library::String, ::Numeric, and
+  ::Perl. These provide additional commonly used string and numeric types, as
+  well as some types related to Perl syntax.
 
 
 0.14     2016-05-22

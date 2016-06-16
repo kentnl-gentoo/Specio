@@ -3,7 +3,7 @@ package Specio::Constraint::Parameterizable;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use Carp qw( confess );
 use Role::Tiny::With;
@@ -73,7 +73,8 @@ sub parameterize {
             'The "declared_at" parameter passed to ->parameterize must be a Specio::DeclaredAt object';
     }
 
-    $declared_at //= Specio::DeclaredAt->new_from_caller(1);
+    $declared_at = Specio::DeclaredAt->new_from_caller(1)
+        unless defined $declared_at;
 
     my %p = (
         parent      => $self,
@@ -115,7 +116,7 @@ Specio::Constraint::Parameterizable - A class which represents parameterizable c
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 

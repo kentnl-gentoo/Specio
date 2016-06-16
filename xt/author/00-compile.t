@@ -6,7 +6,7 @@ use warnings;
 
 use Test::More;
 
-plan tests => 30;
+plan tests => 31;
 
 my @module_files = (
     'Specio.pm',
@@ -25,6 +25,7 @@ my @module_files = (
     'Specio/Constraint/Role/Interface.pm',
     'Specio/Constraint/Role/IsaType.pm',
     'Specio/Constraint/Simple.pm',
+    'Specio/Constraint/Union.pm',
     'Specio/Declare.pm',
     'Specio/DeclaredAt.pm',
     'Specio/Exception.pm',

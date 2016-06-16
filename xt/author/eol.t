@@ -23,6 +23,7 @@ my @files = (
     'lib/Specio/Constraint/Role/Interface.pm',
     'lib/Specio/Constraint/Role/IsaType.pm',
     'lib/Specio/Constraint/Simple.pm',
+    'lib/Specio/Constraint/Union.pm',
     'lib/Specio/Declare.pm',
     'lib/Specio/DeclaredAt.pm',
     'lib/Specio/Exception.pm',
@@ -51,6 +52,7 @@ my @files = (
     't/inline.t',
     't/lib/Specio/Library/Combines.pm',
     't/lib/Specio/Library/Conflict.pm',
+    't/lib/Specio/Library/Union.pm',
     't/lib/Specio/Library/XY.pm',
     't/lib/Test/Types.pm',
     't/multiple-libraries.t',
@@ -59,6 +61,8 @@ my @files = (
     't/perl-sanity.t',
     't/string-sanity.t',
     't/t-clean.t',
+    't/union-library.t',
+    't/union.t',
     't/with-moo.t',
     't/with-moose.t'
 );

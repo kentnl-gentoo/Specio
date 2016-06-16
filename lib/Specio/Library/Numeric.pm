@@ -3,7 +3,7 @@ package Specio::Library::Numeric;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use parent 'Specio::Exporter';
 
@@ -150,7 +150,7 @@ EOF
 
 1;
 
-# ABSTRACT: Implements type constraint objects some common numeric types
+# ABSTRACT: Implements type constraint objects for some common numeric types
 
 __END__
 
@@ -160,11 +160,11 @@ __END__
 
 =head1 NAME
 
-Specio::Library::Numeric - Implements type constraint objects some common numeric types
+Specio::Library::Numeric - Implements type constraint objects for some common numeric types
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

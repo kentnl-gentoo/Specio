@@ -3,7 +3,7 @@ package Specio::Library::String;
 use strict;
 use warnings;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 use parent 'Specio::Exporter';
 
@@ -65,7 +65,7 @@ EOF
 
 1;
 
-# ABSTRACT: Implements type constraint objects some common string types
+# ABSTRACT: Implements type constraint objects for some common string types
 
 __END__
 
@@ -75,11 +75,11 @@ __END__
 
 =head1 NAME
 
-Specio::Library::String - Implements type constraint objects some common string types
+Specio::Library::String - Implements type constraint objects for some common string types
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

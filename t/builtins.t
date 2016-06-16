@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 use open ':encoding(UTF-8)', ':std';
 
-use Test::More 0.88;
+use Test::More 0.96;
 
 use Devel::PartialDump;
 use Specio::Declare;
@@ -77,6 +77,14 @@ for my $type ( t('Str'), $str_clone ) {
     ok(
         $type->is_same_type_as( t('Str') ),
         $type->name . ' is_same_type_as Str'
+    );
+}
+
+{
+    my $child = anon( parent => t('Str') );
+    ok(
+        $child->can_be_inlined,
+        'child of builtin with no additional constraint can be inlined'
     );
 }
 

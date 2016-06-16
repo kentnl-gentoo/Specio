@@ -82,6 +82,7 @@ DoesType
 Interface
 IsaType
 Simple
+Union
 Declare
 DeclaredAt
 Exception
