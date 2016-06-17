@@ -19,7 +19,6 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "B" => 0,
     "Carp" => 0,
-    "Devel::PartialDump" => 0,
     "Devel::StackTrace" => 0,
     "Eval::Closure" => 0,
     "Exporter" => 0,
@@ -50,7 +49,7 @@ my %WriteMakefileArgs = (
     "open" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.18",
+  "VERSION" => "0.19",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -60,7 +59,6 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "B" => 0,
   "Carp" => 0,
-  "Devel::PartialDump" => 0,
   "Devel::StackTrace" => 0,
   "Eval::Closure" => 0,
   "Exporter" => 0,

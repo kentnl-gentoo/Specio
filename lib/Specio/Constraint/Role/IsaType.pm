@@ -3,8 +3,9 @@ package Specio::Constraint::Role::IsaType;
 use strict;
 use warnings;
 
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
+use Specio::PartialDump qw( partial_dump );
 use Storable qw( dclone );
 
 use Role::Tiny;
@@ -48,7 +49,7 @@ sub _wrap_message_generator {
 
             return
                   "Validation failed for $description with value "
-                . Devel::PartialDump->new->dump($value)
+                . partial_dump($value)
                 . '(not isa '
                 . $class . ')';
         };
@@ -76,7 +77,7 @@ Specio::Constraint::Role::IsaType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 DESCRIPTION
 

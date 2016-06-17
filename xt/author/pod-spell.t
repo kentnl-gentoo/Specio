@@ -27,6 +27,7 @@ globification
 inlinable
 inline
 isa
+Kogman
 LaxVersionStr
 ModuleName
 MUTC
@@ -59,6 +60,7 @@ StrictVersionStr
 subtype
 subtypes
 Throwable
+Yuval
 Dave
 autarch
 Karen
@@ -94,6 +96,7 @@ Numeric
 Perl
 String
 OO
+PartialDump
 Registry
 Inlinable
 TypeChecks

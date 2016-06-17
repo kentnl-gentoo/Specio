@@ -37,7 +37,6 @@ do { my $x = {
                       'requires' => {
                                       'B' => '0',
                                       'Carp' => '0',
-                                      'Devel::PartialDump' => '0',
                                       'Devel::StackTrace' => '0',
                                       'Eval::Closure' => '0',
                                       'Exporter' => '0',

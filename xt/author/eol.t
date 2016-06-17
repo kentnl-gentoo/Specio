@@ -34,6 +34,7 @@ my @files = (
     'lib/Specio/Library/Perl.pm',
     'lib/Specio/Library/String.pm',
     'lib/Specio/OO.pm',
+    'lib/Specio/PartialDump.pm',
     'lib/Specio/Registry.pm',
     'lib/Specio/Role/Inlinable.pm',
     'lib/Specio/TypeChecks.pm',

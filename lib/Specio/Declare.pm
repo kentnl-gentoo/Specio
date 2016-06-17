@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Exporter';
 
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
 use Carp qw( croak );
 use Specio::Coercion;
@@ -284,7 +284,7 @@ Specio::Declare - Specio declaration subroutines
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 SYNOPSIS
 
