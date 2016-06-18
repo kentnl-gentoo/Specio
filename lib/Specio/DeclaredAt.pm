@@ -3,7 +3,7 @@ package Specio::DeclaredAt;
 use strict;
 use warnings;
 
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 
 use Specio::OO;
 
@@ -79,7 +79,7 @@ Specio::DeclaredAt - A class to represent where a type or coercion was declared
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 SYNOPSIS
 

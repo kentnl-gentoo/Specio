@@ -43,13 +43,12 @@ my %WriteMakefileArgs = (
     "IO::File" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.96",
-    "Test::Requires" => 0,
+    "Test::Needs" => 0,
     "lib" => 0,
-    "namespace::autoclean" => 0,
     "open" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.19",
+  "VERSION" => "0.20",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -74,9 +73,8 @@ my %FallbackPrereqs = (
   "Sub::Quote" => 0,
   "Test::Fatal" => 0,
   "Test::More" => "0.96",
-  "Test::Requires" => 0,
+  "Test::Needs" => 0,
   "lib" => 0,
-  "namespace::autoclean" => 0,
   "open" => 0,
   "overload" => 0,
   "parent" => 0,

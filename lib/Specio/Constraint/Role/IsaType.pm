@@ -3,7 +3,7 @@ package Specio::Constraint::Role::IsaType;
 use strict;
 use warnings;
 
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 
 use Specio::PartialDump qw( partial_dump );
 use Storable qw( dclone );
@@ -77,7 +77,7 @@ Specio::Constraint::Role::IsaType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 DESCRIPTION
 

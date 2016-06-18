@@ -3,7 +3,7 @@ package Specio::Exporter;
 use strict;
 use warnings;
 
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 
 use Specio::Helpers qw( install_t_sub );
 use Specio::Registry
@@ -43,7 +43,7 @@ Specio::Exporter - Base class for type libraries
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 SYNOPSIS
 
