@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectIsa;
 use strict;
 use warnings;
 
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 
 use B ();
 use Role::Tiny::With;
@@ -50,7 +50,7 @@ Specio::Constraint::ObjectIsa - A class for constraints which require an object 
 
 =head1 VERSION
 
-version 0.20
+version 0.21
 
 =head1 SYNOPSIS
 

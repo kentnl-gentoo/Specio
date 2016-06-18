@@ -1,3 +1,9 @@
+0.21     2016-06-18
+
+- Don't load Sub::Quote, but use it if it's already loaded. Since Moo uses it,
+  this should make Specio constraints just work with Moo.
+
+
 0.20     2016-06-18
 
 - Removed test dependency on namespace::autoclean.
