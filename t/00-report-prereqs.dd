@@ -55,7 +55,7 @@ do { my $x = {
                                       'perl' => '5.008',
                                       're' => '0',
                                       'strict' => '0',
-                                      'version' => '0',
+                                      'version' => '0.83',
                                       'warnings' => '0'
                                     }
                     },

@@ -33,7 +33,7 @@ my %WriteMakefileArgs = (
     "parent" => 0,
     "re" => 0,
     "strict" => 0,
-    "version" => 0,
+    "version" => "0.83",
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
@@ -47,7 +47,7 @@ my %WriteMakefileArgs = (
     "open" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.21",
+  "VERSION" => "0.22",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -79,7 +79,7 @@ my %FallbackPrereqs = (
   "re" => 0,
   "strict" => 0,
   "utf8" => 0,
-  "version" => 0,
+  "version" => "0.83",
   "warnings" => 0
 );
 

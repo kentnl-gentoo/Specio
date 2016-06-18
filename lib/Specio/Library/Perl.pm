@@ -3,12 +3,12 @@ package Specio::Library::Perl;
 use strict;
 use warnings;
 
-our $VERSION = '0.21';
+our $VERSION = '0.22';
 
 use parent 'Specio::Exporter';
 
 use Specio::Library::String;
-use version ();
+use version 0.83 ();
 
 use Specio::Declare;
 
@@ -125,7 +125,7 @@ Specio::Library::Perl - Implements type constraint objects for some common Perl 
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 DESCRIPTION
 
