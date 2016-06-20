@@ -73,6 +73,7 @@ AnyCan
 AnyDoes
 AnyIsa
 Enum
+Intersection
 ObjectCan
 ObjectDoes
 ObjectIsa

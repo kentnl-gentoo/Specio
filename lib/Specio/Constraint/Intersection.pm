@@ -1,11 +1,11 @@
-package Specio::Constraint::Union;
+package Specio::Constraint::Intersection;
 
 use strict;
 use warnings;
 
 our $VERSION = '0.23';
 
-use List::Util qw( all any );
+use List::Util qw( all );
 use Role::Tiny::With;
 use Specio::OO;
 use Storable qw( dclone );
@@ -57,7 +57,7 @@ sub _build_name {
     my $self = shift;
 
     return unless all { $_->_has_name } @{ $self->of };
-    return join q{ | }, map { $_->name } @{ $self->of };
+    return join q{ & }, map { $_->name } @{ $self->of };
 }
 
 ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
@@ -78,7 +78,7 @@ sub _build_optimized_constraint {
     ## no critic (Subroutines::ProtectPrivateSubs)
     my @c = map { $_->_optimized_constraint } @{ $self->of };
     return sub {
-        return any { $_->( $_[0] ) } @c;
+        return all { $_->( $_[0] ) } @c;
     };
 }
 
@@ -94,7 +94,7 @@ sub _build_inline_generator {
 
     return sub {
         return '(' . (
-            join q{ || },
+            join q{ && },
             map { sprintf( '( %s )', $_->_inline_generator->( $_, $_[1] ) ) }
                 @{ $self->of }
         ) . ')';
@@ -119,7 +119,7 @@ __PACKAGE__->_ooify;
 
 1;
 
-# ABSTRACT: A class for union constraints
+# ABSTRACT: A class for intersection constraints
 
 __END__
 
@@ -129,7 +129,7 @@ __END__
 
 =head1 NAME
 
-Specio::Constraint::Union - A class for union constraints
+Specio::Constraint::Intersection - A class for intersection constraints
 
 =head1 VERSION
 
@@ -141,8 +141,8 @@ version 0.23
 
 =head1 DESCRIPTION
 
-This is a specialized type constraint class for unions, which will allow a
-value which matches any one of several distinct types.
+This is a specialized type constraint class for intersections, which will
+allow a value which matches each one of several distinct types.
 
 =for Pod::Coverage parent
 
@@ -151,7 +151,7 @@ value which matches any one of several distinct types.
 This class provides all of the same methods as L<Specio::Constraint::Simple>,
 with a few differences:
 
-=head2 Specio::Constraint::Union->new( ... )
+=head2 Specio::Constraint::Intersection->new( ... )
 
 The C<parent> parameter is ignored if it passed, as it is always C<undef>
 
@@ -163,7 +163,8 @@ arrayref of type objects.
 
 =head2 $union->of
 
-Returns an array reference of the individual types which makes up this union.
+Returns an array reference of the individual types which makes up this
+intersection.
 
 =head1 ROLES
 
