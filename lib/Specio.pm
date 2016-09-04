@@ -5,7 +5,7 @@ use warnings;
 
 use 5.008;
 
-our $VERSION = '0.24';
+our $VERSION = '0.25';
 
 1;
 
@@ -23,7 +23,7 @@ Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 SYNOPSIS
 
@@ -36,9 +36,10 @@ version 0.24
         'PositiveInt',
         parent => t('Int'),
         inline => sub {
-            $_[0]->parent()->inline_check( $_[1] )
+            $_[0]->parent->inline_check( $_[1] )
                 . ' && ( '
-                . $_[1] . ' > 0 )';
+                . $_[1]
+                . ' > 0 )';
         },
     );
 
@@ -291,7 +292,7 @@ This should just work. Use a Specio type anywhere you'd specify a type.
 
 Using Specio with Moo is easy. You can pass Specio constraint objects as
 C<isa> parameters for attributes. For coercions, simply call C<<
-$type->coercion_sub() >>.
+$type->coercion_sub >>.
 
     package Foo;
 
@@ -320,7 +321,7 @@ $type->coercion_sub() >>.
     has ucstr => (
         is     => 'ro',
         isa    => $ucstr,
-        coerce => $ucstr->coercion_sub(),
+        coerce => $ucstr->coercion_sub,
     );
 
 The subs returned by Specio use L<Sub::Quote> internally and are suitable for
@@ -444,7 +445,7 @@ Dave Rolsky <autarch@urth.org>
 
 Karen Etheridge <ether@cpan.org>
 
-=head1 COPYRIGHT AND LICENCE
+=head1 COPYRIGHT AND LICENSE
 
 This software is Copyright (c) 2016 by Dave Rolsky.
 

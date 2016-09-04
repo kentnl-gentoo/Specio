@@ -1,3 +1,12 @@
+0.25     2016-09-04
+
+- Calling {any,object}_{isa,does}_type repeatedly in a package with the same
+  class or role name would die. These subs are now special-cased to simply
+  return an existing type for the given name when they receive a single
+  argument (the name of the class or role). This could come up if you had two
+  attributes both of which required an object of the same type.
+
+
 0.24     2016-06-20
 
 - Fix a bizarre failure on Perl before 5.14. AFAICT this was a test problem,
@@ -11,7 +20,7 @@
 
 0.22     2016-06-18
 
-- Require version 0.83. I know 0.77 doesn't work but I'm not sure exactly
+- Require version.pm 0.83. I know 0.77 doesn't work but I'm not sure exactly
   which version fixed the problem, since I cannot install older
   versions. Reported by Slaven Rezic. RT #115418.
 

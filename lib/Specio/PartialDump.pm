@@ -3,7 +3,7 @@ package Specio::PartialDump;
 use strict;
 use warnings;
 
-our $VERSION = '0.24';
+our $VERSION = '0.25';
 
 use Scalar::Util qw( looks_like_number reftype blessed );
 
@@ -19,7 +19,7 @@ sub partial_dump {
     my (@args) = @_;
 
     my $dump
-        = _should__dump_as_pairs(@args)
+        = _should_dump_as_pairs(@args)
         ? _dump_as_pairs( 1, @args )
         : _dump_as_list( 1, @args );
 
@@ -32,7 +32,7 @@ sub partial_dump {
     return $dump;
 }
 
-sub _should__dump_as_pairs {
+sub _should_dump_as_pairs {
     my (@what) = @_;
 
     return if @what % 2 != 0;    # must be an even list
@@ -54,12 +54,12 @@ sub _dump_as_pairs {
     }
 
     return join(
-        ', ', __dump_as_pairs_recursive( $depth, @what ),
+        ', ', _dump_as_pairs_recursive( $depth, @what ),
         ( $truncated ? "..." : () )
     );
 }
 
-sub __dump_as_pairs_recursive {
+sub _dump_as_pairs_recursive {
     my ( $depth, @what ) = @_;
 
     return unless @what;
@@ -68,7 +68,7 @@ sub __dump_as_pairs_recursive {
 
     return (
         ( _format_key( $depth, $key ) . ': ' . _format( $depth, $value ) ),
-        __dump_as_pairs_recursive( $depth, @rest ),
+        _dump_as_pairs_recursive( $depth, @rest ),
     );
 }
 
@@ -213,7 +213,7 @@ Specio::PartialDump - A partially rear-ended copy of Devel::PartialDump without 
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 DESCRIPTION
 
@@ -241,7 +241,7 @@ I am also usually active on IRC as 'drolsky' on C<irc://irc.perl.org>.
 
 Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT AND LICENCE
+=head1 COPYRIGHT AND LICENSE
 
 This software is Copyright (c) 2016 by Dave Rolsky.
 
