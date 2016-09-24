@@ -27,100 +27,100 @@ no_index:
 provides:
   Specio:
     file: lib/Specio.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Coercion:
     file: lib/Specio/Coercion.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::AnyCan:
     file: lib/Specio/Constraint/AnyCan.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::AnyDoes:
     file: lib/Specio/Constraint/AnyDoes.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::AnyIsa:
     file: lib/Specio/Constraint/AnyIsa.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Enum:
     file: lib/Specio/Constraint/Enum.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Intersection:
     file: lib/Specio/Constraint/Intersection.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::ObjectCan:
     file: lib/Specio/Constraint/ObjectCan.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::ObjectDoes:
     file: lib/Specio/Constraint/ObjectDoes.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::ObjectIsa:
     file: lib/Specio/Constraint/ObjectIsa.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Parameterizable:
     file: lib/Specio/Constraint/Parameterizable.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Parameterized:
     file: lib/Specio/Constraint/Parameterized.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Role::CanType:
     file: lib/Specio/Constraint/Role/CanType.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Role::DoesType:
     file: lib/Specio/Constraint/Role/DoesType.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Role::Interface:
     file: lib/Specio/Constraint/Role/Interface.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Role::IsaType:
     file: lib/Specio/Constraint/Role/IsaType.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Simple:
     file: lib/Specio/Constraint/Simple.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Constraint::Union:
     file: lib/Specio/Constraint/Union.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Declare:
     file: lib/Specio/Declare.pm
-    version: '0.25'
+    version: '0.26'
   Specio::DeclaredAt:
     file: lib/Specio/DeclaredAt.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Exception:
     file: lib/Specio/Exception.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Exporter:
     file: lib/Specio/Exporter.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Helpers:
     file: lib/Specio/Helpers.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Library::Builtins:
     file: lib/Specio/Library/Builtins.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Library::Numeric:
     file: lib/Specio/Library/Numeric.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Library::Perl:
     file: lib/Specio/Library/Perl.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Library::String:
     file: lib/Specio/Library/String.pm
-    version: '0.25'
+    version: '0.26'
   Specio::OO:
     file: lib/Specio/OO.pm
-    version: '0.25'
+    version: '0.26'
   Specio::PartialDump:
     file: lib/Specio/PartialDump.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Registry:
     file: lib/Specio/Registry.pm
-    version: '0.25'
+    version: '0.26'
   Specio::Role::Inlinable:
     file: lib/Specio/Role/Inlinable.pm
-    version: '0.25'
+    version: '0.26'
   Specio::TypeChecks:
     file: lib/Specio/TypeChecks.pm
-    version: '0.25'
+    version: '0.26'
 requires:
   B: '0'
   Carp: '0'
@@ -129,7 +129,7 @@ requires:
   Exporter: '0'
   List::Util: '1.33'
   MRO::Compat: '0'
-  Role::Tiny: '0'
+  Role::Tiny: '1.003003'
   Role::Tiny::With: '0'
   Scalar::Util: '0'
   Storable: '0'
@@ -145,7 +145,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Specio
   homepage: http://metacpan.org/release/Specio
   repository: git://github.com/autarch/Specio.git
-version: '0.25'
+version: '0.26'
 x_Dist_Zilla:
   perl:
     version: '5.024000'
@@ -218,7 +218,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::VersionProvider
       name: '@DROLSKY/DROLSKY::VersionProvider'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@DROLSKY/Authority'
@@ -262,14 +262,10 @@ x_Dist_Zilla:
           inherit_version: '1'
           meta_noindex: '1'
         Dist::Zilla::Role::ModuleMetadata:
-          Module::Metadata: '1.000031'
+          Module::Metadata: '1.000033'
           version: '0.003'
       name: '@DROLSKY/MetaProvides::Package'
       version: '2.004002'
-    -
-      class: Dist::Zilla::Plugin::MetaYAML
-      name: '@DROLSKY/MetaYAML'
-      version: '6.007'
     -
       class: Dist::Zilla::Plugin::Meta::Contributors
       name: '@DROLSKY/Meta::Contributors'
@@ -281,6 +277,10 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@DROLSKY/MetaJSON'
+      version: '6.007'
+    -
+      class: Dist::Zilla::Plugin::MetaYAML
+      name: '@DROLSKY/MetaYAML'
       version: '6.007'
     -
       class: Dist::Zilla::Plugin::NextRelease
@@ -301,6 +301,14 @@ x_Dist_Zilla:
           phase: develop
           type: requires
       name: '@DROLSKY/Modules for use with tidyall'
+      version: '6.007'
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: develop
+          type: requires
+      name: '@DROLSKY/Test::Version which fixes https://github.com/plicease/Test-Version/issues/7'
       version: '6.007'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
@@ -342,7 +350,9 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Test::PodSpelling
       config:
         Dist::Zilla::Plugin::Test::PodSpelling:
-          directories: []
+          directories:
+            - bin
+            - lib
           spell_cmd: ''
           stopwords:
             - API
@@ -400,15 +410,11 @@ x_Dist_Zilla:
             - subtypes
           wordlist: Pod::Wordlist
       name: '@DROLSKY/Test::PodSpelling'
-      version: '2.007002'
+      version: '2.007003'
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@DROLSKY/PodSyntaxTests'
       version: '6.007'
-    -
-      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
-      name: '@DROLSKY/Test::Pod::LinkCheck'
-      version: '1.002'
     -
       class: Dist::Zilla::Plugin::RunExtraTests
       config:
@@ -493,7 +499,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::Contributors
       name: '@DROLSKY/DROLSKY::Contributors'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
@@ -505,7 +511,7 @@ x_Dist_Zilla:
           paths:
             - .
       name: '@DROLSKY/Git::Contributors'
-      version: '0.024'
+      version: '0.026'
     -
       class: Dist::Zilla::Plugin::SurgicalPodWeaver
       config:
@@ -519,75 +525,75 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::EnsurePod5
               name: '@CorePrep/EnsurePod5'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Plugin::SingleEncoding
               name: '@DROLSKY/SingleEncoding'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Plugin::Transformer
               name: '@DROLSKY/List'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Plugin::Transformer
               name: '@DROLSKY/Verbatim'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/header'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Name
               name: '@DROLSKY/Name'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Version
               name: '@DROLSKY/Version'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/prelude'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Generic
               name: SYNOPSIS
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Generic
               name: DESCRIPTION
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Generic
               name: OVERVIEW
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Collect
               name: ATTRIBUTES
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Collect
               name: METHODS
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Collect
               name: FUNCTIONS
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Collect
               name: TYPES
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Leftovers
               name: '@DROLSKY/Leftovers'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/postlude'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::GenerateSection
               name: '@DROLSKY/generate SUPPORT'
@@ -603,7 +609,7 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Authors
               name: '@DROLSKY/Authors'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Contributors
               name: '@DROLSKY/Contributors'
@@ -611,17 +617,17 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Legal
               name: '@DROLSKY/Legal'
-              version: '4.013'
+              version: '4.014'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/footer'
-              version: '4.013'
+              version: '4.014'
       name: '@DROLSKY/SurgicalPodWeaver'
       version: '0.0023'
     -
       class: Dist::Zilla::Plugin::DROLSKY::WeaverConfig
       name: '@DROLSKY/DROLSKY::WeaverConfig'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       config:
@@ -643,7 +649,7 @@ x_Dist_Zilla:
           allow_overwrite: 1
           repo_root: .
           version: '0.006'
-      name: '@DROLSKY/generate CONTRIBUTING'
+      name: '@DROLSKY/Generate CONTRIBUTING.md'
       version: '0.012'
     -
       class: Dist::Zilla::Plugin::InstallGuide
@@ -656,22 +662,22 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::License
       name: '@DROLSKY/DROLSKY::License'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@DROLSKY/CheckPrereqsIndexed'
-      version: '0.018'
+      version: '0.020'
     -
       class: Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent
       name: '@DROLSKY/DROLSKY::CheckChangesHasContent'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch
       config:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts
       config:
@@ -682,7 +688,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::TidyAll
       name: '@DROLSKY/DROLSKY::TidyAll'
-      version: '0.67'
+      version: '0.71'
     -
       class: Dist::Zilla::Plugin::Git::Check
       config:
@@ -728,7 +734,7 @@ x_Dist_Zilla:
           repo_root: .
         Dist::Zilla::Role::Git::StringFormatter:
           time_zone: local
-      name: '@DROLSKY/commit generated files'
+      name: '@DROLSKY/Commit generated files'
       version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Tag
@@ -737,7 +743,7 @@ x_Dist_Zilla:
           branch: ~
           changelog: Changes
           signed: 0
-          tag: v0.25
+          tag: v0.26
           tag_format: v%v
           tag_message: v%v
         Dist::Zilla::Role::Git::Repo:
@@ -785,7 +791,7 @@ x_Dist_Zilla:
           repo_root: .
         Dist::Zilla::Role::Git::StringFormatter:
           time_zone: local
-      name: '@DROLSKY/commit version bump'
+      name: '@DROLSKY/Commit version bump'
       version: '2.039'
     -
       class: Dist::Zilla::Plugin::Git::Push
@@ -796,7 +802,7 @@ x_Dist_Zilla:
           remotes_must_exist: 1
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
-      name: '@DROLSKY/push version bump'
+      name: '@DROLSKY/Push version bump'
       version: '2.039'
     -
       class: Dist::Zilla::Plugin::Prereqs

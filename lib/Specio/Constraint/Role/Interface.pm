@@ -3,7 +3,7 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.25';
+our $VERSION = '0.26';
 
 use Carp qw( confess );
 use Eval::Closure qw( eval_closure );
@@ -12,7 +12,7 @@ use Specio::Exception;
 use Specio::PartialDump qw( partial_dump );
 use Specio::TypeChecks qw( is_CodeRef );
 
-use Role::Tiny;
+use Role::Tiny 1.003003;
 
 use Specio::Role::Inlinable;
 with 'Specio::Role::Inlinable';
@@ -564,7 +564,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 DESCRIPTION
 

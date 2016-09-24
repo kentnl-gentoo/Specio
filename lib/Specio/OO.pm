@@ -13,7 +13,7 @@ use Role::Tiny;
 use Scalar::Util qw( blessed weaken );
 use Specio::PartialDump qw( partial_dump );
 
-our $VERSION = '0.25';
+our $VERSION = '0.26';
 
 use Specio::TypeChecks qw(
     does_role
@@ -298,7 +298,7 @@ Specio::OO - A painfully poor reimplementation of Moo(se)
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 DESCRIPTION
 

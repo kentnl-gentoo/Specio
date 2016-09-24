@@ -86,5 +86,4 @@ xt/author/portability.t
 xt/author/test-version.t
 xt/release/cpan-changes.t
 xt/release/meta-json.t
-xt/release/pod-linkcheck.t
 xt/release/tidyall.t
