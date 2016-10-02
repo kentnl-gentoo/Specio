@@ -3,7 +3,7 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.26';
+our $VERSION = '0.27';
 
 use Carp qw( confess );
 use Eval::Closure qw( eval_closure );
@@ -61,6 +61,7 @@ use overload(
         },
         _coercions => {
             builder => '_build_coercions',
+            clone   => '_clone_coercions',
         },
 
         # Because types are cloned on import, we can't directly compare type
@@ -123,11 +124,11 @@ sub _wrap_message_generator {
     return sub { $generator->( $d, @_ ) };
 }
 
-sub coercions               { values %{ $_[0]->{coercions} } }
-sub coercion_from_type      { $_[0]->{coercions}{ $_[1] } }
-sub _has_coercion_from_type { exists $_[0]->{coercions}{ $_[1] } }
-sub _add_coercion           { $_[0]->{coercions}{ $_[1] } = $_[2] }
-sub has_coercions           { scalar keys %{ $_[0]->{coercions} } }
+sub coercions               { values %{ $_[0]->{_coercions} } }
+sub coercion_from_type      { $_[0]->{_coercions}{ $_[1] } }
+sub _has_coercion_from_type { exists $_[0]->{_coercions}{ $_[1] } }
+sub _add_coercion           { $_[0]->{_coercions}{ $_[1] } = $_[2] }
+sub has_coercions           { scalar keys %{ $_[0]->{_coercions} } }
 
 sub validate_or_die {
     my $self  = shift;
@@ -202,7 +203,7 @@ sub _build_generated_inline_sub {
     my $type = $self->_self_or_first_inlinable_ancestor;
 
     my $source
-        = 'sub { ' . $type->_inline_generator->( $self, '$_[0]' ) . '}';
+        = 'sub { ' . $type->_inline_generator->( $type, '$_[0]' ) . '}';
 
     return eval_closure(
         source      => $source,
@@ -473,6 +474,22 @@ sub _build_description {
 
 sub _build_coercions { {} }
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
+sub _clone_coercions {
+    my $self = shift;
+
+    my $coercions = $self->_coercions;
+    my %clones;
+
+    for my $name ( keys %{$coercions} ) {
+        my $coercion = $coercions->{$name};
+        $clones{$name} = $coercion->clone_with_new_to($self);
+    }
+
+    return \%clones;
+}
+## use critic
+
 sub _build_signature {
     my $self = shift;
 
@@ -564,7 +581,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DESCRIPTION
 

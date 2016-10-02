@@ -47,6 +47,7 @@ NegativeOrZeroInt
 NegativeOrZeroNum
 NonEmptySimpleStr
 NonEmptyStr
+Num
 Numeric
 OO
 ObjectCan
@@ -63,6 +64,7 @@ PositiveInt
 PositiveNum
 PositiveOrZeroInt
 PositiveOrZeroNum
+RegexpRef
 Registry
 Role
 Rolsky
@@ -75,6 +77,7 @@ Simple
 SimpleStr
 SingleDigit
 Specio
+Str
 StrictVersionStr
 String
 Throwable
@@ -94,6 +97,7 @@ inline
 isa
 lib
 namespace
+numification
 parameterizable
 parameterization
 parameterized
