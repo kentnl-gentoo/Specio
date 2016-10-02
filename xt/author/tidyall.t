@@ -10,6 +10,7 @@ use Test::Code::TidyAll 0.24;
 
 tidyall_ok(
      verbose => ( exists $ENV{TEST_TIDYALL_VERBOSE} ? $ENV{TEST_TIDYALL_VERBOSE} : 1 ),
+     jobs => ( exists $ENV{TEST_TIDYALL_JOBS} ? $ENV{TEST_TIDYALL_JOBS} : 4 ),
 );
 
-done_testing();
+done_testing;

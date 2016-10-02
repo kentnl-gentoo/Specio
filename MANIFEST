@@ -43,6 +43,7 @@ lib/Specio/PartialDump.pm
 lib/Specio/Registry.pm
 lib/Specio/Role/Inlinable.pm
 lib/Specio/TypeChecks.pm
+lib/Test/Specio.pm
 perlcriticrc
 perltidyrc
 t/00-report-prereqs.dd
@@ -63,7 +64,6 @@ t/lib/Specio/Library/Combines.pm
 t/lib/Specio/Library/Conflict.pm
 t/lib/Specio/Library/Union.pm
 t/lib/Specio/Library/XY.pm
-t/lib/Test/Types.pm
 t/multiple-libraries.t
 t/numeric-sanity.t
 t/parameterized.t
@@ -84,6 +84,6 @@ xt/author/pod-spell.t
 xt/author/pod-syntax.t
 xt/author/portability.t
 xt/author/test-version.t
+xt/author/tidyall.t
 xt/release/cpan-changes.t
 xt/release/meta-json.t
-xt/release/tidyall.t

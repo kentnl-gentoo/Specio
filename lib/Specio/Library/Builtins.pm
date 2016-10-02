@@ -3,7 +3,7 @@ package Specio::Library::Builtins;
 use strict;
 use warnings;
 
-our $VERSION = '0.27';
+our $VERSION = '0.28';
 
 use parent 'Specio::Exporter';
 
@@ -415,7 +415,7 @@ Specio::Library::Builtins - Implements type constraint objects for Perl's built-
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 DESCRIPTION
 

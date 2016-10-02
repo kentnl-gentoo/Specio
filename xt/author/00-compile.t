@@ -6,7 +6,7 @@ use warnings;
 
 use Test::More;
 
-plan tests => 33;
+plan tests => 34;
 
 my @module_files = (
     'Specio.pm',
@@ -40,7 +40,8 @@ my @module_files = (
     'Specio/PartialDump.pm',
     'Specio/Registry.pm',
     'Specio/Role/Inlinable.pm',
-    'Specio/TypeChecks.pm'
+    'Specio/TypeChecks.pm',
+    'Test/Specio.pm'
 );
 
 

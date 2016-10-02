@@ -3,7 +3,7 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.27';
+our $VERSION = '0.28';
 
 use Carp qw( confess );
 use Eval::Closure qw( eval_closure );
@@ -378,7 +378,7 @@ sub inline_check {
     die 'Cannot inline' unless $self->can_be_inlined;
 
     my $type = $self->_self_or_first_inlinable_ancestor;
-    return $type->_inline_generator->( $self, @_ );
+    return $type->_inline_generator->( $type, @_ );
 }
 
 sub _subify {
@@ -581,7 +581,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 DESCRIPTION
 

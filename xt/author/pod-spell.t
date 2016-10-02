@@ -80,6 +80,7 @@ Specio
 Str
 StrictVersionStr
 String
+Test
 Throwable
 TypeChecks
 Union
