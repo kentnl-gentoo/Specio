@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Exporter';
 
-our $VERSION = '0.28';
+our $VERSION = '0.29';
 
 use Carp qw( confess croak );
 
@@ -67,7 +67,7 @@ Specio::Registry - Implements the per-package type registry
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 DESCRIPTION
 

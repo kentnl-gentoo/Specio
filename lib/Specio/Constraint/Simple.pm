@@ -3,7 +3,7 @@ package Specio::Constraint::Simple;
 use strict;
 use warnings;
 
-our $VERSION = '0.28';
+our $VERSION = '0.29';
 
 use Role::Tiny::With;
 use Specio::OO;
@@ -28,7 +28,7 @@ Specio::Constraint::Simple - Class for simple (non-parameterized or specialized)
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 SYNOPSIS
 
