@@ -3,7 +3,7 @@ package Specio::Constraint::Role::Interface;
 use strict;
 use warnings;
 
-our $VERSION = '0.29';
+our $VERSION = '0.30';
 
 use Carp qw( confess );
 use Eval::Closure qw( eval_closure );
@@ -424,21 +424,23 @@ sub _inline_throw_exception {
 sub coercion_sub {
     my $self = shift;
 
-    if (
-        defined &Sub::Quote::quote_sub && all { $_->can_be_inlined }
-        $self->coercions
-        ) {
+    if ( defined &Sub::Quote::quote_sub
+        && all { $_->can_be_inlined } $self->coercions ) {
+
         my $inline = q{};
         my %env;
 
         for my $coercion ( $self->coercions ) {
-            $inline
-                .= '$_[0] = '
-                . $coercion->inline_coercion('$_[0]') . ' if '
-                . $coercion->from->inline_check(' $_[0]') . ';';
+            $inline .= sprintf(
+                '$_[0] = %s if %s;' . "\n",
+                $coercion->inline_coercion('$_[0]'),
+                $coercion->from->inline_check('$_[0]')
+            );
 
             %env = ( %env, %{ $coercion->_inline_environment } );
         }
+
+        $inline .= sprintf( "%s;\n", '$_[0]' );
 
         return Sub::Quote::quote_sub( $inline, \%env );
     }
@@ -581,7 +583,7 @@ Specio::Constraint::Role::Interface - The interface all type constraints should 
 
 =head1 VERSION
 
-version 0.29
+version 0.30
 
 =head1 DESCRIPTION
 
