@@ -1,3 +1,12 @@
+0.31     2016-11-05
+
+- The stack trace contained by Specio::Exception objects no longer includes a
+  stack frames for the Specio::Exception package.
+
+- Made the inline_environment() and description() methods public on type and
+  coercion objects.
+
+
 0.30     2016-10-15
 
 - Fix a bug with the Sub::Quoted sub returned by $type->coercion_sub. If a

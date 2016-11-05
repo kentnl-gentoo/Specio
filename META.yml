@@ -25,103 +25,103 @@ no_index:
 provides:
   Specio:
     file: lib/Specio.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Coercion:
     file: lib/Specio/Coercion.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::AnyCan:
     file: lib/Specio/Constraint/AnyCan.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::AnyDoes:
     file: lib/Specio/Constraint/AnyDoes.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::AnyIsa:
     file: lib/Specio/Constraint/AnyIsa.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Enum:
     file: lib/Specio/Constraint/Enum.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Intersection:
     file: lib/Specio/Constraint/Intersection.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::ObjectCan:
     file: lib/Specio/Constraint/ObjectCan.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::ObjectDoes:
     file: lib/Specio/Constraint/ObjectDoes.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::ObjectIsa:
     file: lib/Specio/Constraint/ObjectIsa.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Parameterizable:
     file: lib/Specio/Constraint/Parameterizable.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Parameterized:
     file: lib/Specio/Constraint/Parameterized.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Role::CanType:
     file: lib/Specio/Constraint/Role/CanType.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Role::DoesType:
     file: lib/Specio/Constraint/Role/DoesType.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Role::Interface:
     file: lib/Specio/Constraint/Role/Interface.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Role::IsaType:
     file: lib/Specio/Constraint/Role/IsaType.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Simple:
     file: lib/Specio/Constraint/Simple.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Constraint::Union:
     file: lib/Specio/Constraint/Union.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Declare:
     file: lib/Specio/Declare.pm
-    version: '0.30'
+    version: '0.31'
   Specio::DeclaredAt:
     file: lib/Specio/DeclaredAt.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Exception:
     file: lib/Specio/Exception.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Exporter:
     file: lib/Specio/Exporter.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Helpers:
     file: lib/Specio/Helpers.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Library::Builtins:
     file: lib/Specio/Library/Builtins.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Library::Numeric:
     file: lib/Specio/Library/Numeric.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Library::Perl:
     file: lib/Specio/Library/Perl.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Library::String:
     file: lib/Specio/Library/String.pm
-    version: '0.30'
+    version: '0.31'
   Specio::OO:
     file: lib/Specio/OO.pm
-    version: '0.30'
+    version: '0.31'
   Specio::PartialDump:
     file: lib/Specio/PartialDump.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Registry:
     file: lib/Specio/Registry.pm
-    version: '0.30'
+    version: '0.31'
   Specio::Role::Inlinable:
     file: lib/Specio/Role/Inlinable.pm
-    version: '0.30'
+    version: '0.31'
   Specio::TypeChecks:
     file: lib/Specio/TypeChecks.pm
-    version: '0.30'
+    version: '0.31'
   Test::Specio:
     file: lib/Test/Specio.pm
-    version: '0.30'
+    version: '0.31'
 requires:
   B: '0'
   Carp: '0'
@@ -145,10 +145,10 @@ requires:
   version: '0.83'
   warnings: '0'
 resources:
-  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Specio
+  bugtracker: https://github.com/houseabsolute/Specio/issues
   homepage: http://metacpan.org/release/Specio
-  repository: git://github.com/autarch/Specio.git
-version: '0.30'
+  repository: git://github.com/houseabsolute/Specio.git
+version: '0.31'
 x_Dist_Zilla:
   perl:
     version: '5.024000'
@@ -165,13 +165,11 @@ x_Dist_Zilla:
       config:
         Dist::Zilla::Plugin::GatherDir:
           exclude_filename:
-            - Build.PL
             - CONTRIBUTING.md
             - LICENSE
             - Makefile.PL
             - README.md
             - cpanfile
-            - ppport.h
           exclude_match: []
           follow_symlinks: 0
           include_dotfiles: 0
@@ -221,7 +219,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::VersionProvider
       name: '@DROLSKY/DROLSKY::VersionProvider'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@DROLSKY/Authority'
@@ -233,7 +231,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CopyFilesFromBuild
       name: '@DROLSKY/CopyFilesFromBuild'
-      version: '0.161350'
+      version: '0.163040'
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@DROLSKY/GitHub::Meta'
@@ -417,7 +415,7 @@ x_Dist_Zilla:
             - subtypes
           wordlist: Pod::Wordlist
       name: '@DROLSKY/Test::PodSpelling'
-      version: '2.007003'
+      version: '2.007004'
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@DROLSKY/PodSyntaxTests'
@@ -493,8 +491,9 @@ x_Dist_Zilla:
           script_finder:
             - ':PerlExecFiles'
           skips: []
+          switch: []
       name: '@DROLSKY/Test::Compile'
-      version: '2.054'
+      version: '2.056'
     -
       class: Dist::Zilla::Plugin::Test::ReportPrereqs
       name: '@DROLSKY/Test::ReportPrereqs'
@@ -506,19 +505,18 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::Contributors
       name: '@DROLSKY/DROLSKY::Contributors'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
         Dist::Zilla::Plugin::Git::Contributors:
-          'git --version': 2.10.1
+          'git --version': 2.10.2
           include_authors: 0
           include_releaser: 1
           order_by: name
-          paths:
-            - .
+          paths: []
       name: '@DROLSKY/Git::Contributors'
-      version: '0.028'
+      version: '0.029'
     -
       class: Dist::Zilla::Plugin::SurgicalPodWeaver
       config:
@@ -532,75 +530,75 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::EnsurePod5
               name: '@CorePrep/EnsurePod5'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Plugin::SingleEncoding
               name: '@DROLSKY/SingleEncoding'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Plugin::Transformer
               name: '@DROLSKY/List'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Plugin::Transformer
               name: '@DROLSKY/Verbatim'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/header'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Name
               name: '@DROLSKY/Name'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Version
               name: '@DROLSKY/Version'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/prelude'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Generic
               name: SYNOPSIS
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Generic
               name: DESCRIPTION
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Generic
               name: OVERVIEW
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Collect
               name: ATTRIBUTES
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Collect
               name: METHODS
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Collect
               name: FUNCTIONS
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Collect
               name: TYPES
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Leftovers
               name: '@DROLSKY/Leftovers'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/postlude'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::GenerateSection
               name: '@DROLSKY/generate SUPPORT'
@@ -616,7 +614,7 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Authors
               name: '@DROLSKY/Authors'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Contributors
               name: '@DROLSKY/Contributors'
@@ -624,17 +622,17 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Legal
               name: '@DROLSKY/Legal'
-              version: '4.014'
+              version: '4.015'
             -
               class: Pod::Weaver::Section::Region
               name: '@DROLSKY/footer'
-              version: '4.014'
+              version: '4.015'
       name: '@DROLSKY/SurgicalPodWeaver'
       version: '0.0023'
     -
       class: Dist::Zilla::Plugin::DROLSKY::WeaverConfig
       name: '@DROLSKY/DROLSKY::WeaverConfig'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       config:
@@ -669,7 +667,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::License
       name: '@DROLSKY/DROLSKY::License'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::CheckStrictVersion
       name: '@DROLSKY/CheckStrictVersion'
@@ -692,14 +690,14 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent
       name: '@DROLSKY/DROLSKY::CheckChangesHasContent'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch
       config:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts
       config:
@@ -710,7 +708,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::TidyAll
       name: '@DROLSKY/DROLSKY::TidyAll'
-      version: '0.75'
+      version: '0.76'
     -
       class: Dist::Zilla::Plugin::Git::Check
       config:
@@ -718,14 +716,12 @@ x_Dist_Zilla:
           untracked_files: die
         Dist::Zilla::Role::Git::DirtyFiles:
           allow_dirty:
-            - Build.PL
             - CONTRIBUTING.md
             - Changes
             - LICENSE
             - Makefile.PL
             - README.md
             - cpanfile
-            - ppport.h
             - tidyall.ini
           allow_dirty_match: []
           changelog: Changes
@@ -741,14 +737,12 @@ x_Dist_Zilla:
           commit_msg: v%v%n%n%c
         Dist::Zilla::Role::Git::DirtyFiles:
           allow_dirty:
-            - Build.PL
             - CONTRIBUTING.md
             - Changes
             - LICENSE
             - Makefile.PL
             - README.md
             - cpanfile
-            - ppport.h
             - tidyall.ini
           allow_dirty_match: []
           changelog: Changes
@@ -765,7 +759,7 @@ x_Dist_Zilla:
           branch: ~
           changelog: Changes
           signed: 0
-          tag: v0.30
+          tag: v0.31
           tag_format: v%v
           tag_message: v%v
         Dist::Zilla::Role::Git::Repo:
