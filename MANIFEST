@@ -8,7 +8,7 @@ META.json
 META.yml
 Makefile.PL
 README.md
-TODO.pod
+TODO.md
 cpanfile
 dist.ini
 lib/Specio.pm

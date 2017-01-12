@@ -99,135 +99,135 @@
    "provides" : {
       "Specio" : {
          "file" : "lib/Specio.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Coercion" : {
          "file" : "lib/Specio/Coercion.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::AnyCan" : {
          "file" : "lib/Specio/Constraint/AnyCan.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::AnyDoes" : {
          "file" : "lib/Specio/Constraint/AnyDoes.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::AnyIsa" : {
          "file" : "lib/Specio/Constraint/AnyIsa.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Enum" : {
          "file" : "lib/Specio/Constraint/Enum.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Intersection" : {
          "file" : "lib/Specio/Constraint/Intersection.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::ObjectCan" : {
          "file" : "lib/Specio/Constraint/ObjectCan.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::ObjectDoes" : {
          "file" : "lib/Specio/Constraint/ObjectDoes.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::ObjectIsa" : {
          "file" : "lib/Specio/Constraint/ObjectIsa.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Parameterizable" : {
          "file" : "lib/Specio/Constraint/Parameterizable.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Parameterized" : {
          "file" : "lib/Specio/Constraint/Parameterized.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Role::CanType" : {
          "file" : "lib/Specio/Constraint/Role/CanType.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Role::DoesType" : {
          "file" : "lib/Specio/Constraint/Role/DoesType.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Role::Interface" : {
          "file" : "lib/Specio/Constraint/Role/Interface.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Role::IsaType" : {
          "file" : "lib/Specio/Constraint/Role/IsaType.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Simple" : {
          "file" : "lib/Specio/Constraint/Simple.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Constraint::Union" : {
          "file" : "lib/Specio/Constraint/Union.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Declare" : {
          "file" : "lib/Specio/Declare.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::DeclaredAt" : {
          "file" : "lib/Specio/DeclaredAt.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Exception" : {
          "file" : "lib/Specio/Exception.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Exporter" : {
          "file" : "lib/Specio/Exporter.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Helpers" : {
          "file" : "lib/Specio/Helpers.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Library::Builtins" : {
          "file" : "lib/Specio/Library/Builtins.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Library::Numeric" : {
          "file" : "lib/Specio/Library/Numeric.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Library::Perl" : {
          "file" : "lib/Specio/Library/Perl.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Library::String" : {
          "file" : "lib/Specio/Library/String.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::OO" : {
          "file" : "lib/Specio/OO.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::PartialDump" : {
          "file" : "lib/Specio/PartialDump.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Registry" : {
          "file" : "lib/Specio/Registry.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::Role::Inlinable" : {
          "file" : "lib/Specio/Role/Inlinable.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Specio::TypeChecks" : {
          "file" : "lib/Specio/TypeChecks.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       },
       "Test::Specio" : {
          "file" : "lib/Test/Specio.pm",
-         "version" : "0.31"
+         "version" : "0.32"
       }
    },
    "release_status" : "stable",
@@ -242,7 +242,7 @@
          "web" : "https://github.com/houseabsolute/Specio"
       }
    },
-   "version" : 0.31,
+   "version" : "0.32",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.024000"
@@ -281,7 +281,7 @@
                }
             },
             "name" : "@DROLSKY/Git::GatherDir",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::ManifestSkip",
@@ -329,9 +329,9 @@
             "version" : "6.008"
          },
          {
-            "class" : "Dist::Zilla::Plugin::DROLSKY::VersionProvider",
-            "name" : "@DROLSKY/DROLSKY::VersionProvider",
-            "version" : "0.76"
+            "class" : "Dist::Zilla::Plugin::VersionFromMainModule",
+            "name" : "@DROLSKY/VersionFromMainModule",
+            "version" : "0.02"
          },
          {
             "class" : "Dist::Zilla::Plugin::Authority",
@@ -351,7 +351,7 @@
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Meta",
             "name" : "@DROLSKY/GitHub::Meta",
-            "version" : "0.42"
+            "version" : "0.43"
          },
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Update",
@@ -361,7 +361,7 @@
                }
             },
             "name" : "@DROLSKY/GitHub::Update",
-            "version" : "0.42"
+            "version" : "0.43"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaResources",
@@ -480,12 +480,10 @@
                   "phase" : "release",
                   "run_under_travis" : 0,
                   "skip" : [
-                     "Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent",
                      "Dist::Zilla::Plugin::DROLSKY::Contributors",
                      "Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch",
                      "Dist::Zilla::Plugin::DROLSKY::License",
                      "Dist::Zilla::Plugin::DROLSKY::TidyAll",
-                     "Dist::Zilla::Plugin::DROLSKY::VersionProvider",
                      "Pod::Weaver::PluginBundle::DROLSKY"
                   ]
                }
@@ -689,13 +687,13 @@
          {
             "class" : "Dist::Zilla::Plugin::DROLSKY::Contributors",
             "name" : "@DROLSKY/DROLSKY::Contributors",
-            "version" : "0.76"
+            "version" : "0.80"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
             "config" : {
                "Dist::Zilla::Plugin::Git::Contributors" : {
-                  "git --version" : "2.10.2",
+                  "git --version" : "2.11.0",
                   "include_authors" : 0,
                   "include_releaser" : 1,
                   "order_by" : "name",
@@ -819,6 +817,11 @@
                      },
                      {
                         "class" : "Pod::Weaver::Section::GenerateSection",
+                        "name" : "@DROLSKY/generate SOURCE",
+                        "version" : "1.02"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Section::GenerateSection",
                         "name" : "@DROLSKY/generate DONATIONS",
                         "version" : "1.02"
                      },
@@ -851,7 +854,7 @@
          {
             "class" : "Dist::Zilla::Plugin::DROLSKY::WeaverConfig",
             "name" : "@DROLSKY/DROLSKY::WeaverConfig",
-            "version" : "0.76"
+            "version" : "0.80"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeAnyFromPod",
@@ -861,7 +864,7 @@
                }
             },
             "name" : "@DROLSKY/README.md in build",
-            "version" : "0.161170"
+            "version" : "0.163250"
          },
          {
             "class" : "Dist::Zilla::Plugin::GenerateFile::FromShareDir",
@@ -881,7 +884,7 @@
                }
             },
             "name" : "@DROLSKY/Generate CONTRIBUTING.md",
-            "version" : "0.012"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::InstallGuide",
@@ -896,7 +899,7 @@
          {
             "class" : "Dist::Zilla::Plugin::DROLSKY::License",
             "name" : "@DROLSKY/DROLSKY::License",
-            "version" : "0.76"
+            "version" : "0.80"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckStrictVersion",
@@ -925,24 +928,26 @@
             "version" : "0.020"
          },
          {
-            "class" : "Dist::Zilla::Plugin::DROLSKY::CheckChangesHasContent",
-            "name" : "@DROLSKY/DROLSKY::CheckChangesHasContent",
-            "version" : "0.76"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch",
             "config" : {
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
             "name" : "@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch",
-            "version" : "0.76"
+            "version" : "0.80"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::EnsureChangesHasContent",
+            "name" : "@DROLSKY/EnsureChangesHasContent",
+            "version" : "0.02"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts",
             "config" : {
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
@@ -952,7 +957,7 @@
          {
             "class" : "Dist::Zilla::Plugin::DROLSKY::TidyAll",
             "name" : "@DROLSKY/DROLSKY::TidyAll",
-            "version" : "0.76"
+            "version" : "0.80"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
@@ -974,11 +979,12 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
             "name" : "@DROLSKY/Git::Check",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -1001,6 +1007,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1008,7 +1015,7 @@
                }
             },
             "name" : "@DROLSKY/Commit generated files",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
@@ -1017,11 +1024,12 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.31",
+                  "tag" : "v0.32",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1029,7 +1037,7 @@
                }
             },
             "name" : "@DROLSKY/Git::Tag",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -1041,11 +1049,12 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
             "name" : "@DROLSKY/Git::Push",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::BumpVersionAfterRelease",
@@ -1080,6 +1089,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1087,7 +1097,7 @@
                }
             },
             "name" : "@DROLSKY/Commit version bump",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -1099,11 +1109,12 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
             "name" : "@DROLSKY/Push version bump",
-            "version" : "2.039"
+            "version" : "2.041"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -1189,6 +1200,6 @@
    "x_contributors" : [
       "Karen Etheridge <ether@cpan.org>"
    ],
-   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0115"
+   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0225"
 }
 
