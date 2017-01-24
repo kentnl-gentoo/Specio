@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Exporter';
 
-our $VERSION = '0.32';
+our $VERSION = '0.33';
 
 use Carp qw( croak );
 use Specio::Coercion;
@@ -337,7 +337,7 @@ Specio::Declare - Specio declaration subroutines
 
 =head1 VERSION
 
-version 0.32
+version 0.33
 
 =head1 SYNOPSIS
 
@@ -385,7 +385,7 @@ version 0.32
     any_isa_type('DateTime');
 
     # Specio name is DateTimeObject
-    object_isa_type( 'DateTimeObject', 'DateTime' );
+    object_isa_type( 'DateTimeObject', class => 'DateTime' );
 
     any_can_type(
         'Duck',
@@ -527,7 +527,7 @@ named or anonymous type.
 =item * using => sub { ... }
 
 This is a subroutine which defines the type coercion. It will be passed a
-single argument, the value coerce. It should return a new value of the type
+single argument, the value to coerce. It should return a new value of the type
 this coercion is to.
 
 This parameter is mutually exclusive with the C<inline> parameter.

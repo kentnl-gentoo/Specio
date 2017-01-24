@@ -5,7 +5,7 @@ use warnings;
 
 use 5.008;
 
-our $VERSION = '0.32';
+our $VERSION = '0.33';
 
 1;
 
@@ -23,7 +23,7 @@ Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.32
+version 0.33
 
 =head1 SYNOPSIS
 
@@ -73,8 +73,6 @@ version 0.32
     object_isa_type('MyApp::Person');
 
 =head1 DESCRIPTION
-
-B<WARNING: This thing is very alpha.>
 
 The C<Specio> distribution provides classes for representing type constraints
 and coercion, along with syntax sugar for declaring them.
