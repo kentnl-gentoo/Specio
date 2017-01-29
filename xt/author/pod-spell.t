@@ -25,6 +25,7 @@ DROLSKY's
 Dave
 Declare
 DeclaredAt
+Dict
 DoesType
 Enum
 Etheridge
@@ -40,6 +41,7 @@ Kogman
 LaxVersionStr
 Library
 MUTC
+Map
 ModuleName
 NegativeInt
 NegativeNum
@@ -80,8 +82,11 @@ Specio
 Str
 StrictVersionStr
 String
+Structurable
+Structured
 Test
 Throwable
+Tuple
 TypeChecks
 Union
 Yuval
@@ -104,5 +109,7 @@ parameterization
 parameterized
 reimplementation
 sigils
+slurpy
+structurable
 subtype
 subtypes

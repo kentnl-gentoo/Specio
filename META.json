@@ -38,6 +38,7 @@
             "Perl::Tidy" : "20160302",
             "Pod::Coverage::TrustPod" : "0",
             "Pod::Wordlist" : "0",
+            "Ref::Util" : "0.112",
             "Sub::Quote" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta::JSON" : "0.16",
@@ -52,11 +53,15 @@
             "Test::Spelling" : "0.12",
             "Test::Vars" : "0.009",
             "Test::Version" : "2.05",
+            "Test::Without::Module" : "0",
             "blib" : "1.01",
             "namespace::autoclean" : "0"
          }
       },
       "runtime" : {
+         "recommends" : {
+            "Ref::Util" : "0.112"
+         },
          "requires" : {
             "B" : "0",
             "Carp" : "0",
@@ -99,135 +104,159 @@
    "provides" : {
       "Specio" : {
          "file" : "lib/Specio.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Coercion" : {
          "file" : "lib/Specio/Coercion.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::AnyCan" : {
          "file" : "lib/Specio/Constraint/AnyCan.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::AnyDoes" : {
          "file" : "lib/Specio/Constraint/AnyDoes.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::AnyIsa" : {
          "file" : "lib/Specio/Constraint/AnyIsa.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Enum" : {
          "file" : "lib/Specio/Constraint/Enum.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Intersection" : {
          "file" : "lib/Specio/Constraint/Intersection.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::ObjectCan" : {
          "file" : "lib/Specio/Constraint/ObjectCan.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::ObjectDoes" : {
          "file" : "lib/Specio/Constraint/ObjectDoes.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::ObjectIsa" : {
          "file" : "lib/Specio/Constraint/ObjectIsa.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Parameterizable" : {
          "file" : "lib/Specio/Constraint/Parameterizable.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Parameterized" : {
          "file" : "lib/Specio/Constraint/Parameterized.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Role::CanType" : {
          "file" : "lib/Specio/Constraint/Role/CanType.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Role::DoesType" : {
          "file" : "lib/Specio/Constraint/Role/DoesType.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Role::Interface" : {
          "file" : "lib/Specio/Constraint/Role/Interface.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Role::IsaType" : {
          "file" : "lib/Specio/Constraint/Role/IsaType.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Constraint::Simple" : {
          "file" : "lib/Specio/Constraint/Simple.pm",
-         "version" : "0.33"
+         "version" : "0.34"
+      },
+      "Specio::Constraint::Structurable" : {
+         "file" : "lib/Specio/Constraint/Structurable.pm",
+         "version" : "0.34"
+      },
+      "Specio::Constraint::Structured" : {
+         "file" : "lib/Specio/Constraint/Structured.pm",
+         "version" : "0.34"
       },
       "Specio::Constraint::Union" : {
          "file" : "lib/Specio/Constraint/Union.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Declare" : {
          "file" : "lib/Specio/Declare.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::DeclaredAt" : {
          "file" : "lib/Specio/DeclaredAt.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Exception" : {
          "file" : "lib/Specio/Exception.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Exporter" : {
          "file" : "lib/Specio/Exporter.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Helpers" : {
          "file" : "lib/Specio/Helpers.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Library::Builtins" : {
          "file" : "lib/Specio/Library/Builtins.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Library::Numeric" : {
          "file" : "lib/Specio/Library/Numeric.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Library::Perl" : {
          "file" : "lib/Specio/Library/Perl.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Library::String" : {
          "file" : "lib/Specio/Library/String.pm",
-         "version" : "0.33"
+         "version" : "0.34"
+      },
+      "Specio::Library::Structured" : {
+         "file" : "lib/Specio/Library/Structured.pm",
+         "version" : "0.34"
+      },
+      "Specio::Library::Structured::Dict" : {
+         "file" : "lib/Specio/Library/Structured/Dict.pm",
+         "version" : "0.34"
+      },
+      "Specio::Library::Structured::Map" : {
+         "file" : "lib/Specio/Library/Structured/Map.pm",
+         "version" : "0.34"
+      },
+      "Specio::Library::Structured::Tuple" : {
+         "file" : "lib/Specio/Library/Structured/Tuple.pm",
+         "version" : "0.34"
       },
       "Specio::OO" : {
          "file" : "lib/Specio/OO.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::PartialDump" : {
          "file" : "lib/Specio/PartialDump.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Registry" : {
          "file" : "lib/Specio/Registry.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::Role::Inlinable" : {
          "file" : "lib/Specio/Role/Inlinable.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Specio::TypeChecks" : {
          "file" : "lib/Specio/TypeChecks.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       },
       "Test::Specio" : {
          "file" : "lib/Test/Specio.pm",
-         "version" : "0.33"
+         "version" : "0.34"
       }
    },
    "release_status" : "stable",
@@ -242,10 +271,10 @@
          "web" : "https://github.com/houseabsolute/Specio"
       }
    },
-   "version" : "0.33",
+   "version" : "0.34",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.024000"
+         "version" : "5.024001"
       },
       "plugins" : [
          {
@@ -382,14 +411,14 @@
                   "include_underscores" : 0
                },
                "Dist::Zilla::Role::MetaProvider::Provider" : {
-                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.001011",
+                  "$Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.002003",
                   "inherit_missing" : 1,
                   "inherit_version" : 1,
                   "meta_noindex" : 1
                },
                "Dist::Zilla::Role::ModuleMetadata" : {
                   "Module::Metadata" : "1.000031",
-                  "version" : "0.003"
+                  "version" : "0.004"
                }
             },
             "name" : "@DROLSKY/MetaProvides::Package",
@@ -561,6 +590,8 @@
                      "parameterized",
                      "reimplementation",
                      "sigils",
+                     "slurpy",
+                     "structurable",
                      "subtype",
                      "subtypes"
                   ],
@@ -693,7 +724,7 @@
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
             "config" : {
                "Dist::Zilla::Plugin::Git::Contributors" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "include_authors" : 0,
                   "include_releaser" : 1,
                   "order_by" : "name",
@@ -718,97 +749,97 @@
                      {
                         "class" : "Pod::Weaver::Plugin::EnsurePod5",
                         "name" : "@CorePrep/EnsurePod5",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Plugin::H1Nester",
                         "name" : "@CorePrep/H1Nester",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Plugin::SingleEncoding",
                         "name" : "@DROLSKY/SingleEncoding",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Plugin::Transformer",
                         "name" : "@DROLSKY/List",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Plugin::Transformer",
                         "name" : "@DROLSKY/Verbatim",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Region",
                         "name" : "@DROLSKY/header",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Name",
                         "name" : "@DROLSKY/Name",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Version",
                         "name" : "@DROLSKY/Version",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Region",
                         "name" : "@DROLSKY/prelude",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Generic",
                         "name" : "SYNOPSIS",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Generic",
                         "name" : "DESCRIPTION",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Generic",
                         "name" : "OVERVIEW",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Collect",
                         "name" : "ATTRIBUTES",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Collect",
                         "name" : "METHODS",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Collect",
                         "name" : "FUNCTIONS",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Collect",
                         "name" : "TYPES",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Leftovers",
                         "name" : "@DROLSKY/Leftovers",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Region",
                         "name" : "@DROLSKY/postlude",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::GenerateSection",
                         "name" : "@DROLSKY/generate SUPPORT",
-                        "version" : "1.01"
+                        "version" : "1.02"
                      },
                      {
                         "class" : "Pod::Weaver::Section::AllowOverride",
@@ -818,17 +849,17 @@
                      {
                         "class" : "Pod::Weaver::Section::GenerateSection",
                         "name" : "@DROLSKY/generate SOURCE",
-                        "version" : "1.01"
+                        "version" : "1.02"
                      },
                      {
                         "class" : "Pod::Weaver::Section::GenerateSection",
                         "name" : "@DROLSKY/generate DONATIONS",
-                        "version" : "1.01"
+                        "version" : "1.02"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Authors",
                         "name" : "@DROLSKY/Authors",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Contributors",
@@ -838,12 +869,12 @@
                      {
                         "class" : "Pod::Weaver::Section::Legal",
                         "name" : "@DROLSKY/Legal",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Region",
                         "name" : "@DROLSKY/footer",
-                        "version" : "4.013"
+                        "version" : "4.015"
                      }
                   ]
                }
@@ -880,7 +911,7 @@
                "Dist::Zilla::Role::RepoFileInjector" : {
                   "allow_overwrite" : 1,
                   "repo_root" : ".",
-                  "version" : "0.006"
+                  "version" : "0.007"
                }
             },
             "name" : "@DROLSKY/Generate CONTRIBUTING.md",
@@ -916,7 +947,7 @@
                },
                "Dist::Zilla::Role::ModuleMetadata" : {
                   "Module::Metadata" : "1.000031",
-                  "version" : "0.003"
+                  "version" : "0.004"
                }
             },
             "name" : "@DROLSKY/CheckSelfDependency",
@@ -931,7 +962,7 @@
             "class" : "Dist::Zilla::Plugin::DROLSKY::Git::CheckFor::CorrectBranch",
             "config" : {
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
@@ -947,7 +978,7 @@
             "class" : "Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts",
             "config" : {
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
@@ -979,7 +1010,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
@@ -1007,7 +1038,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1024,12 +1055,12 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.33",
+                  "tag" : "v0.34",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1049,7 +1080,7 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
@@ -1089,7 +1120,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -1109,12 +1140,27 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git --version" : "2.7.4",
+                  "git --version" : "2.11.0",
                   "repo_root" : "."
                }
             },
             "name" : "@DROLSKY/Push version bump",
             "version" : "2.041"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs::Soften",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs::Soften" : {
+                  "copy_to" : [],
+                  "modules" : [
+                     "Ref::Util"
+                  ],
+                  "modules_from_features" : null,
+                  "to_relationship" : "recommends"
+               }
+            },
+            "name" : "Prereqs::Soften",
+            "version" : "0.006002"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -1200,6 +1246,6 @@
    "x_contributors" : [
       "Karen Etheridge <ether@cpan.org>"
    ],
-   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0213"
+   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0225"
 }
 

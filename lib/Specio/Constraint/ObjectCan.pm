@@ -3,7 +3,7 @@ package Specio::Constraint::ObjectCan;
 use strict;
 use warnings;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
 
 use B ();
 use List::Util 1.33 ();
@@ -59,7 +59,7 @@ Specio::Constraint::ObjectCan - A class for constraints which require an object 
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 SYNOPSIS
 

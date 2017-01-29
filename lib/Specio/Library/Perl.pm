@@ -3,7 +3,7 @@ package Specio::Library::Perl;
 use strict;
 use warnings;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
 
 use parent 'Specio::Exporter';
 
@@ -125,7 +125,7 @@ Specio::Library::Perl - Implements type constraint objects for some common Perl 
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 DESCRIPTION
 
@@ -163,7 +163,7 @@ This type does allow Unicode characters.
 
 =head2 SafeIdentifier
 
-This is just like an C<Identifier> but it exclude the single-character
+This is just like an C<Identifier> but it excludes the single-character
 variables underscore (C<_>), C<a>< and C<b>, as these are special variables to
 the Perl interpreter.
 

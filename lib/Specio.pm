@@ -5,7 +5,7 @@ use warnings;
 
 use 5.008;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
 
 1;
 
@@ -23,7 +23,7 @@ Specio - Type constraints and coercions for Perl
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 SYNOPSIS
 
@@ -176,11 +176,12 @@ check unless it I<also> overloads boolification.
 Most types do not check that the overloaded method actually returns something
 that matches the constraint. This may change in the future.
 
-The C<Bool> type accepts an object that provides C<bool> overloading.
+The C<Bool> type accepts an object that implements C<bool> overloading.
 
-The C<Str> type accepts an object that provides string (C<q{""}>) overloading.
+The C<Str> type accepts an object that implements string (C<q{""}>)
+overloading.
 
-The C<Num> type accepts an object that provides numeric C<'0+'}>
+The C<Num> type accepts an object that implements numeric (C<'0+'}>)
 overloading. The C<Int> type does as well, but it will check that the
 overloading returns an actual integer.
 

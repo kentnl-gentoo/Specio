@@ -3,7 +3,7 @@ package Test::Specio;
 use strict;
 use warnings;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
 
 use B ();
 use IO::File;
@@ -103,8 +103,8 @@ our $STR_OVERLOAD_CLASS_NAME = _T::StrOverload->new('_T::StrOverload');
     package _T::NumOverload;
 
     use overload
-        q{0+} => sub { ${ $_[0] } },
-        '+'   => sub { ${ $_[0] } + $_[1] },
+        '0+' => sub { ${ $_[0] } },
+        '+'  => sub { ${ $_[0] } + $_[1] },
         fallback => 0;
 
     sub new {
@@ -123,7 +123,7 @@ our $NUM_OVERLOAD_NEG_DECIMAL = _T::NumOverload->new(42.42);
     package _T::CodeOverload;
 
     use overload
-        q{&{}} => sub { ${ $_[0] } },
+        '&{}' => sub { ${ $_[0] } },
         fallback => 0;
 
     sub new {
@@ -138,7 +138,7 @@ our $CODE_OVERLOAD = _T::CodeOverload->new( sub { } );
     package _T::RegexOverload;
 
     use overload
-        q{qr} => sub { ${ $_[0] } },
+        'qr' => sub { ${ $_[0] } },
         fallback => 0;
 
     sub new {
@@ -153,7 +153,7 @@ our $REGEX_OVERLOAD = _T::RegexOverload->new(qr/foo/);
     package _T::GlobOverload;
 
     use overload
-        q[*{}] => sub { ${ $_[0] } },
+        '*{}' => sub { ${ $_[0] } },
         fallback => 0;
 
     sub new {
@@ -166,7 +166,7 @@ our $REGEX_OVERLOAD = _T::RegexOverload->new(qr/foo/);
     package _T::ScalarOverload;
 
     use overload
-        q[${}] => sub { ${ $_[0] } },
+        '${}' => sub { ${ $_[0] } },
         fallback => 0;
 
     sub new {
@@ -181,7 +181,7 @@ our $SCALAR_OVERLOAD = _T::ScalarOverload->new('x');
     package _T::ArrayOverload;
 
     use overload
-        q[@{}] => sub { $_[0] },
+        '@{}' => sub { $_[0] },
         fallback => 0;
 
     sub new {
@@ -196,12 +196,15 @@ our $ARRAY_OVERLOAD = _T::ArrayOverload->new( [ 1, 2, 3 ] );
     package _T::HashOverload;
 
     use overload
-        q[%{}] => sub { $_[0] },
+        '%{}' => sub { $_[0][0] },
         fallback => 0;
 
     sub new {
         my $hash = $_[1];
-        bless $hash, __PACKAGE__;
+
+        # We use an array-based object so we make sure we test hash
+        # overloading as opposed to just treating the object as a hash.
+        bless [$hash], __PACKAGE__;
     }
 }
 
@@ -329,7 +332,7 @@ Test::Specio - Test helpers for Specio
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 SYNOPSIS
 
@@ -518,7 +521,7 @@ You can create such a variable like this:
   local *FOO;
   my $GLOB_OVERLOAD = _T::GlobOverload->new( \*FOO );
 
-If you want to create a glob overloading object that returns filehandle, do
+If you want to create a glob overloading object that returns a filehandle, do
 this:
 
   local *BAR;

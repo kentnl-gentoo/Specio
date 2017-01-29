@@ -3,17 +3,23 @@ package Specio::Exporter;
 use strict;
 use warnings;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
+
+use parent 'Exporter';
 
 use Specio::Helpers qw( install_t_sub );
 use Specio::Registry
     qw( exportable_types_for_package internal_types_for_package register );
+
+my %Exported;
 
 sub import {
     my $package  = shift;
     my $reexport = shift;
 
     my $caller = caller();
+
+    return if $Exported{$caller}{$package};
 
     my $exported = exportable_types_for_package($package);
 
@@ -25,6 +31,18 @@ sub import {
         $caller,
         internal_types_for_package($caller),
     );
+
+    if ( $package->can('_also_export') ) {
+        for my $sub ( $package->_also_export ) {
+            ## no critic (TestingAndDebugging::ProhibitNoStrict)
+            no strict 'refs';
+            *{ $caller . '::' . $sub } = \&{ $package . '::' . $sub };
+        }
+    }
+
+    $Exported{$caller}{$package} = 1;
+
+    return;
 }
 
 1;
@@ -43,7 +61,7 @@ Specio::Exporter - Base class for type libraries
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 SYNOPSIS
 
@@ -95,6 +113,14 @@ You can explicitly ask for types to be re-exported:
 In this case, packages which C<use MyApp::Type::Library> will get all the
 types from L<Specio::Library::Builtins> as well as any types defined in
 C<MyApp::Type::Library>.
+
+=head1 ADDITIONAL EXPORTS
+
+If you want to export some additional subroutines from a package which has
+C<Specio::Exporter> as its parent, define a sub named C<_also_export>. This
+sub should return a I<list> of subroutines defined in your package that should
+also be exported. These subs will be exported unconditionally to any package
+that uses your package.
 
 =head1 SUPPORT
 

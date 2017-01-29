@@ -28,6 +28,8 @@ lib/Specio/Constraint/Role/DoesType.pm
 lib/Specio/Constraint/Role/Interface.pm
 lib/Specio/Constraint/Role/IsaType.pm
 lib/Specio/Constraint/Simple.pm
+lib/Specio/Constraint/Structurable.pm
+lib/Specio/Constraint/Structured.pm
 lib/Specio/Constraint/Union.pm
 lib/Specio/Declare.pm
 lib/Specio/DeclaredAt.pm
@@ -38,6 +40,10 @@ lib/Specio/Library/Builtins.pm
 lib/Specio/Library/Numeric.pm
 lib/Specio/Library/Perl.pm
 lib/Specio/Library/String.pm
+lib/Specio/Library/Structured.pm
+lib/Specio/Library/Structured/Dict.pm
+lib/Specio/Library/Structured/Map.pm
+lib/Specio/Library/Structured/Tuple.pm
 lib/Specio/OO.pm
 lib/Specio/PartialDump.pm
 lib/Specio/Registry.pm
@@ -48,6 +54,7 @@ perlcriticrc
 perltidyrc
 t/00-report-prereqs.dd
 t/00-report-prereqs.t
+t/additional-exports.t
 t/anon.t
 t/builtins-sanity.t
 t/builtins.t
@@ -55,8 +62,10 @@ t/coercion.t
 t/combines.t
 t/conflicts.t
 t/declare-helpers.t
+t/dict.t
 t/does-type.t
 t/exception.t
+t/import-twice.t
 t/inline-environment.t
 t/inline.t
 t/intersection.t
@@ -64,12 +73,14 @@ t/lib/Specio/Library/Combines.pm
 t/lib/Specio/Library/Conflict.pm
 t/lib/Specio/Library/Union.pm
 t/lib/Specio/Library/XY.pm
+t/map.t
 t/multiple-libraries.t
 t/numeric-sanity.t
 t/parameterized.t
 t/perl-sanity.t
 t/string-sanity.t
 t/t-clean.t
+t/tuple.t
 t/union-library.t
 t/union.t
 t/with-moo.t
@@ -78,6 +89,7 @@ tidyall.ini
 xt/author/00-compile.t
 xt/author/eol.t
 xt/author/mojibake.t
+xt/author/no-ref-util.t
 xt/author/no-tabs.t
 xt/author/pod-coverage.t
 xt/author/pod-spell.t
