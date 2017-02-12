@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
     "IO::File" => 0,
     "List::Util" => "1.33",
     "MRO::Compat" => 0,
+    "Module::Runtime" => 0,
     "Role::Tiny" => "1.003003",
     "Role::Tiny::With" => 0,
     "Scalar::Util" => 0,
@@ -47,7 +48,7 @@ my %WriteMakefileArgs = (
     "open" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.34",
+  "VERSION" => "0.35",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -65,6 +66,7 @@ my %FallbackPrereqs = (
   "IO::File" => 0,
   "List::Util" => "1.33",
   "MRO::Compat" => 0,
+  "Module::Runtime" => 0,
   "Role::Tiny" => "1.003003",
   "Role::Tiny::With" => 0,
   "Scalar::Util" => 0,

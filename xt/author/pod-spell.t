@@ -84,6 +84,7 @@ StrictVersionStr
 String
 Structurable
 Structured
+Subs
 Test
 Throwable
 Tuple

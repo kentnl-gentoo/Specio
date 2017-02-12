@@ -3,7 +3,7 @@ package Specio::Constraint::Structured;
 use strict;
 use warnings;
 
-our $VERSION = '0.34';
+our $VERSION = '0.35';
 
 use List::Util qw( all );
 use Role::Tiny::With;
@@ -56,7 +56,7 @@ Specio::Constraint::Structured - A class which represents structured constraints
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 SYNOPSIS
 

@@ -48,6 +48,7 @@ lib/Specio/OO.pm
 lib/Specio/PartialDump.pm
 lib/Specio/Registry.pm
 lib/Specio/Role/Inlinable.pm
+lib/Specio/Subs.pm
 lib/Specio/TypeChecks.pm
 lib/Test/Specio.pm
 perlcriticrc
@@ -69,8 +70,11 @@ t/import-twice.t
 t/inline-environment.t
 t/inline.t
 t/intersection.t
+t/lib/Specio/Library/CannotSub.pm
+t/lib/Specio/Library/Coercions.pm
 t/lib/Specio/Library/Combines.pm
 t/lib/Specio/Library/Conflict.pm
+t/lib/Specio/Library/NoInline.pm
 t/lib/Specio/Library/Union.pm
 t/lib/Specio/Library/XY.pm
 t/map.t
@@ -79,6 +83,7 @@ t/numeric-sanity.t
 t/parameterized.t
 t/perl-sanity.t
 t/string-sanity.t
+t/subs.t
 t/t-clean.t
 t/tuple.t
 t/union-library.t

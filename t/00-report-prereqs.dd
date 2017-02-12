@@ -6,6 +6,7 @@ do { my $x = {
                       },
        'develop' => {
                     'requires' => {
+                                  'Code::TidyAll' => '0.56',
                                   'Code::TidyAll::Plugin::Test::Vars' => '0.02',
                                   'File::Spec' => '0',
                                   'IO::Handle' => '0',
@@ -40,7 +41,8 @@ do { my $x = {
                   },
        'runtime' => {
                       'recommends' => {
-                                        'Ref::Util' => '0.112'
+                                        'Ref::Util' => '0.112',
+                                        'Sub::Util' => '1.40'
                                       },
                       'requires' => {
                                       'B' => '0',
@@ -51,6 +53,7 @@ do { my $x = {
                                       'IO::File' => '0',
                                       'List::Util' => '1.33',
                                       'MRO::Compat' => '0',
+                                      'Module::Runtime' => '0',
                                       'Role::Tiny' => '1.003003',
                                       'Role::Tiny::With' => '0',
                                       'Scalar::Util' => '0',

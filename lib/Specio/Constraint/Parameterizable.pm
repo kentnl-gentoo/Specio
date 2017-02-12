@@ -3,7 +3,7 @@ package Specio::Constraint::Parameterizable;
 use strict;
 use warnings;
 
-our $VERSION = '0.34';
+our $VERSION = '0.35';
 
 use Carp qw( confess );
 use Role::Tiny::With;
@@ -116,7 +116,7 @@ Specio::Constraint::Parameterizable - A class which represents parameterizable c
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 SYNOPSIS
 

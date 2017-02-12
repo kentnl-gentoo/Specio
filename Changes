@@ -1,10 +1,21 @@
+0.35     2017-02-12
+
+- Added Specio::Subs, a module which allows you to turn one or more library's
+  types into subroutines like is_Int() and to_Int().
+
+- Added an inline_coercion method to Specio constraints.
+
+
 0.34     2017-01-29
 
-- Packages with Specio::Exporter can now specify additional arbitrary subs to
-  exporter. See the Specio::Exporter docs for details.
+- Packages with Specio::Exporter as their parent can now specify additional
+  arbitrary subs to exporter. See the Specio::Exporter docs for details.
 
 - Importing the same library twice in a given package would throw an
   exception. The second attempt to import is now ignored.
+
+- Added an alpha implementation of structured types. See
+  Specio::Library::Structured for details.
 
 
 0.33     2017-01-24

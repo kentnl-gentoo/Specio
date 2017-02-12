@@ -25,123 +25,127 @@ no_index:
 provides:
   Specio:
     file: lib/Specio.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Coercion:
     file: lib/Specio/Coercion.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::AnyCan:
     file: lib/Specio/Constraint/AnyCan.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::AnyDoes:
     file: lib/Specio/Constraint/AnyDoes.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::AnyIsa:
     file: lib/Specio/Constraint/AnyIsa.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Enum:
     file: lib/Specio/Constraint/Enum.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Intersection:
     file: lib/Specio/Constraint/Intersection.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::ObjectCan:
     file: lib/Specio/Constraint/ObjectCan.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::ObjectDoes:
     file: lib/Specio/Constraint/ObjectDoes.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::ObjectIsa:
     file: lib/Specio/Constraint/ObjectIsa.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Parameterizable:
     file: lib/Specio/Constraint/Parameterizable.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Parameterized:
     file: lib/Specio/Constraint/Parameterized.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Role::CanType:
     file: lib/Specio/Constraint/Role/CanType.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Role::DoesType:
     file: lib/Specio/Constraint/Role/DoesType.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Role::Interface:
     file: lib/Specio/Constraint/Role/Interface.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Role::IsaType:
     file: lib/Specio/Constraint/Role/IsaType.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Simple:
     file: lib/Specio/Constraint/Simple.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Structurable:
     file: lib/Specio/Constraint/Structurable.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Structured:
     file: lib/Specio/Constraint/Structured.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Constraint::Union:
     file: lib/Specio/Constraint/Union.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Declare:
     file: lib/Specio/Declare.pm
-    version: '0.34'
+    version: '0.35'
   Specio::DeclaredAt:
     file: lib/Specio/DeclaredAt.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Exception:
     file: lib/Specio/Exception.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Exporter:
     file: lib/Specio/Exporter.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Helpers:
     file: lib/Specio/Helpers.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Builtins:
     file: lib/Specio/Library/Builtins.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Numeric:
     file: lib/Specio/Library/Numeric.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Perl:
     file: lib/Specio/Library/Perl.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::String:
     file: lib/Specio/Library/String.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Structured:
     file: lib/Specio/Library/Structured.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Structured::Dict:
     file: lib/Specio/Library/Structured/Dict.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Structured::Map:
     file: lib/Specio/Library/Structured/Map.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Library::Structured::Tuple:
     file: lib/Specio/Library/Structured/Tuple.pm
-    version: '0.34'
+    version: '0.35'
   Specio::OO:
     file: lib/Specio/OO.pm
-    version: '0.34'
+    version: '0.35'
   Specio::PartialDump:
     file: lib/Specio/PartialDump.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Registry:
     file: lib/Specio/Registry.pm
-    version: '0.34'
+    version: '0.35'
   Specio::Role::Inlinable:
     file: lib/Specio/Role/Inlinable.pm
-    version: '0.34'
+    version: '0.35'
+  Specio::Subs:
+    file: lib/Specio/Subs.pm
+    version: '0.35'
   Specio::TypeChecks:
     file: lib/Specio/TypeChecks.pm
-    version: '0.34'
+    version: '0.35'
   Test::Specio:
     file: lib/Test/Specio.pm
-    version: '0.34'
+    version: '0.35'
 recommends:
   Ref::Util: '0.112'
+  Sub::Util: '1.40'
 requires:
   B: '0'
   Carp: '0'
@@ -151,6 +155,7 @@ requires:
   IO::File: '0'
   List::Util: '1.33'
   MRO::Compat: '0'
+  Module::Runtime: '0'
   Role::Tiny: '1.003003'
   Role::Tiny::With: '0'
   Scalar::Util: '0'
@@ -168,7 +173,7 @@ resources:
   bugtracker: https://github.com/houseabsolute/Specio/issues
   homepage: http://metacpan.org/release/Specio
   repository: git://github.com/houseabsolute/Specio.git
-version: '0.34'
+version: '0.35'
 x_Dist_Zilla:
   perl:
     version: '5.024001'
@@ -283,7 +288,7 @@ x_Dist_Zilla:
           inherit_version: '1'
           meta_noindex: '1'
         Dist::Zilla::Role::ModuleMetadata:
-          Module::Metadata: '1.000031'
+          Module::Metadata: '1.000033'
           version: '0.004'
       name: '@DROLSKY/MetaProvides::Package'
       version: '2.004002'
@@ -525,7 +530,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::Contributors
       name: '@DROLSKY/DROLSKY::Contributors'
-      version: '0.80'
+      version: '0.81'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
@@ -622,7 +627,7 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::GenerateSection
               name: '@DROLSKY/generate SUPPORT'
-              version: '1.02'
+              version: '1.04'
             -
               class: Pod::Weaver::Section::AllowOverride
               name: '@DROLSKY/allow override SUPPORT'
@@ -630,11 +635,11 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::GenerateSection
               name: '@DROLSKY/generate SOURCE'
-              version: '1.02'
+              version: '1.04'
             -
               class: Pod::Weaver::Section::GenerateSection
               name: '@DROLSKY/generate DONATIONS'
-              version: '1.02'
+              version: '1.04'
             -
               class: Pod::Weaver::Section::Authors
               name: '@DROLSKY/Authors'
@@ -656,7 +661,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::WeaverConfig
       name: '@DROLSKY/DROLSKY::WeaverConfig'
-      version: '0.80'
+      version: '0.81'
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       config:
@@ -691,7 +696,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::License
       name: '@DROLSKY/DROLSKY::License'
-      version: '0.80'
+      version: '0.81'
     -
       class: Dist::Zilla::Plugin::CheckStrictVersion
       name: '@DROLSKY/CheckStrictVersion'
@@ -703,7 +708,7 @@ x_Dist_Zilla:
           finder:
             - ':InstallModules'
         Dist::Zilla::Role::ModuleMetadata:
-          Module::Metadata: '1.000031'
+          Module::Metadata: '1.000033'
           version: '0.004'
       name: '@DROLSKY/CheckSelfDependency'
       version: '0.011'
@@ -718,7 +723,7 @@ x_Dist_Zilla:
           'git --version': 2.11.0
           repo_root: .
       name: '@DROLSKY/DROLSKY::Git::CheckFor::CorrectBranch'
-      version: '0.80'
+      version: '0.81'
     -
       class: Dist::Zilla::Plugin::EnsureChangesHasContent
       name: '@DROLSKY/EnsureChangesHasContent'
@@ -734,7 +739,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::DROLSKY::TidyAll
       name: '@DROLSKY/DROLSKY::TidyAll'
-      version: '0.80'
+      version: '0.81'
     -
       class: Dist::Zilla::Plugin::Git::Check
       config:
@@ -787,7 +792,7 @@ x_Dist_Zilla:
           branch: ~
           changelog: Changes
           signed: 0
-          tag: v0.34
+          tag: v0.35
           tag_format: v%v
           tag_message: v%v
         Dist::Zilla::Role::Git::Repo:
@@ -859,6 +864,7 @@ x_Dist_Zilla:
           copy_to: []
           modules:
             - Ref::Util
+            - Sub::Util
           modules_from_features: ~
           to_relationship: recommends
       name: Prereqs::Soften

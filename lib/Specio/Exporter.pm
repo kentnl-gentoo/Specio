@@ -3,7 +3,7 @@ package Specio::Exporter;
 use strict;
 use warnings;
 
-our $VERSION = '0.34';
+our $VERSION = '0.35';
 
 use parent 'Exporter';
 
@@ -61,7 +61,7 @@ Specio::Exporter - Base class for type libraries
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 SYNOPSIS
 
