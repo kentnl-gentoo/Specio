@@ -3,7 +3,7 @@ package Specio::Library::Structured::Dict;
 use strict;
 use warnings;
 
-our $VERSION = '0.35';
+our $VERSION = '0.36';
 
 use Carp qw( confess );
 use List::Util ();
@@ -17,7 +17,7 @@ sub parent {$hashref}
 
 ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _inline {
-    $hashref->_inline_check( $_[1] );
+    $hashref->inline_check( $_[1] );
 }
 
 sub _parameterization_args_builder {
@@ -131,7 +131,7 @@ Specio::Library::Structured::Dict - Guts of Dict structured type
 
 =head1 VERSION
 
-version 0.35
+version 0.36
 
 =head1 DESCRIPTION
 

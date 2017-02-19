@@ -1,3 +1,22 @@
+0.36     2017-02-19
+
+- Inlined coercions would attempt to coerce for every type which matched the
+  value given, instead of stopping after the first type. Fixed by Graham Knop
+  (GH #11).
+
+- Inlined coercions did not include the inline environment variables needed by
+  the type from which the coercion was being performed. Fixed by Graham Knop
+  (GH #8).
+
+- When you use the same type repeatedly as coderef (for example, as a
+  constraint with Moo), it will only generated its subified form once, rather
+  than regenerating it each time it is de-referenced.
+
+- Added an API to Specio::Subs to allow you to combine type libraries and
+  helper subs in one package for exporting. See the Specio::Exporter docs for
+  more details.
+
+
 0.35     2017-02-12
 
 - Added Specio::Subs, a module which allows you to turn one or more library's

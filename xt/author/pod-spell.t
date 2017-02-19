@@ -31,12 +31,14 @@ Enum
 Etheridge
 Exception
 Exporter
+Graham
 Helpers
 Inlinable
 Interface
 Intersection
 IsaType
 Karen
+Knop
 Kogman
 LaxVersionStr
 Library
@@ -99,6 +101,7 @@ distro
 drolsky
 ether
 globification
+haarg
 inlinable
 inline
 isa

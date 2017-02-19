@@ -3,7 +3,7 @@ package Specio::Subs;
 use strict;
 use warnings;
 
-our $VERSION = '0.35';
+our $VERSION = '0.36';
 
 use Carp qw( croak );
 use Eval::Closure qw( eval_closure );
@@ -29,65 +29,87 @@ sub import {
                 qq{Cannot use '$name' type to create a check sub. It results in an invalid Perl subroutine name}
                 unless $ident->check( 'is_' . $name );
 
-            my $type = $types->{$name};
-
-            my $is_name     = 'is_' . $name;
-            my $assert_name = 'assert_' . $name;
-            if ( $type->can_be_inlined ) {
-                _make_sub(
-                    $caller, $is_name,
-                    $type->inline_check('$_[0]')
-                );
-                _make_sub(
-                    $caller, $assert_name,
-                    $type->inline_assert('$_[0]')
-                );
-            }
-            else {
-                _install_sub(
-                    $caller, $is_name,
-                    sub { $type->value_is_valid( $_[0] ) }
-                );
-                _install_sub(
-                    $caller, $assert_name,
-                    sub { $type->validate_or_die( $_[0] ) }
-                );
-            }
-
-            if ( $type->has_coercions ) {
-                my $to_name = 'to_' . $name;
-                if ( $type->can_inline_coercion ) {
-                    _make_sub(
-                        $caller, $to_name,
-                        $type->inline_coercion('$_[0]')
-                    );
-                }
-                else {
-                    _install_sub(
-                        $caller, $to_name,
-                        sub { $type->coerce_value( $_[0] ) }
-                    );
-                }
-
-                my $force_name = 'force_' . $name;
-                if ( $type->can_inline_coercion_and_check ) {
-                    _make_sub(
-                        $caller, $force_name,
-                        $type->inline_coercion_and_check('$_[0]')
-                    );
-                }
-                else {
-                    _install_sub(
-                        $caller, $force_name,
-                        sub {
-                            my $val = $type->coerce_value( $_[0] );
-                            $type->validate_or_die($val);
-                            return $val;
-                        }
-                    );
-                }
-            }
+            _export_subs( $name, $types->{$name}, $caller );
         }
+    }
+}
+
+sub _export_subs {
+    my $name   = shift;
+    my $type   = shift;
+    my $caller = shift;
+
+    _export_validation_subs( $name, $type, $caller );
+
+    return unless $type->has_coercions;
+
+    _export_coercion_subs( $name, $type, $caller );
+}
+
+sub _export_validation_subs {
+    my $name   = shift;
+    my $type   = shift;
+    my $caller = shift;
+
+    my $is_name     = 'is_' . $name;
+    my $assert_name = 'assert_' . $name;
+    if ( $type->can_be_inlined ) {
+        _make_sub(
+            $caller, $is_name,
+            $type->inline_check('$_[0]')
+        );
+        _make_sub(
+            $caller, $assert_name,
+            $type->inline_assert('$_[0]')
+        );
+    }
+    else {
+        _install_sub(
+            $caller, $is_name,
+            sub { $type->value_is_valid( $_[0] ) }
+        );
+        _install_sub(
+            $caller, $assert_name,
+            sub { $type->validate_or_die( $_[0] ) }
+        );
+    }
+}
+
+sub _export_coercion_subs {
+    my $name   = shift;
+    my $type   = shift;
+    my $caller = shift;
+
+    my $to_name = 'to_' . $name;
+    if ( $type->can_inline_coercion ) {
+        _make_sub(
+            $caller, $to_name,
+            $type->inline_coercion('$_[0]')
+        );
+    }
+    else {
+        _install_sub(
+            $caller, $to_name,
+            sub { $type->coerce_value( $_[0] ) }
+        );
+    }
+
+    my $force_name = 'force_' . $name;
+    if ( $type->can_inline_coercion_and_check ) {
+        _make_sub(
+            $caller, $force_name,
+            $type->inline_coercion_and_check('$_[0]')
+        );
+    }
+    else {
+        _install_sub(
+            $caller, $force_name,
+            sub {
+                my $val = $type->coerce_value( $_[0] );
+                $type->validate_or_die($val);
+                return $val;
+            }
+        );
     }
 }
 
@@ -123,6 +145,8 @@ my $sub_namer = do {
         or sub { return $_[1] };
 };
 
+my %Installed;
+
 sub _install_sub {
     my $caller   = shift;
     my $sub_name = shift;
@@ -130,11 +154,22 @@ sub _install_sub {
 
     my $fq_name = $caller . '::' . $sub_name;
 
-    ## no critic (TestingAndDebugging::ProhibitNoStrict)
-    no strict 'refs';
-    *{$fq_name} = $sub_namer->( $fq_name, $sub );
+    {
+        ## no critic (TestingAndDebugging::ProhibitNoStrict)
+        no strict 'refs';
+        *{$fq_name} = $sub_namer->( $fq_name, $sub );
+    }
+
+    $Installed{$caller} ||= [];
+    push @{ $Installed{$caller} }, $sub_name;
 
     return;
+}
+
+sub subs_installed_into {
+    my $package = shift;
+
+    return @{ $Installed{$package} || [] };
 }
 
 1;
@@ -153,7 +188,7 @@ Specio::Subs - Make validation and coercion subs from Specio types
 
 =head1 VERSION
 
-version 0.35
+version 0.36
 
 =head1 SYNOPSIS
 
@@ -206,6 +241,18 @@ This subroutine attempts to coerce C<$value> into the given type, and dies if
 it cannot do so.
 
 This is only created if the type has coercions.
+
+=head1 ADDITIONAL API
+
+=for Pod::Coverage subs_installed_into
+
+This module has a subroutine named C<subs_installed_into>. It is not exported
+but it can be called by its fully qualified name. It accepts a single
+argument, a package name. It returns a list of subs that it generated and
+installed in the given package, if any.
+
+This exists to make it easy to write a type library that combines other
+library and generates helper subs for export all at once.
 
 =head1 SUPPORT
 
