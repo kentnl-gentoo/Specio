@@ -3,7 +3,7 @@ package Specio::Constraint::AnyCan;
 use strict;
 use warnings;
 
-our $VERSION = '0.38';
+our $VERSION = '0.39';
 
 use B ();
 use List::Util 1.33 ();
@@ -34,7 +34,7 @@ with 'Specio::Constraint::Role::CanType';
         # inside the all block @_ gets redefined and we can no longer get at
         # the value.
         my $v = %s;
-        ( Scalar::Util::blessed($v) || ( !ref($v) ) )
+        ( Scalar::Util::blessed($v) || ( defined($v) && !ref($v) && length($v) ) )
             && List::Util::all { $v->can($_) } %s;
         }
     )
@@ -43,6 +43,10 @@ EOF
 
     sub _build_inline_generator {$_inline_generator}
 }
+
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
+sub _allow_classes {1}
+## use critic
 
 __PACKAGE__->_ooify;
 
@@ -62,7 +66,7 @@ Specio::Constraint::AnyCan - A class for constraints which require a class name 
 
 =head1 VERSION
 
-version 0.38
+version 0.39
 
 =head1 SYNOPSIS
 

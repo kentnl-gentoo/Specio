@@ -3,7 +3,7 @@ package Specio::Constraint::AnyDoes;
 use strict;
 use warnings;
 
-our $VERSION = '0.38';
+our $VERSION = '0.39';
 
 use B ();
 use Role::Tiny::With;
@@ -24,25 +24,25 @@ with 'Specio::Constraint::Role::DoesType';
         my $self = shift;
         my $val  = shift;
 
-        return sprintf( <<'EOF', ($val) x 4, B::perlstring( $self->role ) );
+        return sprintf( <<'EOF', ($val) x 6, B::perlstring( $self->role ) );
 (
     (
-        Scalar::Util::blessed( %s )
-        ||
-        (
-            !ref( %s )
-        )
+        Scalar::Util::blessed(%s) || ( !ref(%s)
+            && defined(%s)
+            && length(%s) )
     )
-    &&
-    %s->can('does')
-    &&
-    %s->does(%s)
-)
+        && %s->can('does')
+        && %s->does(%s)
+    )
 EOF
     };
 
     sub _build_inline_generator {$_inline_generator}
 }
+
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
+sub _allow_classes {1}
+## use critic
 
 __PACKAGE__->_ooify;
 
@@ -62,7 +62,7 @@ Specio::Constraint::AnyDoes - A class for constraints which require a class name
 
 =head1 VERSION
 
-version 0.38
+version 0.39
 
 =head1 SYNOPSIS
 
