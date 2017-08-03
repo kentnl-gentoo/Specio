@@ -3,7 +3,7 @@ package Specio::Constraint::Role::CanType;
 use strict;
 use warnings;
 
-our $VERSION = '0.39';
+our $VERSION = '0.40';
 
 use Scalar::Util qw( blessed );
 use Specio::PartialDump qw( partial_dump );
@@ -74,6 +74,23 @@ sub _wrap_message_generator {
                     "An empty string will never pass an $type check (wants $all_word_list)"
                     unless length $value;
 
+                if ( ref \$value eq 'GLOB' ) {
+                    return
+                        "A glob will never pass an $type check (wants $all_word_list)";
+                }
+
+                if (
+                    $value =~ /\A
+                        \s*
+                        -?[0-9]+(?:\.[0-9]+)?
+                        (?:[Ee][\-+]?[0-9]+)?
+                        \s*
+                        \z/xs
+                    ) {
+                    return
+                        "A number ($value) will never pass an $type check (wants $all_word_list)";
+                }
+
                 $class = $value if $allow_classes;
 
                 # At this point we either have undef or a non-empty string in
@@ -127,7 +144,7 @@ Specio::Constraint::Role::CanType - Provides a common implementation for Specio:
 
 =head1 VERSION
 
-version 0.39
+version 0.40
 
 =head1 DESCRIPTION
 

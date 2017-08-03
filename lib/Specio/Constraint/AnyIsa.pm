@@ -3,7 +3,7 @@ package Specio::Constraint::AnyIsa;
 use strict;
 use warnings;
 
-our $VERSION = '0.39';
+our $VERSION = '0.40';
 
 use B ();
 use Role::Tiny::With;
@@ -24,20 +24,29 @@ with 'Specio::Constraint::Role::IsaType';
         my $self = shift;
         my $val  = shift;
 
-        return sprintf( <<'EOF', ($val) x 5, B::perlstring( $self->class ) );
+        return sprintf( <<'EOF', ($val) x 7, B::perlstring( $self->class ) );
 (
     (
-        Scalar::Util::blessed( %s )
-        ||
-        (
-            defined( %s )
-            && !ref( %s )
-            && length( %s )
-        )
+        Scalar::Util::blessed(%s)
+            || (
+               defined(%s)
+            && !ref(%s)
+            && length(%s)
+            && %s !~ /\A
+                      \s*
+                      -?[0-9]+(?:\.[0-9]+)?
+                      (?:[Ee][\-+]?[0-9]+)?
+                      \s*
+                      \z/xs
+
+            # Passing a GLOB from (my $glob = *GLOB) gives us a very weird
+            # scalar. It's not a ref and it has a length but trying to
+            # call ->can on it throws an exception
+            && ref( \%s ) ne 'GLOB'
+            )
     )
-    &&
-    %s->isa(%s)
-)
+        && %s->isa(%s)
+    )
 EOF
     };
 
@@ -66,7 +75,7 @@ Specio::Constraint::AnyIsa - A class for constraints which require a class name 
 
 =head1 VERSION
 
-version 0.39
+version 0.40
 
 =head1 SYNOPSIS
 

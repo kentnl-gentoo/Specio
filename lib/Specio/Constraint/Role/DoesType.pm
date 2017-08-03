@@ -3,7 +3,7 @@ package Specio::Constraint::Role::DoesType;
 use strict;
 use warnings;
 
-our $VERSION = '0.39';
+our $VERSION = '0.40';
 
 use Role::Tiny;
 use Scalar::Util qw( blessed );
@@ -63,6 +63,18 @@ sub _wrap_message_generator {
                     "An empty string will never pass an $type check (wants $role)"
                     unless length $value;
 
+                if (
+                    $value =~ /\A
+                        \s*
+                        -?[0-9]+(?:\.[0-9]+)?
+                        (?:[Ee][\-+]?[0-9]+)?
+                        \s*
+                        \z/xs
+                    ) {
+                    return
+                        "A number ($value) will never pass an $type check (wants $role)";
+                }
+
                 if ( !$allow_classes ) {
                     my $dump = partial_dump($value);
                     return
@@ -97,7 +109,7 @@ Specio::Constraint::Role::DoesType - Provides a common implementation for Specio
 
 =head1 VERSION
 
-version 0.39
+version 0.40
 
 =head1 DESCRIPTION
 
