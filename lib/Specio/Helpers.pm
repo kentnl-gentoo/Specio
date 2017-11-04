@@ -7,7 +7,7 @@ use Carp qw( croak );
 use Exporter 'import';
 use overload ();
 
-our $VERSION = '0.41';
+our $VERSION = '0.42';
 
 use Scalar::Util qw( blessed );
 
@@ -114,7 +114,7 @@ Specio::Helpers - Helper subs for the Specio distro
 
 =head1 VERSION
 
-version 0.41
+version 0.42
 
 =head1 DESCRIPTION
 

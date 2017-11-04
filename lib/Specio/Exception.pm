@@ -7,7 +7,7 @@ use overload
     q{""}    => 'as_string',
     fallback => 1;
 
-our $VERSION = '0.41';
+our $VERSION = '0.42';
 
 use Devel::StackTrace;
 use Scalar::Util qw( blessed );
@@ -81,7 +81,7 @@ Specio::Exception - An exception class for type constraint failures
 
 =head1 VERSION
 
-version 0.41
+version 0.42
 
 =head1 SYNOPSIS
 
